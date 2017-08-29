@@ -22,8 +22,8 @@ HX711                scale;
 RunningAverage       filter(FILTER_SIZE);
 float                weight_in_grams;
 
-
-void setup() {
+void setup()
+{
   // Serial comm
   Serial.begin(38400);
 
@@ -37,8 +37,8 @@ void setup() {
 }
 
 
-
-void loop() {
+void loop()
+{
   filter.addValue(scale.get_units());
   weight_in_grams = filter.getAverage();
   gramsDisplay.displayGrams(weight_in_grams);
