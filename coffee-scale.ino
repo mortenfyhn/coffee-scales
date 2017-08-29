@@ -10,6 +10,8 @@
 #define DISP_SCALE_DIO 2
 #define SCALE_DT       A1
 #define SCALE_SCK      A2
+#include "GramsDisplay.h"
+
 
 #define NUM_DIGITS 4
 #define FILTER_SIZE 10
@@ -19,11 +21,9 @@
 #define SCALE_OFFSET 105193 - 100
 
 SevenSegmentExtended timerDisp(DISP_TIMER_CLK, DISP_TIMER_DIO);
-SevenSegmentTM1637   scaleDisp(DISP_SCALE_CLK, DISP_SCALE_DIO);
+GramsDisplay         gramsDisplay(DISP_SCALE_CLK, DISP_SCALE_DIO);
 HX711                scale;
 RunningAverage       filter(FILTER_SIZE);
-char                 decigrams_array[NUM_DIGITS];
-uint8_t              display_buffer[NUM_DIGITS];
 float                weight_in_grams;
 uint32_t             start_time;
 bool                 has_started = false;
@@ -36,10 +36,6 @@ void setup() {
   // Timer display
   timerDisp.begin();
   timerDisp.setBacklight(BRIGHTNESS);
-
-  // Scale display
-  scaleDisp.begin();
-  scaleDisp.setBacklight(BRIGHTNESS);
 
   // Load cell
   scale.begin(SCALE_DT, SCALE_SCK);
@@ -56,7 +52,7 @@ void loop() {
   // Scale
   filter.addValue(scale.get_units());
   weight_in_grams = filter.getAverage();
-  printGrams(scaleDisp, weight_in_grams);
+  gramsDisplay.displayGrams(weight_in_grams);
 
   // Timer
   if (has_started == true)
@@ -70,45 +66,4 @@ void loop() {
     timerDisp.printTime(minute(), second(), false);
   }
   Serial.println(has_started);
-}
-
-
-
-void printGrams(SevenSegmentTM1637 &disp, float grams)
-{
-  if (grams < 0)
-  {
-    // Handle negative values better
-    disp.clear();
-    disp.print(grams);
-  }
-  else if (grams > 9999)
-  {
-    disp.print("----");
-  }
-  else if (grams >= 1000)
-  {
-    int grams_int = int(round(grams));
-    disp.clear();
-    disp.print(grams_int);
-  }
-  else if (grams < 1000)
-  {
-    // Assemble char array for the display's digits
-    float decigrams = grams * 10;
-    dtostrf(decigrams, NUM_DIGITS, 0, decigrams_array);
-
-    // Add leading zero for values below a gram (to avoid ".5")
-    if (grams < 1)
-      decigrams_array[2] = '0';
-
-    // Encode to byte array
-    disp.encode(display_buffer, decigrams_array, NUM_DIGITS);
-
-    // Add decimal point after third digit
-    display_buffer[2] += 0b10000000;
-
-    // Print to display
-    disp.printRaw(display_buffer, NUM_DIGITS, 0);
-  }
 }
