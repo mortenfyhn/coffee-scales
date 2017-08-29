@@ -31,9 +31,6 @@ void setup()
   scale.begin(SCALE_DT, SCALE_SCK);
   scale.set_scale(SCALE_FACTOR);
   scale.set_offset(SCALE_OFFSET);
-
-  // Filter
-  filter.clear();
 }
 
 
