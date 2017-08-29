@@ -3,7 +3,7 @@
 GramsDisplay::GramsDisplay(uint8_t pin_clk, uint8_t pin_dio)
     : display(pin_clk, pin_dio)
 {
-  display.begin();
+  display.init();
   display.setBacklight(100);
 }
 
@@ -27,7 +27,6 @@ void GramsDisplay::displayTooManyGrams()
 void GramsDisplay::displayWholeGrams(float grams)
 {
   int whole_grams = int(round(grams));
-  display.clear();
   display.print(whole_grams);
 }
 

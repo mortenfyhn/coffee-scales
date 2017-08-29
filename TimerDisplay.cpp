@@ -4,8 +4,7 @@ TimerDisplay::TimerDisplay(uint8_t pin_clk, uint8_t pin_dio)
     : display(pin_clk, pin_dio)
 {
   display.init();
-  display.clear();
-  display.setBacklight(10);
+  display.setBacklight(100);
   start_millis = millis();
   is_running = false;
 }
@@ -15,24 +14,26 @@ void TimerDisplay::start()
   if (!is_running)
   {
     start_millis = millis();
-    display.on();
     is_running = true;
   }
 }
 
 void TimerDisplay::stop()
 {
-  display.off();
+  display.clear();
   is_running = false;
 }
 
 void TimerDisplay::refresh()
 {
-  unsigned long elapsed_millis = millis() - start_millis;
-  uint8_t seconds = millisToSeconds(elapsed_millis);
-  uint8_t minutes = millisToMinutes(elapsed_millis);
+  if (is_running)
+  {
+    unsigned long elapsed_millis = millis() - start_millis;
+    uint8_t seconds = millisToSeconds(elapsed_millis);
+    uint8_t minutes = millisToMinutes(elapsed_millis);
 
-  display.printTime(minutes, seconds, false);
+    display.printTime(minutes, seconds, false);
+  }
 }
 
 uint8_t TimerDisplay::millisToSeconds(unsigned long millis)
