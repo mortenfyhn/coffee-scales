@@ -1,8 +1,7 @@
-#include <RunningAverage.h>
 #include <HX711.h>
-
 #include "TimerDisplay.h"
 #include "GramsDisplay.h"
+#include "SmoothingFilter.h"
 
 #define DISP_TIMER_CLK 2
 #define DISP_TIMER_DIO 3
@@ -16,11 +15,10 @@
 #define SCALE_FACTOR 1874
 #define SCALE_OFFSET 984550
 
-TimerDisplay         timerDisplay(DISP_TIMER_CLK, DISP_TIMER_DIO);
-GramsDisplay         gramsDisplay(DISP_SCALE_CLK, DISP_SCALE_DIO);
-HX711                scale;
-RunningAverage       filter(FILTER_SIZE);
-float                weight_in_grams;
+TimerDisplay    timerDisplay(DISP_TIMER_CLK, DISP_TIMER_DIO);
+GramsDisplay    gramsDisplay(DISP_SCALE_CLK, DISP_SCALE_DIO);
+SmoothingFilter filter(FILTER_SIZE);
+HX711           scale;
 
 void setup()
 {
@@ -37,7 +35,8 @@ void setup()
 void loop()
 {
   filter.addValue(scale.get_units());
-  weight_in_grams = filter.getAverage();
+  float weight_in_grams = filter.getValue();
+
   gramsDisplay.displayGrams(weight_in_grams);
 
   if (weight_in_grams > 1)
