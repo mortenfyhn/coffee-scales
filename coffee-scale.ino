@@ -10,15 +10,13 @@
 #define SCALE_DT       A2
 #define SCALE_SCK      A1
 
-#define FILTER_SIZE 10
-
 #define SCALE_FACTOR 1874
 #define SCALE_OFFSET 984550
 #define TARE_AVERAGES 10
 
 TimerDisplay    timerDisplay(DISP_TIMER_CLK, DISP_TIMER_DIO);
 GramsDisplay    gramsDisplay(DISP_SCALE_CLK, DISP_SCALE_DIO);
-SmoothingFilter filter(FILTER_SIZE);
+SmoothingFilter filter;
 HX711           scale;
 
 void setup()
