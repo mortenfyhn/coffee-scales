@@ -1,6 +1,7 @@
 #include "SmoothingFilter.h"
 
-SmoothingFilter::SmoothingFilter(const unsigned size) : filter(size) {}
+SmoothingFilter::SmoothingFilter(const unsigned size)
+: filter(size), hysteresis(HYSTERESIS_SIZE) {}
 
 void SmoothingFilter::addValue(float value)
 {
@@ -10,7 +11,8 @@ void SmoothingFilter::addValue(float value)
 
 float SmoothingFilter::getValue()
 {
-  return (hasSteadyState() ? getSmoothedValue() : getLastValue());
+  float value = hasSteadyState() ? getSmoothedValue() : getLastValue();
+  return hysteresis.compute(value);
 }
 
 bool SmoothingFilter::hasSteadyState()
