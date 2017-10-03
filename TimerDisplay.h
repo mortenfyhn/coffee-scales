@@ -3,7 +3,7 @@
 
 #include <SevenSegmentExtended.h>
 
-class TimerDisplay
+class TimerDisplay : public SevenSegmentExtended
 {
 public:
   TimerDisplay(uint8_t pin_clk, uint8_t pin_dio);
@@ -13,7 +13,6 @@ public:
   void stop();
   void refresh();
 private:
-  SevenSegmentExtended display;
   unsigned long start_millis;
   bool is_running;
   static const unsigned long millis_per_second = 1000;

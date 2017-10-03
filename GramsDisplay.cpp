@@ -1,10 +1,10 @@
 #include "GramsDisplay.h"
 
 GramsDisplay::GramsDisplay(uint8_t pin_clk, uint8_t pin_dio)
-    : display(pin_clk, pin_dio)
+    : SevenSegmentTM1637(pin_clk, pin_dio)
 {
-  display.init();
-  display.setBacklight(100);
+  init();
+  setBacklight(100);
 }
 
 void GramsDisplay::displayGrams(float grams)
@@ -21,13 +21,13 @@ void GramsDisplay::displayGrams(float grams)
 
 void GramsDisplay::displayTooManyGrams()
 {
-  display.print('----');
+  print('----');
 }
 
 void GramsDisplay::displayWholeGrams(float grams)
 {
   int whole_grams = int(round(grams));
-  display.print(whole_grams);
+  print(whole_grams);
 }
 
 void GramsDisplay::displayGramsAndDecigrams(float grams)
@@ -40,9 +40,9 @@ void GramsDisplay::displayGramsAndDecigrams(float grams)
     decigram_string[2] = '0';
 
   static uint8_t display_buffer[num_digits];
-  display.encode(display_buffer, decigram_string, num_digits);
+  encode(display_buffer, decigram_string, num_digits);
   addDecimalPoint(display_buffer);
-  display.printRaw(display_buffer, num_digits, 0);
+  printRaw(display_buffer, num_digits, 0);
 }
 
 void GramsDisplay::createDecigramString(char* decigram_string, float grams)

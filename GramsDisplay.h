@@ -3,13 +3,12 @@
 
 #include <SevenSegmentTM1637.h>
 
-class GramsDisplay
+class GramsDisplay : public SevenSegmentTM1637
 {
 public:
   GramsDisplay(uint8_t pin_clk, uint8_t pin_dio);
   void displayGrams(float grams);
 private:
-  SevenSegmentTM1637 display;
   static const int num_digits = TM1637_MAX_COLOM;
   static const uint8_t decimal_point = 0x80;
   void displayTooManyGrams();

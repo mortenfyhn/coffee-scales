@@ -1,10 +1,10 @@
 #include "TimerDisplay.h"
 
 TimerDisplay::TimerDisplay(uint8_t pin_clk, uint8_t pin_dio)
-    : display(pin_clk, pin_dio)
+    : SevenSegmentExtended(pin_clk, pin_dio)
 {
-  display.init();
-  display.setBacklight(100);
+  init();
+  setBacklight(100);
   start_millis = millis();
   is_running = false;
 }
@@ -20,7 +20,7 @@ void TimerDisplay::start()
 
 void TimerDisplay::stop()
 {
-  display.clear();
+  clear();
   is_running = false;
 }
 
@@ -32,7 +32,7 @@ void TimerDisplay::refresh()
     uint8_t seconds = millisToSeconds(elapsed_millis);
     uint8_t minutes = millisToMinutes(elapsed_millis);
 
-    display.printTime(minutes, seconds, false);
+    printTime(minutes, seconds, false);
   }
 }
 
