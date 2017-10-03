@@ -18,8 +18,6 @@ private:
   Hysteresis hysteresis;
   float last_value;
   bool hasSteadyState();
-  float getSmoothedValue();
-  float getLastValue();
 };
 
 #endif

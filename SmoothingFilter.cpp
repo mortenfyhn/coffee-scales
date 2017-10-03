@@ -11,21 +11,11 @@ void SmoothingFilter::addValue(float value)
 
 float SmoothingFilter::getValue()
 {
-  float value = hasSteadyState() ? getSmoothedValue() : getLastValue();
+  float value = hasSteadyState() ? filter.getAverage() : last_value;
   return hysteresis.compute(value);
 }
 
 bool SmoothingFilter::hasSteadyState()
 {
   return filter.getStandardDeviation() < STANDARD_DEVIATION_THRESHOLD;
-}
-
-float SmoothingFilter::getSmoothedValue()
-{
-  return filter.getAverage();
-}
-
-float SmoothingFilter::getLastValue()
-{
-  return last_value;
 }
