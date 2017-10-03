@@ -16,9 +16,9 @@
 #define SCALE_FACTOR 1874
 #define TARE_AVERAGES 10
 
-TimerDisplay    timerDisplay(DISP_TIMER_CLK, DISP_TIMER_DIO);
-GramsDisplay    gramsDisplay(DISP_SCALE_CLK, DISP_SCALE_DIO);
 HX711 loadCell(LOAD_CELL_DT, LOAD_CELL_SCK);
+TimerDisplay timerDisplay(DISP_TIMER_CLK, DISP_TIMER_DIO);
+GramsDisplay gramsDisplay(DISP_SCALE_CLK, DISP_SCALE_DIO);
 SmoothingFilter filter(FILTER_SIZE, HYSTERESIS_SIZE);
 
 
