@@ -32,7 +32,7 @@ void GramsDisplay::displayWholeGrams(float grams)
 
 void GramsDisplay::displayGramsAndDecigrams(float grams)
 {
-  static char decigram_string[num_digits];
+  static char decigram_string[num_digits + 1];
   createDecigramString(decigram_string, grams);
 
   // Add leading zero for values below a gram (to avoid ".5")
