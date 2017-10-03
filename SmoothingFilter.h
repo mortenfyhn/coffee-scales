@@ -7,13 +7,11 @@
 class SmoothingFilter
 {
 public:
-  SmoothingFilter();
+  SmoothingFilter(uint8_t filter_size, float hysteresis_size);
   void addValue(float value);
   float getValue();
 private:
-  static const unsigned FILTER_SIZE = 10;
   static const float STANDARD_DEVIATION_THRESHOLD = 0.1;
-  static const float HYSTERESIS_SIZE = 0.1;
   RunningAverage filter;
   Hysteresis hysteresis;
   float last_value;

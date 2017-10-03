@@ -1,7 +1,7 @@
 #include "SmoothingFilter.h"
 
-SmoothingFilter::SmoothingFilter()
-: filter(FILTER_SIZE), hysteresis(HYSTERESIS_SIZE) {}
+SmoothingFilter::SmoothingFilter(uint8_t filter_size, float hysteresis_size)
+: filter(filter_size), hysteresis(hysteresis_size) {}
 
 void SmoothingFilter::addValue(float value)
 {
