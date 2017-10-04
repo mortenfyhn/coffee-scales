@@ -1,7 +1,7 @@
 # coffee-scales
 Digital kitchen scales, mainly intended for pourover coffee. The current prototype looks like this:
 
-![A breadboard prototype in action](https://i.imgur.com/adS17tX.jpg)
+![A breadboard prototype in action](https://i.imgur.com/RPn1dWZ.jpg)
 
 ## Features
 * 1/10 gram accuracy.
