@@ -7,59 +7,60 @@ GramsDisplay::GramsDisplay(uint8_t pin_clk, uint8_t pin_dio)
   setBacklight(100);
 }
 
-void GramsDisplay::displayGrams(float grams)
+void GramsDisplay::display(float grams)
 {
-  if (grams >= 10000)
-    displayTooManyGrams();
-  else if (grams >= 1000)
-    displayWholeGrams(grams);
-  else if (grams >= 0)
-    displayGramsAndDecigrams(grams);
+  if (tooLargeToDisplay(grams))
+    print('----');
   else
-    displayNegativeGrams(grams);
+    printGrams(grams);
 }
 
-void GramsDisplay::displayTooManyGrams()
+bool GramsDisplay::tooLargeToDisplay(float grams)
 {
-  print('----');
+  return ( (grams >= 10000) || (grams <= -1000) );
 }
 
-void GramsDisplay::displayWholeGrams(float grams)
+void GramsDisplay::printGrams(float grams)
 {
-  int whole_grams = int(round(grams));
-  print(whole_grams);
+  static char string_buffer[NUM_DIGITS + 1];
+  static uint8_t display_buffer[NUM_DIGITS];
+
+  bool show_decigrams = shouldShowDecigrams(grams);
+  createDisplayString(string_buffer, show_decigrams, grams);
+  addLeadingZeroIfNeeded(string_buffer, show_decigrams, grams);
+  addMinusSignIfNeeded(string_buffer, grams);
+  encode(display_buffer, string_buffer, NUM_DIGITS);
+  addDecimalPointIfNeeded(display_buffer, show_decigrams);
+  printRaw(display_buffer);
 }
 
-void GramsDisplay::displayGramsAndDecigrams(float grams)
+bool GramsDisplay::shouldShowDecigrams(float grams)
 {
-  static char decigram_string[num_digits + 1];
-  createDecigramString(decigram_string, grams);
-
-  // Add leading zero for values below a gram (to avoid ".5")
-  if (grams < 1)
-    decigram_string[2] = '0';
-
-  static uint8_t display_buffer[num_digits];
-  encode(display_buffer, decigram_string, num_digits);
-  addDecimalPoint(display_buffer);
-  printRaw(display_buffer, num_digits, 0);
+  return ( (grams > -100) && (grams < 1000) );
 }
 
-void GramsDisplay::createDecigramString(char* decigram_string, float grams)
+void GramsDisplay::createDisplayString(char* buffer, bool show_decigrams, float grams)
 {
-  float decigrams = grams * 10;
-  dtostrf(decigrams, num_digits, 0, decigram_string);
+  long display_value = lroundf(abs(show_decigrams ? grams*10 : grams));
+  sprintf(buffer, "%4d", display_value);
 }
 
-void GramsDisplay::addDecimalPoint(uint8_t* display_buffer)
+void GramsDisplay::addLeadingZeroIfNeeded(char* buffer, bool show_decigrams, float grams)
 {
-  // Add decimal point after third digit
-  display_buffer[2] += decimal_point;
+  bool need_leading_zero = (show_decigrams && (abs(grams) < 1.0));
+  if (need_leading_zero)
+    buffer[2] = '0';
 }
 
-void GramsDisplay::displayNegativeGrams(float grams)
+void GramsDisplay::addMinusSignIfNeeded(char* buffer, float grams)
 {
-  // not implemented
-  displayGramsAndDecigrams(0.0);
+  bool is_negative = (grams < 0);
+  if (is_negative)
+    buffer[0] = '-';
 }
 
+void GramsDisplay::addDecimalPointIfNeeded(uint8_t* buffer, bool show_decigrams)
+{
+  if (show_decigrams)
+    buffer[2] += DECIMAL_POINT;
+}

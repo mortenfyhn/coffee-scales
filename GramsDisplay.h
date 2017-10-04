@@ -7,17 +7,19 @@ class GramsDisplay : public SevenSegmentTM1637
 {
 public:
   GramsDisplay(uint8_t pin_clk, uint8_t pin_dio);
-  void displayGrams(float grams);
+  void display(float grams);
 private:
-  static const int num_digits = TM1637_MAX_COLOM;
-  static const uint8_t decimal_point = 0x80;
-  void displayTooManyGrams();
-  void displayWholeGrams(float grams);
-  void displayGramsAndDecigrams(float grams);
-  void createDecigramString(char* decigram_string, float grams);
-  void addDecimalPoint(uint8_t* display_buffer);
-  void displayNegativeGrams(float grams);
-  void printZero();
+  static const int NUM_DIGITS = TM1637_MAX_COLOM;
+  static const uint8_t DECIMAL_POINT = 0x80;
+  static const uint8_t MINUS_SIGN = 0x40;
+
+  static bool tooLargeToDisplay(float grams);
+  void printGrams(float grams);
+  static bool shouldShowDecigrams(float grams);
+  static void createDisplayString(char* buffer, bool show_decigrams, float grams);
+  static void addLeadingZeroIfNeeded(char* buffer, bool show_decigrams, float grams);
+  static void addMinusSignIfNeeded(char* buffer, float grams);
+  static void addDecimalPointIfNeeded(uint8_t* buffer, bool show_decigrams);
 };
 
 #endif

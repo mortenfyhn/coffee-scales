@@ -37,7 +37,7 @@ void loop()
   filter.addValue(loadCell.get_units());
   float weight_in_grams = filter.getValue();
 
-  gramsDisplay.displayGrams(weight_in_grams);
+  gramsDisplay.display(weight_in_grams);
 
   if (weight_in_grams > 1)
     timerDisplay.start();
