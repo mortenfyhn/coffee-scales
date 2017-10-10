@@ -18,8 +18,8 @@ private:
   static const unsigned long millis_per_second = 1000;
   static const unsigned long millis_per_minute = 60 * millis_per_second;
   static const unsigned long millis_per_hour = 60 * millis_per_minute;
-  uint8_t millisToSeconds(unsigned long millis);
-  uint8_t millisToMinutes(unsigned long millis);
+  static uint8_t millisToSeconds(unsigned long millis);
+  static uint8_t millisToMinutes(unsigned long millis);
 };
 
 #endif
