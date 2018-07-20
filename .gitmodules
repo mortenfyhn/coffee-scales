@@ -1,0 +1,3 @@
+[submodule "lib/arduino-tm1637"]
+	path = lib/arduino-tm1637
+	url = git@github.com:bremme/arduino-tm1637
