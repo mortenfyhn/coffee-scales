@@ -41,8 +41,6 @@ void loop()
 
   if (weight_in_grams > 1)
     timerDisplay.start();
-  else
-    timerDisplay.stop();
 
   timerDisplay.refresh();
 }
