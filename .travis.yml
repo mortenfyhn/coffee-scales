@@ -7,13 +7,6 @@ cache:
     directories:
         - "~/.platformio"
 
-# pull submodules with https instead of ssh
-git:
-  submodules: false
-before_install:
-  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
-  - git submodule update --init --recursive
-
 install:
     - pip install -U platformio
     - platformio update
