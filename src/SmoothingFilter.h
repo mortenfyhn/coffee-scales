@@ -11,7 +11,7 @@ public:
   void addValue(float value);
   float getValue();
 private:
-  static const float STANDARD_DEVIATION_THRESHOLD = 0.1;
+  static constexpr float STANDARD_DEVIATION_THRESHOLD = 0.1;
   RunningAverage filter;
   Hysteresis hysteresis;
   float last_value;
