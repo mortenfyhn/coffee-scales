@@ -27,6 +27,7 @@ void setup()
   // Serial comm
   Serial.begin(38400);
 
+  delay(500);
   loadCell.set_scale(SCALE_FACTOR);
   loadCell.tare(TARE_AVERAGES);
 }
