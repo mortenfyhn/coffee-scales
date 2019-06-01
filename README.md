@@ -5,6 +5,10 @@ Digital kitchen scales, mainly intended for pourover coffee. The current prototy
 
 ![A breadboard prototype in action](https://i.imgur.com/RPn1dWZ.jpg)
 
+## Build and run the code
+Using PlatformIO is easiest:
+* `pio run -e feather328 -t upload` (change `feather328` if using a different device).
+
 ## Features
 * 1/10 gram accuracy.
 * Fast settling time.
