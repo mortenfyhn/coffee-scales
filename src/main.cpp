@@ -16,7 +16,7 @@
 #define SCALE_FACTOR 1874
 #define TARE_AVERAGES 10
 
-HX711 loadCell(LOAD_CELL_DT, LOAD_CELL_SCK);
+auto loadCell = HX711{};
 TimerDisplay timerDisplay(DISP_TIMER_CLK, DISP_TIMER_DIO);
 GramsDisplay gramsDisplay(DISP_SCALE_CLK, DISP_SCALE_DIO);
 SmoothingFilter filter(FILTER_SIZE, HYSTERESIS_SIZE);
@@ -28,6 +28,7 @@ void setup()
   Serial.begin(38400);
 
   delay(500);
+  loadCell.begin(LOAD_CELL_DT, LOAD_CELL_SCK);
   loadCell.set_scale(SCALE_FACTOR);
   loadCell.tare(TARE_AVERAGES);
 }
@@ -40,7 +41,7 @@ void loop()
 
   gramsDisplay.display(weight_in_grams);
 
-  if (weight_in_grams > 1)
+  if (weight_in_grams > 5)
     timerDisplay.start();
 
   timerDisplay.refresh();
