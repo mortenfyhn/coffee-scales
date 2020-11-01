@@ -57,8 +57,8 @@ void GramsDisplay::addLeadingZeroIfNeeded(char* buffer, bool show_decigrams,
 
 void GramsDisplay::addMinusSignIfNeeded(char* buffer, float grams)
 {
-    const auto is_negative = grams < 0;
-    if (is_negative)
+    const auto is_nonzero_negative = grams <= -0.05f;
+    if (is_nonzero_negative)
         buffer[0] = '-';
 }
 
