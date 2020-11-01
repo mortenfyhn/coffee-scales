@@ -28,7 +28,8 @@ void setup()
 
     loadCell.begin(hx711_dt, hx711_sck);
     loadCell.set_scale(hx711_scale_factor);
-    loadCell.tare(hx711_tare_samples);
+    loadCell.tare(hx711_tare_samples / 2);
+    loadCell.tare(hx711_tare_samples / 2);
 }
 
 void loop()
