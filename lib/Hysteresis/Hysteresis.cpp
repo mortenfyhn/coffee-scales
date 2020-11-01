@@ -8,6 +8,7 @@ float Hysteresis::compute(float value)
         increaseThreshold(value);
     else if (value < lower_threshold)
         decreaseThreshold(value);
+
     return curr_value;
 }
 

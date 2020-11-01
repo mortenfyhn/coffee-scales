@@ -13,11 +13,11 @@ void SmoothingFilter::addValue(float value)
 
 float SmoothingFilter::getValue()
 {
-    float value = hasSteadyState() ? filter.getAverage() : last_value;
+    const auto value = hasSteadyState() ? filter.getAverage() : last_value;
     return hysteresis.compute(value);
 }
 
-bool SmoothingFilter::hasSteadyState()
+bool SmoothingFilter::hasSteadyState() const
 {
     return filter.getStandardDeviation() < STANDARD_DEVIATION_THRESHOLD;
 }

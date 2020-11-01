@@ -17,7 +17,7 @@ void GramsDisplay::display(float grams)
 
 bool GramsDisplay::tooLargeToDisplay(float grams)
 {
-    return ((grams >= 10000) || (grams <= -1000));
+    return (grams >= 10000 || grams <= -1000);
 }
 
 void GramsDisplay::printGrams(float grams)
@@ -25,7 +25,7 @@ void GramsDisplay::printGrams(float grams)
     static char string_buffer[NUM_DIGITS + 1];
     static uint8_t display_buffer[NUM_DIGITS];
 
-    bool show_decigrams = shouldShowDecigrams(grams);
+    const auto show_decigrams = shouldShowDecigrams(grams);
     createDisplayString(string_buffer, show_decigrams, grams);
     addLeadingZeroIfNeeded(string_buffer, show_decigrams, grams);
     addMinusSignIfNeeded(string_buffer, grams);
@@ -36,27 +36,28 @@ void GramsDisplay::printGrams(float grams)
 
 bool GramsDisplay::shouldShowDecigrams(float grams)
 {
-    return ((grams > -100) && (grams < 1000));
+    return (grams > -100 && grams < 1000);
 }
 
 void GramsDisplay::createDisplayString(char* buffer, bool show_decigrams,
                                        float grams)
 {
-    long display_value = lroundf(abs(show_decigrams ? grams * 10 : grams));
+    const long display_value =
+        lroundf(abs(show_decigrams ? grams * 10 : grams));
     sprintf(buffer, "%4li", display_value);
 }
 
 void GramsDisplay::addLeadingZeroIfNeeded(char* buffer, bool show_decigrams,
                                           float grams)
 {
-    bool need_leading_zero = (show_decigrams && (abs(grams) < 1.0));
+    const auto need_leading_zero = show_decigrams && abs(grams) < 1.0;
     if (need_leading_zero)
         buffer[2] = '0';
 }
 
 void GramsDisplay::addMinusSignIfNeeded(char* buffer, float grams)
 {
-    bool is_negative = (grams < 0);
+    const auto is_negative = grams < 0;
     if (is_negative)
         buffer[0] = '-';
 }

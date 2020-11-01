@@ -10,9 +10,9 @@ class GramsDisplay : public SevenSegmentTM1637
     void display(float grams);
 
   private:
-    static const int NUM_DIGITS = TM1637_MAX_COLOM;
-    static const uint8_t DECIMAL_POINT = 0x80;
-    static const uint8_t MINUS_SIGN = 0x40;
+    static constexpr int NUM_DIGITS = TM1637_MAX_COLOM;
+    static constexpr uint8_t DECIMAL_POINT = 0x80;
+    static constexpr uint8_t MINUS_SIGN = 0x40;
 
     static bool tooLargeToDisplay(float grams);
     void printGrams(float grams);

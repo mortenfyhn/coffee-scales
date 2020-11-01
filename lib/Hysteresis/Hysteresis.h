@@ -8,10 +8,10 @@ class Hysteresis
     float compute(float value);
 
   private:
-    float threshold_size;
-    float upper_threshold = 0;
-    float lower_threshold = 0;
-    float curr_value = 0;
+    const float threshold_size = 0.f;
+    float upper_threshold = 0.f;
+    float lower_threshold = 0.f;
+    float curr_value = 0.f;
     void increaseThreshold(float new_upper_threshold);
     void decreaseThreshold(float new_lower_threshold);
 };
