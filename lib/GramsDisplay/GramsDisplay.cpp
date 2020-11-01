@@ -36,7 +36,7 @@ void GramsDisplay::printGrams(float grams)
 
 bool GramsDisplay::shouldShowDecigrams(float grams)
 {
-    return (grams > -100 && grams < 1000);
+    return grams > -100 && grams < 1000;
 }
 
 void GramsDisplay::createDisplayString(char* buffer, bool show_decigrams,
