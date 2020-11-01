@@ -3,7 +3,7 @@ name: PlatformIO CI
 on:
   push:
   schedule:
-    - cron:  '*/5 * * * *'
+    - cron:  '0 0 * * *'  # Every midnight.
 
 jobs:
   build:
