@@ -1,7 +1,7 @@
-#include <HX711.h>
-#include "TimerDisplay.h"
 #include "GramsDisplay.h"
 #include "SmoothingFilter.h"
+#include "TimerDisplay.h"
+#include <HX711.h>
 
 #define DISP_TIMER_CLK 2
 #define DISP_TIMER_DIO 3
@@ -21,28 +21,26 @@ TimerDisplay timerDisplay(DISP_TIMER_CLK, DISP_TIMER_DIO);
 GramsDisplay gramsDisplay(DISP_SCALE_CLK, DISP_SCALE_DIO);
 SmoothingFilter filter(FILTER_SIZE, HYSTERESIS_SIZE);
 
-
 void setup()
 {
-  // Serial comm
-  Serial.begin(38400);
+    // Serial comm
+    Serial.begin(38400);
 
-  delay(500);
-  loadCell.begin(LOAD_CELL_DT, LOAD_CELL_SCK);
-  loadCell.set_scale(SCALE_FACTOR);
-  loadCell.tare(TARE_AVERAGES);
+    delay(500);
+    loadCell.begin(LOAD_CELL_DT, LOAD_CELL_SCK);
+    loadCell.set_scale(SCALE_FACTOR);
+    loadCell.tare(TARE_AVERAGES);
 }
-
 
 void loop()
 {
-  filter.addValue(loadCell.get_units());
-  float weight_in_grams = filter.getValue();
+    filter.addValue(loadCell.get_units());
+    float weight_in_grams = filter.getValue();
 
-  gramsDisplay.display(weight_in_grams);
+    gramsDisplay.display(weight_in_grams);
 
-  if (weight_in_grams > 5)
-    timerDisplay.start();
+    if (weight_in_grams > 5)
+        timerDisplay.start();
 
-  timerDisplay.refresh();
+    timerDisplay.refresh();
 }

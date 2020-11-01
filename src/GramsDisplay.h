@@ -5,21 +5,24 @@
 
 class GramsDisplay : public SevenSegmentTM1637
 {
-public:
-  GramsDisplay(uint8_t pin_clk, uint8_t pin_dio);
-  void display(float grams);
-private:
-  static const int NUM_DIGITS = TM1637_MAX_COLOM;
-  static const uint8_t DECIMAL_POINT = 0x80;
-  static const uint8_t MINUS_SIGN = 0x40;
+  public:
+    GramsDisplay(uint8_t pin_clk, uint8_t pin_dio);
+    void display(float grams);
 
-  static bool tooLargeToDisplay(float grams);
-  void printGrams(float grams);
-  static bool shouldShowDecigrams(float grams);
-  static void createDisplayString(char* buffer, bool show_decigrams, float grams);
-  static void addLeadingZeroIfNeeded(char* buffer, bool show_decigrams, float grams);
-  static void addMinusSignIfNeeded(char* buffer, float grams);
-  static void addDecimalPointIfNeeded(uint8_t* buffer, bool show_decigrams);
+  private:
+    static const int NUM_DIGITS = TM1637_MAX_COLOM;
+    static const uint8_t DECIMAL_POINT = 0x80;
+    static const uint8_t MINUS_SIGN = 0x40;
+
+    static bool tooLargeToDisplay(float grams);
+    void printGrams(float grams);
+    static bool shouldShowDecigrams(float grams);
+    static void createDisplayString(char* buffer, bool show_decigrams,
+                                    float grams);
+    static void addLeadingZeroIfNeeded(char* buffer, bool show_decigrams,
+                                       float grams);
+    static void addMinusSignIfNeeded(char* buffer, float grams);
+    static void addDecimalPointIfNeeded(uint8_t* buffer, bool show_decigrams);
 };
 
 #endif
