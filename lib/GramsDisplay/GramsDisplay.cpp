@@ -10,7 +10,7 @@ GramsDisplay::GramsDisplay(uint8_t pin_clk, uint8_t pin_dio)
 void GramsDisplay::display(float grams)
 {
     if (tooLargeToDisplay(grams))
-        print('----');
+        print("----");
     else
         printGrams(grams);
 }
@@ -43,7 +43,7 @@ void GramsDisplay::createDisplayString(char* buffer, bool show_decigrams,
                                        float grams)
 {
     long display_value = lroundf(abs(show_decigrams ? grams * 10 : grams));
-    sprintf(buffer, "%4d", display_value);
+    sprintf(buffer, "%4li", display_value);
 }
 
 void GramsDisplay::addLeadingZeroIfNeeded(char* buffer, bool show_decigrams,
