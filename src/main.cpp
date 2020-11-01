@@ -1,6 +1,6 @@
-#include "GramsDisplay.h"
-#include "SmoothingFilter.h"
-#include "TimerDisplay.h"
+#include <GramsDisplay.h>
+#include <SmoothingFilter.h>
+#include <TimerDisplay.h>
 #include <HX711.h>
 
 #define DISP_TIMER_CLK 2
