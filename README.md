@@ -1,6 +1,6 @@
 # coffee-scales
 
-![PlatformIO CI](https://github.com/mortenfyhn/coffee-scales/workflows/PlatformIO%20CI/badge.svg)
+[![PlatformIO CI](https://github.com/mortenfyhn/coffee-scales/workflows/PlatformIO%20CI/badge.svg)](https://github.com/mortenfyhn/coffee-scales/actions?query=workflow%3A%22PlatformIO+CI%22)
 
 Digital kitchen scales, mainly intended for pourover coffee. The current prototype looks like this:
 
