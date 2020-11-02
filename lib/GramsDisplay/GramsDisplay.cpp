@@ -50,7 +50,7 @@ void GramsDisplay::createDisplayString(char* buffer, bool show_decigrams,
 void GramsDisplay::addLeadingZeroIfNeeded(char* buffer, bool show_decigrams,
                                           float grams)
 {
-    const auto need_leading_zero = show_decigrams && abs(grams) < 1.0;
+    const auto need_leading_zero = abs(grams) < 0.95f;
     if (need_leading_zero)
         buffer[2] = '0';
 }
