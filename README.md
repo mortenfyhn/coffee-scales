@@ -16,8 +16,8 @@ Current prototype looks something like this:
 
 To build and run the code:
 
-* Install PlatformIO Core and shell commands: https://docs.platformio.org/en/latest/core/installation.html
-* `pio run --environment nano328 --target upload`
+1. Install PlatformIO Core and shell commands: https://docs.platformio.org/en/latest/core/installation.html
+2. `pio run --environment nano328 --target upload`
 
 More environments are defined in `platformio.ini`.
 
