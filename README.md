@@ -4,7 +4,7 @@
 
 Kitchen scales, built for drip coffee brewing.
 
-* 0.1 gram accuracy.
+* 0.1 gram precision.
 * Very quick response.
 * Auto-starting brew timer.
 
