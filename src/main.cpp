@@ -24,8 +24,6 @@ auto filter = SmoothingFilter{filter_size, hysteresis_size};
 
 void setup()
 {
-    Serial.begin(38400);
-
     loadCell.begin(hx711_dt, hx711_sck);
     loadCell.set_scale(hx711_scale_factor);
     loadCell.tare(hx711_tare_samples / 2);
