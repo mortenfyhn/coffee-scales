@@ -4,12 +4,12 @@
 #include <TimerDisplay.h>
 
 // Pin connections
-constexpr auto hx711_dt = A2;
-constexpr auto hx711_sck = A1;
-constexpr auto timer_display_clk = 2;
-constexpr auto timer_display_dio = 3;
-constexpr auto scale_display_clk = 8;
-constexpr auto scale_display_dio = 9;
+constexpr auto hx711_dt = 2;            // D2
+constexpr auto hx711_sck = 3;           // D3
+constexpr auto timer_display_clk = 12;  // D12
+constexpr auto timer_display_dio = 11;  // D11
+constexpr auto scale_display_clk = 15;  // A1
+constexpr auto scale_display_dio = 16;  // A2
 
 // Settings
 constexpr auto hx711_scale_factor = 1874.f;
