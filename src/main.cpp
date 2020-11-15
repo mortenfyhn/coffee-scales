@@ -11,34 +11,34 @@ constexpr auto timer_display_dio = 11;  // D11
 constexpr auto scale_display_clk = 15;  // A1
 constexpr auto scale_display_dio = 16;  // A2
 
-// Settings
+// Configuration
 constexpr auto hx711_scale_factor = 1874.f;
 constexpr auto hx711_tare_samples = 10;
 constexpr auto filter_size = 10;
 constexpr auto hysteresis_size = 0.1f;
 
-auto loadCell = HX711{};
-auto timerDisplay = TimerDisplay{timer_display_clk, timer_display_dio};
-auto weightDisplay = GramsDisplay{scale_display_clk, scale_display_dio};
+auto scales = HX711{};
+auto timer_display = TimerDisplay{timer_display_clk, timer_display_dio};
+auto weight_display = GramsDisplay{scale_display_clk, scale_display_dio};
 auto filter = SmoothingFilter{filter_size, hysteresis_size};
 
 void setup()
 {
-    loadCell.begin(hx711_dt, hx711_sck);
-    loadCell.set_scale(hx711_scale_factor);
-    loadCell.tare(hx711_tare_samples / 2);
-    loadCell.tare(hx711_tare_samples / 2);
+    scales.begin(hx711_dt, hx711_sck);
+    scales.set_scale(hx711_scale_factor);
+    scales.tare(hx711_tare_samples / 2);
+    scales.tare(hx711_tare_samples / 2);
 }
 
 void loop()
 {
-    filter.addValue(loadCell.get_units());
+    filter.addValue(scales.get_units());
     const auto weight_in_grams = filter.getValue();
 
-    weightDisplay.display(weight_in_grams);
+    weight_display.display(weight_in_grams);
 
     if (weight_in_grams > 1.f)
-        timerDisplay.start();
+        timer_display.start();
 
-    timerDisplay.update();
+    timer_display.update();
 }
