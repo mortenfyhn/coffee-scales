@@ -28,12 +28,15 @@ Buffer::buffer<char> to_string(float value)
     auto buf = Buffer::buffer<char>{6};
 
     if (snprintf(buf.data(), 6, "%5.1f", value) < 6)
-        return buf;
+        ;
+    else if (snprintf(buf.data(), 6, "%4.0f", value) < 5)
+        ;
+    else
+        strncpy(buf.data(), "----", 5);
 
-    if (snprintf(buf.data(), 6, "%4.0f", value) < 5)
-        return buf;
+    if (strncmp(buf.get(), " -0.0", 6) == 0)
+        buf[1] = ' ';
 
-    strncpy(buf.data(), "----", 5);
     return buf;
 }
 

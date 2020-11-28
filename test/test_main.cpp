@@ -67,6 +67,12 @@ void rounding()
     test(-100.6, "-101", segments(minus, one, zero, one));
 }
 
+void negative_zero()
+{
+    test(-0.01f, "  0.0", segments(off, off, zero | dot, zero));
+    test(-0.1f, " -0.1", segments(off, minus, zero | dot, one));
+}
+
 int main()
 {
     UNITY_BEGIN();
@@ -74,5 +80,6 @@ int main()
     RUN_TEST(negative_integers);
     RUN_TEST(out_of_bounds);
     RUN_TEST(rounding);
+    RUN_TEST(negative_zero);
     UNITY_END();
 }
