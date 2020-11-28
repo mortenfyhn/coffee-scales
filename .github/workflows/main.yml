@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Checkout submodules
+      uses: textbook/git-checkout-submodule-action@master
     - name: Set up Python
       uses: actions/setup-python@v1
     - name: Install dependencies
@@ -19,6 +22,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install platformio
     - name: Build
-      run: pio run -e nanoatmega328
+      run: pio run -e nano328 -e feather328 -e featherm0
     - name: Test
       run: pio test -e native
