@@ -17,15 +17,17 @@ constexpr auto hx711_scale_factor = 1874.f;
 constexpr auto hx711_tare_samples = 10;
 constexpr auto filter_size = 10;
 constexpr auto hysteresis_size = 0.1f;
+constexpr auto brightness = 2;  // 0 to 7
 
 auto scales = HX711{};
-auto timer_display = TimerDisplay{timer_display_clk, timer_display_dio};
+auto timer_display =
+    TimerDisplay{timer_display_clk, timer_display_dio, brightness};
 auto weight_display = TM1637Display{scale_display_clk, scale_display_dio};
 auto filter = SmoothingFilter{filter_size, hysteresis_size};
 
 void setup()
 {
-    weight_display.setBrightness(100);
+    weight_display.setBrightness(brightness);
 
     scales.begin(hx711_dt, hx711_sck);
     scales.set_scale(hx711_scale_factor);

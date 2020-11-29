@@ -6,7 +6,7 @@
 class TimerDisplay
 {
   public:
-    TimerDisplay(uint8_t pin_clk, uint8_t pin_dio);
+    TimerDisplay(uint8_t pin_clk, uint8_t pin_dio, uint8_t brightness);
     void start();
     void stop();
     void update();

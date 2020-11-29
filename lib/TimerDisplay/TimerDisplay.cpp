@@ -1,11 +1,11 @@
 #include "TimerDisplay.h"
 #include <Arduino.h>  // millis()
 
-TimerDisplay::TimerDisplay(uint8_t pin_clk, uint8_t pin_dio)
+TimerDisplay::TimerDisplay(uint8_t pin_clk, uint8_t pin_dio, uint8_t brightness)
     : display(pin_clk, pin_dio)
 {
     display.clear();
-    display.setBrightness(100);
+    display.setBrightness(brightness);
 }
 
 void TimerDisplay::start()
