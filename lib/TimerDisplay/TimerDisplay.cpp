@@ -2,10 +2,8 @@
 #include <Arduino.h>  // millis()
 
 TimerDisplay::TimerDisplay(uint8_t pin_clk, uint8_t pin_dio, uint8_t brightness)
-    : display(pin_clk, pin_dio)
+    : display(pin_clk, pin_dio, brightness)
 {
-    display.clear();
-    display.setBrightness(brightness);
 }
 
 void TimerDisplay::start()
@@ -31,9 +29,7 @@ void TimerDisplay::update()
         const auto seconds = millisToSeconds(elapsed_millis);
         const auto minutes = millisToMinutes(elapsed_millis);
 
-        static constexpr auto colon = 0b01000000;
-        display.showNumberDecEx(minutes, colon, true, 2, 0);
-        display.showNumberDecEx(seconds, 0, true, 2, 2);
+        display.showTime(minutes, seconds);
     }
 }
 

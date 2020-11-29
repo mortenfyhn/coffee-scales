@@ -1,7 +1,7 @@
 #ifndef TIMER_DISPLAY_H
 #define TIMER_DISPLAY_H
 
-#include <TM1637Display.h>
+#include <Display.h>
 
 class TimerDisplay
 {
@@ -12,7 +12,7 @@ class TimerDisplay
     void update();
 
   private:
-    TM1637Display display;
+    Display display;
     unsigned long start_millis = 0;
     bool started = false;
     static constexpr unsigned long millis_per_second = 1000;
