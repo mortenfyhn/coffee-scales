@@ -1,10 +1,11 @@
 #include "TimerDisplay.h"
+#include <Arduino.h>  // millis()
 
 TimerDisplay::TimerDisplay(uint8_t pin_clk, uint8_t pin_dio)
-    : SevenSegmentExtended(pin_clk, pin_dio)
+    : display(pin_clk, pin_dio)
 {
-    init();
-    setBacklight(100);
+    display.clear();
+    display.setBrightness(100);
 }
 
 void TimerDisplay::start()
@@ -18,7 +19,7 @@ void TimerDisplay::start()
 
 void TimerDisplay::stop()
 {
-    clear();
+    display.clear();
     started = false;
 }
 
@@ -30,7 +31,9 @@ void TimerDisplay::update()
         const auto seconds = millisToSeconds(elapsed_millis);
         const auto minutes = millisToMinutes(elapsed_millis);
 
-        printTime(minutes, seconds, false);
+        static constexpr auto colon = 0b01000000;
+        display.showNumberDecEx(minutes, colon, true, 2, 0);
+        display.showNumberDecEx(seconds, 0, true, 2, 2);
     }
 }
 
