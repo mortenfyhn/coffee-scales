@@ -1,6 +1,6 @@
 # coffee-scales
 
-[![PlatformIO CI](https://github.com/mortenfyhn/coffee-scales/workflows/PlatformIO%20CI/badge.svg)](https://github.com/mortenfyhn/coffee-scales/actions?query=workflow%3A%22PlatformIO+CI%22)
+[![PlatformIO CI](https://github.com/mortenfyhn/coffee-scales/actions/workflows/main.yml/badge.svg)](https://github.com/mortenfyhn/coffee-scales/actions/workflows/main.yml)
 
 Kitchen scales, built for drip coffee brewing.
 
