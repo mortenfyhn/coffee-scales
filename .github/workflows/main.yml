@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install platformio
+        pip install platformio==5.1.0
     - name: Build
       run: pio run -e nano328 -e feather328 -e featherm0
     - name: Test
