@@ -1,5 +1,4 @@
-#ifndef TIMER_DISPLAY_H
-#define TIMER_DISPLAY_H
+#pragma once
 
 #include <Display.h>
 
@@ -21,5 +20,3 @@ class TimerDisplay
     static uint8_t millisToSeconds(unsigned long millis);
     static uint8_t millisToMinutes(unsigned long millis);
 };
-
-#endif

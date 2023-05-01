@@ -1,5 +1,4 @@
-#ifndef HYSTERESIS_H
-#define HYSTERESIS_H
+#pragma once
 
 class Hysteresis
 {
@@ -15,5 +14,3 @@ class Hysteresis
     void increaseThreshold(float new_upper_threshold);
     void decreaseThreshold(float new_lower_threshold);
 };
-
-#endif

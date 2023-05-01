@@ -1,5 +1,4 @@
-#ifndef SMOOTHING_FILTER_H
-#define SMOOTHING_FILTER_H
+#pragma once
 
 #include <Hysteresis.h>
 #include <RunningAverage.h>
@@ -18,5 +17,3 @@ class SmoothingFilter
     float last_value;
     bool hasSteadyState() const;
 };
-
-#endif

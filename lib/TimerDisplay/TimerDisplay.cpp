@@ -1,5 +1,5 @@
-#include "TimerDisplay.h"
 #include <Arduino.h>  // millis()
+#include <TimerDisplay.h>
 
 TimerDisplay::TimerDisplay(uint8_t pin_clk, uint8_t pin_dio, uint8_t brightness)
     : display(pin_clk, pin_dio, brightness)

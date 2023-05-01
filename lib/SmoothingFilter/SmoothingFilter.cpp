@@ -1,4 +1,4 @@
-#include "SmoothingFilter.h"
+#include <SmoothingFilter.h>
 
 SmoothingFilter::SmoothingFilter(uint8_t filter_size, float hysteresis_size)
     : filter(filter_size), hysteresis(hysteresis_size)

@@ -1,4 +1,4 @@
-#include "Hysteresis.h"
+#include <Hysteresis.h>
 
 Hysteresis::Hysteresis(float threshold_size) : threshold_size(threshold_size) {}
 
