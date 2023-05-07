@@ -56,7 +56,7 @@ void loop()
     filter.addValue(scales.get_units());
     const auto weight_in_grams = filter.getValue();
 
-    weight_display.show(Formatter::to_segments(weight_in_grams).get());
+    weight_display.setSegments(Formatter::to_segments(weight_in_grams).get());
 
     if (weight_in_grams > 1.f)
     {

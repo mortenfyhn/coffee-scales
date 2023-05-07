@@ -2,21 +2,26 @@
 
 #include <Display.h>
 
-class TimerDisplay
+class TimerDisplay : public Display
 {
   public:
-    TimerDisplay(uint8_t pin_clk, uint8_t pin_dio, uint8_t brightness);
+    TimerDisplay(uint8_t pin_clk, uint8_t pin_dio, uint8_t brightness_percent)
+        : Display{pin_clk, pin_dio, brightness_percent}
+    {
+    }
+
     void start();
     void stop();
     void update();
 
   private:
-    Display display;
     unsigned long start_millis = 0;
     bool started = false;
     static constexpr unsigned long millis_per_second = 1000;
     static constexpr unsigned long millis_per_minute = 60 * millis_per_second;
     static constexpr unsigned long millis_per_hour = 60 * millis_per_minute;
+
     static uint8_t millisToSeconds(unsigned long millis);
     static uint8_t millisToMinutes(unsigned long millis);
+    void showTime(uint8_t minutes, uint8_t seconds);
 };
