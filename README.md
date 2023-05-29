@@ -32,10 +32,8 @@ More environments are defined in [platformio.ini](platformio.ini).
 
 ## Log data
 
-1. Uncomment this line:
-	https://github.com/mortenfyhn/coffee-scales/blob/b66d104325edc32f68831f483804ab9cef3d35cc/src/main.cpp#L9 
-3. Run:
+1. Run:
 	```sh
-	pio run -e feather328 -t upload && pio device monitor --quiet | tee log.csv
+	pio run -e feather328_logging -t upload && pio device monitor --quiet | tee log.csv
 	```
-3. This will log to your screen and to a file `log.csv` 🪵
+1. This will log to your screen and to a file `log.csv` 🪵

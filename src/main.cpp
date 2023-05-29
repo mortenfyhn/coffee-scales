@@ -5,9 +5,6 @@
 #include <SmoothingFilter.h>
 #include <TimerDisplay.h>
 
-// Uncomment to enable serial logging
-// #define LOGGING 1
-
 namespace pins
 {
 constexpr uint8_t loadcell_dt = 5;
@@ -44,7 +41,7 @@ void setup()
     scales.set_scale(config::scale_factor);
     scales.tare(config::num_tare_samples);
 
-#if LOGGING
+#ifdef LOGGING
     Serial.begin(38400);
     Serial.println("time,data");
 #endif
@@ -77,7 +74,7 @@ void loop()
 
     timer_display.update();
 
-#if LOGGING
+#ifdef LOGGING
     Serial.print(millis() / 1000.0);
     Serial.print(",");
     Serial.println(raw_value);
