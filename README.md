@@ -29,3 +29,13 @@ More environments are defined in [platformio.ini](platformio.ini).
 * Any Arduino (currently an Adafruit Feather 328P)
 * A small LiPo battery
 * A button for taring
+
+## Log data
+
+1. Uncomment this line:
+	https://github.com/mortenfyhn/coffee-scales/blob/b66d104325edc32f68831f483804ab9cef3d35cc/src/main.cpp#L9 
+3. Run:
+	```sh
+	pio run -e feather328 -t upload && pio device monitor --quiet | tee log.csv
+	```
+3. This will log to your screen and to a file `log.csv` 🪵
