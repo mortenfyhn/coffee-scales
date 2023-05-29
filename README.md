@@ -19,7 +19,7 @@ To build and run the code:
 1. [Install PlatformIO Core and shell commands](https://docs.platformio.org/en/latest/core/installation.html)
 2. `pio run -e feather328 -t upload`
 
-More environments are defined in `platformio.ini`.
+More environments are defined in [platformio.ini](platformio.ini).
 
 ## Hardware
 
