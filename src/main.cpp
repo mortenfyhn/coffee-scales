@@ -26,6 +26,21 @@ constexpr float hysteresis_size = 0.1f;
 constexpr uint8_t brightness = 100;
 }  // namespace config
 
+class Button
+{
+  public:
+    bool pushed_now(uint8_t pin)
+    {
+        const auto is_pushed = digitalRead(pin) == LOW;
+        const auto pushed_now = is_pushed && !was_pushed;
+        was_pushed = is_pushed;
+        return pushed_now;
+    }
+
+  private:
+    bool was_pushed = false;
+};
+
 auto scales = HX711{};
 auto filter = SmoothingFilter{config::filter_size};
 auto hysteresis = Hysteresis{config::hysteresis_size};
@@ -33,7 +48,7 @@ auto weight_display = Display{pins::scale_display_clk, pins::scale_display_dio,
                               config::brightness};
 auto timer_display = TimerDisplay{pins::timer_display_clk,
                                   pins::timer_display_dio, config::brightness};
-auto tare_button_was_pushed = false;
+auto tare_button = Button{};
 
 void setup()
 {
@@ -51,10 +66,7 @@ void setup()
 
 void loop()
 {
-    const auto tare_button_is_pushed = digitalRead(pins::tare_button) == LOW;
-    const auto should_tare = tare_button_is_pushed && !tare_button_was_pushed;
-    tare_button_was_pushed = tare_button_is_pushed;
-    if (should_tare)
+    if (tare_button.pushed_now(pins::tare_button))
     {
         scales.tare(1);
         timer_display.stop();
