@@ -5,6 +5,9 @@
 #include <SmoothingFilter.h>
 #include <TimerDisplay.h>
 
+// Uncomment to enable serial logging
+// #define LOGGING 1
+
 namespace pins
 {
 constexpr uint8_t loadcell_dt = 5;
@@ -40,6 +43,11 @@ void setup()
     scales.begin(pins::loadcell_dt, pins::loadcell_sck);
     scales.set_scale(config::scale_factor);
     scales.tare(config::num_tare_samples);
+
+#if LOGGING
+    Serial.begin(38400);
+    Serial.println("time,data");
+#endif
 }
 
 void loop()
@@ -53,7 +61,11 @@ void loop()
         timer_display.stop();
     }
 
-    filter.addValue(scales.get_units());
+    const auto raw_value = scales.read();
+    const auto weight_in_grams_raw =
+        (raw_value - scales.get_offset()) / config::scale_factor;
+
+    filter.addValue(weight_in_grams_raw);
     const auto weight_in_grams = filter.getValue();
 
     weight_display.setSegments(Formatter::to_segments(weight_in_grams).get());
@@ -64,4 +76,10 @@ void loop()
     }
 
     timer_display.update();
+
+#if LOGGING
+    Serial.print(millis() / 1000.0);
+    Serial.print(",");
+    Serial.println(raw_value);
+#endif
 }
