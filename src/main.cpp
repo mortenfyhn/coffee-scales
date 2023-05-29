@@ -69,6 +69,7 @@ void loop()
     if (tare_button.pushed_now(pins::tare_button))
     {
         scales.tare(1);
+        hysteresis.reset();
         timer_display.stop();
     }
 

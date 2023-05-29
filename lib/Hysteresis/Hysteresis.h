@@ -13,6 +13,8 @@ class Hysteresis
         return output;
     }
 
+    void reset() { output = 0.f; }
+
   private:
     float output = 0.f;
     const float threshold;
