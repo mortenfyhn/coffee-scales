@@ -2,6 +2,7 @@
 #include <Display.h>
 #include <Formatter.h>
 #include <HX711.h>
+#include <Hysteresis.h>
 #include <SmoothingFilter.h>
 #include <TimerDisplay.h>
 
@@ -26,7 +27,8 @@ constexpr uint8_t brightness = 100;
 }  // namespace config
 
 auto scales = HX711{};
-auto filter = SmoothingFilter{config::filter_size, config::hysteresis_size};
+auto filter = SmoothingFilter{config::filter_size};
+auto hysteresis = Hysteresis{config::hysteresis_size};
 auto weight_display = Display{pins::scale_display_clk, pins::scale_display_dio,
                               config::brightness};
 auto timer_display = TimerDisplay{pins::timer_display_clk,
@@ -63,7 +65,7 @@ void loop()
         (raw_value - scales.get_offset()) / config::scale_factor;
 
     filter.addValue(weight_in_grams_raw);
-    const auto weight_in_grams = filter.getValue();
+    const auto weight_in_grams = hysteresis.compute(filter.getValue());
 
     weight_display.setSegments(Formatter::to_segments(weight_in_grams).get());
 
