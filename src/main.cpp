@@ -15,6 +15,8 @@ constexpr uint8_t timer_display_dio = 4;
 constexpr uint8_t scale_display_clk = A1;
 constexpr uint8_t scale_display_dio = A2;
 constexpr uint8_t tare_button = 10;
+constexpr uint8_t battery_voltage = A6;
+constexpr uint8_t low_battery_lamp = SCK;
 }  // namespace pins
 
 namespace config
@@ -24,6 +26,8 @@ constexpr uint8_t num_tare_samples = 10;
 constexpr uint8_t filter_size = 10;
 constexpr float hysteresis_size = 0.1f;
 constexpr uint8_t brightness = 100;
+constexpr auto battery_scaling = 2.f * 3.3f / 1024.f;
+constexpr auto low_battery_limit_v = 3.7f;
 }  // namespace config
 
 class Button
@@ -53,6 +57,7 @@ auto tare_button = Button{};
 void setup()
 {
     pinMode(pins::tare_button, INPUT_PULLUP);
+    pinMode(pins::low_battery_lamp, OUTPUT);
 
     scales.begin(pins::loadcell_dt, pins::loadcell_sck);
     scales.set_scale(config::scale_factor);
@@ -88,6 +93,14 @@ void loop()
     }
 
     timer_display.update();
+
+    // Low battery warning
+    const auto battery_voltage_v =
+        config::battery_scaling * analogRead(pins::battery_voltage);
+    if (battery_voltage_v < config::low_battery_limit_v)
+    {
+        digitalWrite(pins::battery_voltage, HIGH);
+    }
 
 #ifdef LOGGING
     Serial.print(millis() / 1000.0);
