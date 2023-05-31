@@ -65,12 +65,13 @@ void setup()
 
 #ifdef LOGGING
     Serial.begin(38400);
-    Serial.println("time,data");
+    Serial.println("time,data");  // CSV header
 #endif
 }
 
 void loop()
 {
+    // Taring
     if (tare_button.pushed_now(pins::tare_button))
     {
         scales.tare(1);
@@ -78,20 +79,23 @@ void loop()
         timer_display.stop();
     }
 
+    // Read weight
     const auto raw_value = scales.read();
     const auto weight_in_grams_raw =
         (raw_value - scales.get_offset()) / config::scale_factor;
 
+    // Filter weight
     filter.addValue(weight_in_grams_raw);
     const auto weight_in_grams = hysteresis.compute(filter.getValue());
 
+    // Display weight
     weight_display.setSegments(Formatter::to_segments(weight_in_grams).get());
 
+    // Display brew timer
     if (weight_in_grams > 1.f)
     {
         timer_display.start();
     }
-
     timer_display.update();
 
     // Low battery warning
