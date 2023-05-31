@@ -1,7 +1,10 @@
+#!/usr/bin/env octave-cli
+
 ## Load data
-input_filename = "brew.csv";
-% input_filename = "steadystate.csv";
-input_file = fullfile("raw", input_filename);
+if nargin < 1
+    error("You need to pass a file path")
+end
+input_file = argv(){1};
 input_data = csvread(input_file);
 time = input_data(2:end, 1);
 raw_data = input_data(2:end, 2);
@@ -48,20 +51,15 @@ for i = 1:numel(in)
 end
 after_hysteresis = out;
 
-## Write result to file
-mkdir("processed");
-output_file = fullfile("processed", input_filename);
-file = fopen(output_file, "w");
-fprintf(file, "time,raw_data,1_after_scaling,2_after_smoothing,3_after_hysteresis\n");
+## Output result
+printf("time,raw_data,1_after_scaling,2_after_smoothing,3_after_hysteresis\n");
 for i = 1:numel(time)
-    fprintf(
-        file,
+    printf(
         "%g,%g,%g,%g,%g\n",
         time(i),
         raw_data(i),
         after_scaling(i),
         after_smoothing(i),
-        after_hysteresis(i));
+        after_hysteresis(i)
+    );
 end
-fclose(file);
-
