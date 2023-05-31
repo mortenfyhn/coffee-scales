@@ -12,14 +12,12 @@ Current prototype looks something like this:
 
 ![A breadboard prototype in action](https://i.imgur.com/RPn1dWZ.jpg)
 
-## Build and run
+## Build
 
-To build and run the code:
+To build and upload the code:
 
 1. [Install PlatformIO Core and shell commands](https://docs.platformio.org/en/latest/core/installation.html)
-2. `pio run -e feather328 -t upload`
-
-More environments are defined in [platformio.ini](platformio.ini).
+2. `pio run -t upload`
 
 ## Hardware
 
@@ -34,6 +32,6 @@ More environments are defined in [platformio.ini](platformio.ini).
 
 1. Run:
 	```sh
-	pio run -e feather328_logging -t upload && pio device monitor --quiet | tee log.csv
+	pio run -e logging -t upload && pio device monitor --quiet | tee logs/log.csv
 	```
-1. This will log to your screen and to a file `log.csv` 🪵
+1. This will log to your screen and to a file `log.csv` in the `logs` dir 🪵

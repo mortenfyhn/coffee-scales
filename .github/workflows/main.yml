@@ -38,7 +38,7 @@ jobs:
         pip install --upgrade platformio
 
     - name: Run PlatformIO
-      run: pio run -e nano328 -e feather328 -e featherm0 -e itsybitsy32u4_3V
+      run: pio run -e release -e logging
 
     - name: Test PlatformIO
-      run: pio test -e native
+      run: pio test -e test
