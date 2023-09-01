@@ -28,21 +28,37 @@ constexpr float hysteresis_size = 0.1f;
 constexpr uint8_t brightness = 100;
 constexpr auto battery_scaling = 2.f * 3.3f / 1024.f;
 constexpr auto low_battery_limit_v = 3.7f;
+constexpr auto tare_interval_ms = 1000ul;
 }  // namespace config
 
-class Button
+class Taring
 {
   public:
-    bool pushed_now(uint8_t pin)
+    void request()
     {
-        const auto is_pushed = digitalRead(pin) == LOW;
-        const auto pushed_now = is_pushed && !was_pushed;
-        was_pushed = is_pushed;
-        return pushed_now;
+        // This debounces without waiting.
+        const auto curr_time_ms = millis();
+        if (curr_time_ms - prev_time_ms_ > config::tare_interval_ms)
+        {
+            requested_ = true;
+            prev_time_ms_ = curr_time_ms;
+        }
+    }
+
+    bool should_tare()
+    {
+        if (requested_)
+        {
+            requested_ = false;
+            return true;
+        }
+
+        return false;
     }
 
   private:
-    bool was_pushed = false;
+    bool requested_ = false;
+    unsigned long prev_time_ms_ = 0ul;
 };
 
 auto scales = HX711{};
@@ -52,11 +68,14 @@ auto weight_display = Display{pins::scale_display_clk, pins::scale_display_dio,
                               config::brightness};
 auto timer_display = TimerDisplay{pins::timer_display_clk,
                                   pins::timer_display_dio, config::brightness};
-auto tare_button = Button{};
+auto taring = Taring{};
 
 void setup()
 {
     pinMode(pins::tare_button, INPUT_PULLUP);
+    attachInterrupt(
+        digitalPinToInterrupt(pins::tare_button), [] { taring.request(); },
+        FALLING);
     pinMode(pins::low_battery_lamp, OUTPUT);
 
     scales.begin(pins::loadcell_dt, pins::loadcell_sck);
@@ -72,7 +91,7 @@ void setup()
 void loop()
 {
     // Taring
-    if (tare_button.pushed_now(pins::tare_button))
+    if (taring.should_tare())
     {
         scales.tare(1);
         hysteresis.reset();
