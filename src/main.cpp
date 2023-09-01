@@ -103,7 +103,7 @@ void loop()
         config::battery_scaling * analogRead(pins::battery_voltage);
     if (battery_voltage_v < config::low_battery_limit_v)
     {
-        digitalWrite(pins::battery_voltage, HIGH);
+        digitalWrite(pins::low_battery_lamp, HIGH);
     }
 
 #ifdef LOGGING
