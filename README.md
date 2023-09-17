@@ -22,11 +22,13 @@ To build and upload the code:
 ## Hardware
 
 * Adafruit Feather 328P
-* Straight bar load cell (1 kg)
+* Load cell: 1 kg straight bar
 * HX711 load cell amplifier
-* 7-segment displays with TM1637 drivers
-* A small LiPo battery
-* A button for taring
+* Two 4-digit 7-segment displays with TM1637 drivers
+* LiPo battery (1200 mAh)
+* Push button for taring
+
+![Connection diagram](https://i.imgur.com/zfTGbLD.png)
 
 ## Log data
 
