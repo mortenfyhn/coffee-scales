@@ -38,4 +38,4 @@ Run
 pio run -e logging -t upload && pio device monitor --quiet | tee logs/log.csv
 ```
 
-This will log to your screen and to a file `'logs/log.csv` 🪵
+This will log to your screen and to a file `logs/log.csv` 🪵
