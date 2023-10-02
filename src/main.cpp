@@ -8,7 +8,7 @@
 
 namespace pins
 {
-constexpr uint8_t loadcell_dt = 5;
+constexpr uint8_t loadcell_dt = 7;
 constexpr uint8_t loadcell_sck = 6;
 constexpr uint8_t timer_display_clk = 4;
 constexpr uint8_t timer_display_dio = 3;
