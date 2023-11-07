@@ -21,7 +21,7 @@ constexpr uint8_t low_battery_lamp = SCK;
 
 namespace config
 {
-constexpr float scale_factor = 1874.f;
+constexpr float scale_factor = 1574.f;
 constexpr uint8_t num_tare_samples = 10;
 constexpr uint8_t filter_size = 10;
 constexpr float hysteresis_size = 0.1f;
