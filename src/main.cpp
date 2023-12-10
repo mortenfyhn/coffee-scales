@@ -37,8 +37,13 @@ class Taring
     void request()
     {
         // This debounces without waiting.
+
         const auto curr_time_ms = millis();
-        if (curr_time_ms - prev_time_ms_ > config::tare_interval_ms)
+
+        // If prev time is zero, then this is the first request, which we should
+        // always honour.
+        if (prev_time_ms_ == 0ul ||
+            curr_time_ms - prev_time_ms_ > config::tare_interval_ms)
         {
             requested_ = true;
             prev_time_ms_ = curr_time_ms;
@@ -72,6 +77,11 @@ auto taring = Taring{};
 
 void setup()
 {
+#ifdef LOGGING
+    Serial.begin(38400);
+    Serial.println("time,data");  // CSV header
+#endif
+
     pinMode(pins::tare_button, INPUT_PULLUP);
     attachInterrupt(
         digitalPinToInterrupt(pins::tare_button), [] { taring.request(); },
@@ -80,12 +90,7 @@ void setup()
 
     scales.begin(pins::loadcell_dt, pins::loadcell_sck);
     scales.set_scale(config::scale_factor);
-    scales.tare(config::num_tare_samples);
-
-    Serial.begin(38400);
-#ifdef LOGGING
-    Serial.println("time,data");  // CSV header
-#endif
+    taring.request();
 }
 
 void loop()

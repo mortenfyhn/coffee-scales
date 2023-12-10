@@ -20,7 +20,10 @@ class SmoothingFilter
 
     bool hasSteadyState() const
     {
-        return filter_.getStandardDeviation() < STANDARD_DEVIATION_THRESHOLD;
+        // If the buffer isn't full, we don't have enough data to determine if
+        // it's in steady state, so we require it.
+        return filter_.bufferIsFull() &&
+               filter_.getStandardDeviation() < STANDARD_DEVIATION_THRESHOLD;
     }
 
   private:
