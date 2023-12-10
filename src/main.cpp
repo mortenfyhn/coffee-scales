@@ -98,11 +98,12 @@ void loop()
     // Taring
     if (taring.should_tare())
     {
+        timer_display.stop();
+
         // Wait until the filter is stable, for accurate taring
         while (!filter.hasSteadyState())
         {
             weight_display.showLine();
-            timer_display.stop();
 
             const auto raw_value = scales.read();
             const auto weight_in_grams_raw =
