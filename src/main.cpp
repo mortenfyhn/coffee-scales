@@ -93,11 +93,22 @@ void loop()
     // Taring
     if (taring.should_tare())
     {
+        // Wait until the filter is stable, for accurate taring
+        while (!filter.hasSteadyState())
+        {
+            weight_display.showTare();
+            timer_display.stop();
+
+            const auto raw_value = scales.read();
+            const auto weight_in_grams_raw =
+                (raw_value - scales.get_offset()) / config::scale_factor;
+            filter.addValue(weight_in_grams_raw);
+        }
+
         const auto new_offset =
-            scales.get_offset() + filter.getAverage() * config::scale_factor;
+            scales.get_offset() + filter.getValue() * config::scale_factor;
         scales.set_offset(new_offset);
         hysteresis.reset();
-        timer_display.stop();
     }
 
     // Read weight

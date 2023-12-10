@@ -18,15 +18,13 @@ class SmoothingFilter
         return hasSteadyState() ? filter_.getAverage() : last_value_;
     }
 
-    float getAverage() { return filter_.getAverage(); }
+    bool hasSteadyState() const
+    {
+        return filter_.getStandardDeviation() < STANDARD_DEVIATION_THRESHOLD;
+    }
 
   private:
     static constexpr float STANDARD_DEVIATION_THRESHOLD = 0.1;
     RunningAverage filter_;
     float last_value_;
-
-    bool hasSteadyState() const
-    {
-        return filter_.getStandardDeviation() < STANDARD_DEVIATION_THRESHOLD;
-    }
 };

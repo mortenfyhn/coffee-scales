@@ -15,4 +15,16 @@ class Display : public TM1637Display
 
         setBrightness(brightness_zero_to_seven);
     }
+
+    void showTare()
+    {
+        constexpr uint8_t segments_tare[] = {
+            SEG_D | SEG_E | SEG_F | SEG_G,                  // t
+            SEG_A | SEG_B | SEG_C | SEG_E | SEG_F | SEG_G,  // A
+            SEG_E | SEG_G,                                  // r
+            SEG_A | SEG_D | SEG_E | SEG_F | SEG_G           // E
+        };
+
+        setSegments(segments_tare);
+    }
 };
