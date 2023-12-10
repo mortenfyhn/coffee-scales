@@ -5,6 +5,7 @@
 #include <Hysteresis.h>
 #include <SmoothingFilter.h>
 #include <TimerDisplay.h>
+#include <avr/sleep.h>
 
 namespace pins
 {
@@ -29,6 +30,7 @@ constexpr uint8_t brightness = 100;
 constexpr auto battery_scaling = 2.f * 3.3f / 1024.f;
 constexpr auto low_battery_limit_v = 3.7f;
 constexpr auto tare_interval_ms = 1000ul;
+constexpr auto inactivity_timeout_ms = 300000ul;  // 5 min (1 min = 60 000 ms)
 }  // namespace config
 
 class Taring
@@ -74,6 +76,7 @@ auto weight_display = Display{pins::scale_display_clk, pins::scale_display_dio,
 auto timer_display = TimerDisplay{pins::timer_display_clk,
                                   pins::timer_display_dio, config::brightness};
 auto taring = Taring{};
+auto last_activity_time_ms = 0ul;
 
 void setup()
 {
@@ -88,6 +91,10 @@ void setup()
         FALLING);
     pinMode(pins::low_battery_lamp, OUTPUT);
 
+    // Enable power-down sleep
+    set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+    sleep_enable();
+
     scales.begin(pins::loadcell_dt, pins::loadcell_sck);
     scales.set_scale(config::scale_factor);
     taring.request();
@@ -98,6 +105,7 @@ void loop()
     // Taring
     if (taring.should_tare())
     {
+        scales.power_up();
         timer_display.stop();
 
         // Wait until the filter is stable, for accurate taring
@@ -115,6 +123,7 @@ void loop()
             scales.get_offset() + filter.getValue() * config::scale_factor;
         scales.set_offset(new_offset);
         hysteresis.reset();
+        last_activity_time_ms = millis();
     }
 
     // Read weight
@@ -125,6 +134,11 @@ void loop()
     // Filter weight
     filter.addValue(weight_in_grams_raw);
     const auto weight_in_grams = hysteresis.compute(filter.getValue());
+
+    if (!filter.hasSteadyState())
+    {
+        last_activity_time_ms = millis();
+    }
 
     // Display weight
     weight_display.setSegments(Formatter::to_segments(weight_in_grams).get());
@@ -142,6 +156,17 @@ void loop()
     if (battery_voltage_v < config::low_battery_limit_v)
     {
         digitalWrite(pins::low_battery_lamp, HIGH);
+    }
+
+    // Go to sleep if idle for too long
+    const auto time_now_ms = millis();
+    if (time_now_ms - last_activity_time_ms > config::inactivity_timeout_ms)
+    {
+        weight_display.clear();
+        timer_display.stop();
+        filter.clear();
+        scales.power_down();
+        sleep_mode();
     }
 
 #ifdef LOGGING

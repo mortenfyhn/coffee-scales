@@ -26,6 +26,8 @@ class SmoothingFilter
                filter_.getStandardDeviation() < STANDARD_DEVIATION_THRESHOLD;
     }
 
+    void clear() { filter_.clear(); }
+
   private:
     static constexpr float STANDARD_DEVIATION_THRESHOLD = 0.1;
     RunningAverage filter_;
