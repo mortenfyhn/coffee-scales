@@ -82,8 +82,8 @@ void setup()
     scales.set_scale(config::scale_factor);
     scales.tare(config::num_tare_samples);
 
-#ifdef LOGGING
     Serial.begin(38400);
+#ifdef LOGGING
     Serial.println("time,data");  // CSV header
 #endif
 }
@@ -93,7 +93,9 @@ void loop()
     // Taring
     if (taring.should_tare())
     {
-        scales.tare(1);
+        const auto new_offset =
+            scales.get_offset() + filter.getAverage() * config::scale_factor;
+        scales.set_offset(new_offset);
         hysteresis.reset();
         timer_display.stop();
     }

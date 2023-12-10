@@ -18,6 +18,8 @@ class SmoothingFilter
         return hasSteadyState() ? filter_.getAverage() : last_value_;
     }
 
+    float getAverage() { return filter_.getAverage(); }
+
   private:
     static constexpr float STANDARD_DEVIATION_THRESHOLD = 0.1;
     RunningAverage filter_;
