@@ -1,6 +1,6 @@
 # coffee-scales
 
-[![PlatformIO CI](https://github.com/mortenfyhn/coffee-scales/actions/workflows/main.yml/badge.svg)](https://github.com/mortenfyhn/coffee-scales/actions/workflows/main.yml)
+[![Build Status](https://fyhn.semaphoreci.com/badges/coffee-scales/branches/master.svg?key=bdad7781-738b-46c5-95e4-85f3478b0b54)](https://fyhn.semaphoreci.com/projects/coffee-scales)
 
 Kitchen scales, built for drip coffee brewing:
 
