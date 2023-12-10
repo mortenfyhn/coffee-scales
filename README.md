@@ -19,6 +19,16 @@ To build and upload the code:
 1. [Install PlatformIO Core and shell commands](https://docs.platformio.org/en/latest/core/installation/index.html)
 2. `pio run -t upload`
 
+## Log data
+
+Run
+
+```sh
+pio run -e logging -t upload && pio device monitor --quiet | tee logs/log.csv
+```
+
+This will log to your screen and to a file `logs/log.csv` 🪵
+
 ## Hardware
 
 * Adafruit Feather 328P
@@ -29,13 +39,3 @@ To build and upload the code:
 * Push button for taring
 
 ![Connection diagram](https://i.imgur.com/zfTGbLD.png)
-
-## Log data
-
-Run
-
-```sh
-pio run -e logging -t upload && pio device monitor --quiet | tee logs/log.csv
-```
-
-This will log to your screen and to a file `logs/log.csv` 🪵
