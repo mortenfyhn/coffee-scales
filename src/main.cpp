@@ -101,7 +101,7 @@ void loop()
         // Wait until the filter is stable, for accurate taring
         while (!filter.hasSteadyState())
         {
-            weight_display.showTare();
+            weight_display.showLine();
             timer_display.stop();
 
             const auto raw_value = scales.read();
