@@ -78,6 +78,11 @@ auto timer_display = TimerDisplay{pins::timer_display_clk,
 auto taring = Taring{};
 auto last_activity_time_ms = 0ul;
 
+float read_battery_voltage()
+{
+    return config::battery_scaling * analogRead(pins::battery_voltage);
+}
+
 void setup()
 {
 #ifdef LOGGING
@@ -98,6 +103,10 @@ void setup()
     scales.begin(pins::loadcell_dt, pins::loadcell_sck);
     scales.set_scale(config::scale_factor);
     taring.request();
+
+    // Display the battery voltage with 3 decimals for 1 sec.
+    weight_display.showNumberDecEx(read_battery_voltage() * 1000, 0b10000000);
+    delay(1000ul);
 }
 
 void loop()
@@ -151,9 +160,7 @@ void loop()
     timer_display.update();
 
     // Low battery warning
-    const auto battery_voltage_v =
-        config::battery_scaling * analogRead(pins::battery_voltage);
-    if (battery_voltage_v < config::low_battery_limit_v)
+    if (read_battery_voltage() < config::low_battery_limit_v)
     {
         digitalWrite(pins::low_battery_lamp, HIGH);
     }
