@@ -6,7 +6,9 @@ Kitchen scales, built for drip coffee brewing:
 
 * 0.1 gram precision
 * Very quick response
+* Very quick tare
 * Auto-starting brew timer
+* Auto-off after 5 minutes
 
 Current prototype looks something like this:
 
