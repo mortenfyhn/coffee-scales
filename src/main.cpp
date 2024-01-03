@@ -17,7 +17,6 @@ constexpr uint8_t scale_display_clk = A1;
 constexpr uint8_t scale_display_dio = A2;
 constexpr uint8_t tare_button = 2;  // Must be interrupt compatible!
 constexpr uint8_t battery_voltage = A6;
-constexpr uint8_t low_battery_lamp = SCK;
 }  // namespace pins
 
 namespace config
@@ -28,7 +27,6 @@ constexpr uint8_t filter_size = 10;
 constexpr float hysteresis_size = 0.1f;
 constexpr uint8_t brightness = 100;
 constexpr auto battery_scaling = 2.f * 3.3f / 1024.f;
-constexpr auto low_battery_limit_v = 3.7f;
 constexpr auto tare_interval_ms = 1000ul;
 constexpr auto inactivity_timeout_ms = 300000ul;  // 5 min (1 min = 60 000 ms)
 }  // namespace config
@@ -94,7 +92,6 @@ void setup()
     attachInterrupt(
         digitalPinToInterrupt(pins::tare_button), [] { taring.request(); },
         FALLING);
-    pinMode(pins::low_battery_lamp, OUTPUT);
 
     // Enable power-down sleep
     set_sleep_mode(SLEEP_MODE_PWR_DOWN);
@@ -158,12 +155,6 @@ void loop()
         timer_display.start();
     }
     timer_display.update();
-
-    // Low battery warning
-    if (read_battery_voltage() < config::low_battery_limit_v)
-    {
-        digitalWrite(pins::low_battery_lamp, HIGH);
-    }
 
     // Go to sleep if idle for too long
     const auto time_now_ms = millis();
