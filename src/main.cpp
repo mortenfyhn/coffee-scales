@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <Battery.h>
 #include <Display.h>
 #include <Formatter.h>
 #include <HX711.h>
@@ -101,8 +102,7 @@ void setup()
     scales.set_scale(config::scale_factor);
     taring.request();
 
-    // Display the battery voltage with 3 decimals for 1 sec.
-    weight_display.showNumberDecEx(read_battery_voltage() * 1000, 0b10000000);
+    weight_display.showNumberDec(battery::percentage(read_battery_voltage()));
     delay(1000ul);
 }
 
