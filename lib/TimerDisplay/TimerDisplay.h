@@ -5,8 +5,7 @@
 class TimerDisplay : public Display
 {
   public:
-    TimerDisplay(uint8_t pin_clk, uint8_t pin_dio, uint8_t brightness_percent)
-        : Display{pin_clk, pin_dio, brightness_percent}
+    TimerDisplay(uint8_t pin_clk, uint8_t pin_dio) : Display{pin_clk, pin_dio}
     {
     }
 

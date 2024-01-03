@@ -26,10 +26,10 @@ constexpr float scale_factor = 1574.f;
 constexpr uint8_t num_tare_samples = 10;
 constexpr uint8_t filter_size = 10;
 constexpr float hysteresis_size = 0.1f;
-constexpr uint8_t brightness = 100;
 constexpr auto battery_scaling = 2.f * 3.3f / 1024.f;
 constexpr auto tare_interval_ms = 1000ul;
-constexpr auto inactivity_timeout_ms = 300000ul;  // 5 min (1 min = 60 000 ms)
+constexpr auto timeout_dim_ms = 1ul * 60ul * 1000ul;    // 1 min
+constexpr auto timeout_sleep_ms = 5ul * 60ul * 1000ul;  // 5 min
 }  // namespace config
 
 class Taring
@@ -70,10 +70,9 @@ class Taring
 auto scales = HX711{};
 auto filter = SmoothingFilter{config::filter_size};
 auto hysteresis = Hysteresis{config::hysteresis_size};
-auto weight_display = Display{pins::scale_display_clk, pins::scale_display_dio,
-                              config::brightness};
-auto timer_display = TimerDisplay{pins::timer_display_clk,
-                                  pins::timer_display_dio, config::brightness};
+auto weight_display = Display{pins::scale_display_clk, pins::scale_display_dio};
+auto timer_display =
+    TimerDisplay{pins::timer_display_clk, pins::timer_display_dio};
 auto taring = Taring{};
 auto last_activity_time_ms = 0ul;
 
@@ -156,15 +155,26 @@ void loop()
     }
     timer_display.update();
 
+    // Dim the displays if idle for a little while
     // Go to sleep if idle for too long
     const auto time_now_ms = millis();
-    if (time_now_ms - last_activity_time_ms > config::inactivity_timeout_ms)
+    if (time_now_ms - last_activity_time_ms > config::timeout_sleep_ms)
     {
         weight_display.clear();
         timer_display.stop();
         filter.clear();
         scales.power_down();
         sleep_mode();
+    }
+    else if (time_now_ms - last_activity_time_ms > config::timeout_dim_ms)
+    {
+        weight_display.setMinBrightness();
+        timer_display.setMinBrightness();
+    }
+    else
+    {
+        weight_display.setMaxBrightness();
+        timer_display.setMaxBrightness();
     }
 
 #ifdef LOGGING
