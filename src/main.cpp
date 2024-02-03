@@ -1,3 +1,6 @@
+#include "button.h"
+#include "config.h"
+#include "serial.h"
 #include <Arduino.h>
 #include <Battery.h>
 #include <Display.h>
@@ -8,178 +11,279 @@
 #include <TimerDisplay.h>
 #include <avr/sleep.h>
 
-namespace pins
+// TODO maybe a "wait to stabilize" state
+
+enum class State
 {
-constexpr uint8_t loadcell_dt = 4;
-constexpr uint8_t loadcell_sck = 3;
-constexpr uint8_t timer_display_clk = 6;
-constexpr uint8_t timer_display_dio = 9;
-constexpr uint8_t scale_display_clk = A1;
-constexpr uint8_t scale_display_dio = A2;
-constexpr uint8_t tare_button = 2;  // Must be interrupt compatible!
-constexpr uint8_t battery_voltage = A6;
-}  // namespace pins
+    taring,
+    ready,
+    active,
+    dim,
+    sleep,
+} state_ = State::taring;
 
-namespace config
-{
-constexpr float scale_factor = 1574.f;
-constexpr uint8_t num_tare_samples = 10;
-constexpr uint8_t filter_size = 10;
-constexpr float hysteresis_size = 0.1f;
-constexpr auto battery_scaling = 2.f * 3.3f / 1024.f;
-constexpr auto tare_interval_ms = 1000ul;
-constexpr auto timeout_dim_ms = 1ul * 60ul * 1000ul;    // 1 min
-constexpr auto timeout_sleep_ms = 5ul * 60ul * 1000ul;  // 5 min
-}  // namespace config
-
-class Taring
-{
-  public:
-    void request()
-    {
-        // This debounces without waiting.
-
-        const auto curr_time_ms = millis();
-
-        // If prev time is zero, then this is the first request, which we should
-        // always honour.
-        if (prev_time_ms_ == 0ul ||
-            curr_time_ms - prev_time_ms_ > config::tare_interval_ms)
-        {
-            requested_ = true;
-            prev_time_ms_ = curr_time_ms;
-        }
-    }
-
-    bool should_tare()
-    {
-        if (requested_)
-        {
-            requested_ = false;
-            return true;
-        }
-
-        return false;
-    }
-
-  private:
-    bool requested_ = false;
-    unsigned long prev_time_ms_ = 0ul;
-};
-
-auto scales = HX711{};
-auto filter = SmoothingFilter{config::filter_size};
-auto hysteresis = Hysteresis{config::hysteresis_size};
-auto weight_display = Display{pins::scale_display_clk, pins::scale_display_dio};
-auto timer_display =
+auto load_cell_ = HX711{};
+auto filter_ = SmoothingFilter{config::filter_size};
+auto hysteresis_ = Hysteresis{config::hysteresis_size};
+auto weight_display_ =
+    Display{pins::scale_display_clk, pins::scale_display_dio};
+auto timer_display_ =
     TimerDisplay{pins::timer_display_clk, pins::timer_display_dio};
-auto taring = Taring{};
-auto last_activity_time_ms = 0ul;
+auto button_ = Button{};
+auto last_activity_time_ms_ = 0ul;
 
+// todo refactor this
 float read_battery_voltage()
 {
     return config::battery_scaling * analogRead(pins::battery_voltage);
 }
 
+void read_load_cell_and_update_filter()
+{
+    const auto raw_value = load_cell_.read();
+    const auto weight_in_grams_raw =
+        (raw_value - load_cell_.get_offset()) / config::scale_factor;
+    filter_.addValue(weight_in_grams_raw);
+}
+
+void tare()
+{
+    const auto new_offset =
+        load_cell_.get_offset() + filter_.getValue() * config::scale_factor;
+    load_cell_.set_offset(new_offset);
+    hysteresis_.reset();
+}
+
+//--- TRANSITIONS --------------------------------------------------------------
+
+[[nodiscard]] State transitionToTaring()
+{
+    debug("-> taring");
+
+    timer_display_.stop();
+    last_activity_time_ms_ = millis();
+
+    // If already stable, just tare immediately.
+    if (filter_.hasSteadyState())
+    {
+        tare();
+        return State::ready;
+    }
+
+    return State::taring;
+}
+
+[[nodiscard]] State transitionToReady()
+{
+    debug(" -> ready");
+
+    return State::ready;
+}
+
+[[nodiscard]] State transitionToActive()
+{
+    debug("  -> active");
+
+    weight_display_.setMaxBrightness();
+    timer_display_.setMaxBrightness();
+    timer_display_.start();
+
+    return State::active;
+}
+
+[[nodiscard]] State transitionToDim()
+{
+    debug("   -> dim");
+
+    weight_display_.setMinBrightness();
+    timer_display_.setMinBrightness();
+
+    return State::dim;
+}
+
+[[nodiscard]] State transitionToSleep()
+{
+    debug("    -> sleep");
+
+    return State::sleep;
+}
+
+//--- STATES -------------------------------------------------------------------
+
+[[nodiscard]] State taring()
+{
+    // ignore result, but we need to do this because it resets the button
+    // todo make this less weird?
+    button_.should_tare();
+
+    weight_display_.showLine();
+
+    read_load_cell_and_update_filter();
+
+    if (filter_.hasSteadyState())
+    {
+        tare();
+        return transitionToReady();
+    }
+
+    return State::taring;
+}
+
+[[nodiscard]] State ready()
+{
+
+    if (button_.should_tare())
+    {
+        debug("should tare");
+        return transitionToTaring();
+    }
+
+    read_load_cell_and_update_filter();
+
+    const auto weight_in_grams = hysteresis_.compute(filter_.getValue());
+    weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
+
+    if (!filter_.hasSteadyState())
+    {
+        last_activity_time_ms_ = millis();
+    }
+
+    if (weight_in_grams > 1.f)
+    {
+        return transitionToActive();
+    }
+
+    if (millis() - last_activity_time_ms_ > config::timeout_dim_ms)
+    {
+        return transitionToDim();
+    }
+
+    return State::ready;
+}
+
+[[nodiscard]] State active()
+{
+
+    if (button_.should_tare())
+    {
+        debug("should tare");
+        return transitionToTaring();
+    }
+
+    read_load_cell_and_update_filter();
+
+    const auto weight_in_grams = hysteresis_.compute(filter_.getValue());
+    weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
+    timer_display_.update();
+
+    if (!filter_.hasSteadyState())
+    {
+        last_activity_time_ms_ = millis();
+    }
+
+    // Transitions
+    if (millis() - last_activity_time_ms_ > config::timeout_dim_ms)
+        return transitionToDim();
+    return State::active;
+}
+
+[[nodiscard]] State dim()
+{
+    if (button_.should_tare())
+    {
+        debug("should tare");
+        return transitionToTaring();
+    }
+
+    read_load_cell_and_update_filter();
+
+    const auto weight_in_grams = hysteresis_.compute(filter_.getValue());
+
+    weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
+    timer_display_.update();
+
+    // todo maybe do this at the beginning?
+
+    if (!filter_.hasSteadyState())
+    {
+        return transitionToActive();
+    }
+
+    if (millis() - last_activity_time_ms_ > config::timeout_sleep_ms)
+    {
+        return transitionToSleep();
+    }
+
+    return State::dim;
+}
+
+[[nodiscard]] State sleep()
+{
+    debug("sleep");
+
+    weight_display_.clear();
+    timer_display_.stop();
+    filter_.clear();
+    load_cell_.power_down();
+
+    sleep_mode();
+
+    load_cell_.power_up();
+    weight_display_.setMaxBrightness();
+    timer_display_.setMaxBrightness();
+
+    return transitionToTaring();
+}
+
+//--- SETUP/LOOP ---------------------------------------------------------------
+
 void setup()
 {
-#ifdef LOGGING
-    Serial.begin(38400);
-    Serial.println("time,data");  // CSV header
-#endif
+    serial_setup();
+    debug("setup");
 
+    // Set up button interrupt
     pinMode(pins::tare_button, INPUT_PULLUP);
     attachInterrupt(
-        digitalPinToInterrupt(pins::tare_button), [] { taring.request(); },
+        digitalPinToInterrupt(pins::tare_button), [] { button_.pressed(); },
         FALLING);
 
     // Enable power-down sleep
     set_sleep_mode(SLEEP_MODE_PWR_DOWN);
     sleep_enable();
 
-    scales.begin(pins::loadcell_dt, pins::loadcell_sck);
-    scales.set_scale(config::scale_factor);
-    taring.request();
+    // Set up the load cell
+    load_cell_.begin(pins::loadcell_dt, pins::loadcell_sck);
+    load_cell_.set_scale(config::scale_factor);
 
-    weight_display.showNumberDec(battery::percentage(read_battery_voltage()));
+    weight_display_.showNumberDecEx(read_battery_voltage() * 1000, 0b10000000);
     delay(1000ul);
+
+    state_ = transitionToTaring();
 }
 
 void loop()
 {
-    // Taring
-    if (taring.should_tare())
+    switch (state_)
     {
-        scales.power_up();
-        timer_display.stop();
+    case State::taring:
+        state_ = taring();
+        break;
 
-        // Wait until the filter is stable, for accurate taring
-        while (!filter.hasSteadyState())
-        {
-            weight_display.showLine();
+    case State::ready:
+        state_ = ready();
+        break;
 
-            const auto raw_value = scales.read();
-            const auto weight_in_grams_raw =
-                (raw_value - scales.get_offset()) / config::scale_factor;
-            filter.addValue(weight_in_grams_raw);
-        }
+    case State::active:
+        state_ = active();
+        break;
 
-        const auto new_offset =
-            scales.get_offset() + filter.getValue() * config::scale_factor;
-        scales.set_offset(new_offset);
-        hysteresis.reset();
-        last_activity_time_ms = millis();
+    case State::dim:
+        state_ = dim();
+        break;
+
+    case State::sleep:
+        state_ = sleep();
+        break;
     }
-
-    // Read weight
-    const auto raw_value = scales.read();
-    const auto weight_in_grams_raw =
-        (raw_value - scales.get_offset()) / config::scale_factor;
-
-    // Filter weight
-    filter.addValue(weight_in_grams_raw);
-    const auto weight_in_grams = hysteresis.compute(filter.getValue());
-
-    if (!filter.hasSteadyState())
-    {
-        last_activity_time_ms = millis();
-    }
-
-    // Display weight
-    weight_display.setSegments(Formatter::to_segments(weight_in_grams).get());
-
-    // Display brew timer
-    if (weight_in_grams > 1.f)
-    {
-        timer_display.start();
-    }
-    timer_display.update();
-
-    // Dim the displays if idle for a little while
-    // Go to sleep if idle for too long
-    const auto time_now_ms = millis();
-    if (time_now_ms - last_activity_time_ms > config::timeout_sleep_ms)
-    {
-        weight_display.clear();
-        timer_display.stop();
-        filter.clear();
-        scales.power_down();
-        sleep_mode();
-    }
-    else if (time_now_ms - last_activity_time_ms > config::timeout_dim_ms)
-    {
-        weight_display.setMinBrightness();
-        timer_display.setMinBrightness();
-    }
-    else
-    {
-        weight_display.setMaxBrightness();
-        timer_display.setMaxBrightness();
-    }
-
-#ifdef LOGGING
-    Serial.print(millis() / 1000.0);
-    Serial.print(",");
-    Serial.println(raw_value);
-#endif
 }
