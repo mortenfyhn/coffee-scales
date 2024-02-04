@@ -63,19 +63,15 @@ void tare()
     timer_display_.stop();
     last_activity_time_ms_ = millis();
 
-    // If already stable, just tare immediately.
-    if (filter_.hasSteadyState())
-    {
-        tare();
-        return State::ready;
-    }
-
     return State::taring;
 }
 
 [[nodiscard]] State transitionToReady()
 {
     debug(" -> ready");
+
+    weight_display_.setMaxBrightness();
+    timer_display_.setMaxBrightness();
 
     return State::ready;
 }
@@ -116,15 +112,17 @@ void tare()
     // todo make this less weird?
     button_.should_tare();
 
-    weight_display_.showLine();
-
-    read_load_cell_and_update_filter();
-
+    // Placing this check early makes taring instant when the filter is already
+    // stable, without wasting time on showing the "wait for taring" line.
     if (filter_.hasSteadyState())
     {
         tare();
         return transitionToReady();
     }
+
+    weight_display_.showLine();
+
+    read_load_cell_and_update_filter();
 
     return State::taring;
 }
