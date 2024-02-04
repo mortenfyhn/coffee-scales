@@ -108,8 +108,8 @@ void tare()
 
 [[nodiscard]] State taring()
 {
-    // ignore result, but we need to do this because it resets the button
-    // todo make this less weird?
+    // I do this to clear any pending "should tares".
+    // TODO: Figure out if needed, if not remove, if yes refactor.
     button_.should_tare();
 
     // Placing this check early makes taring instant when the filter is already
