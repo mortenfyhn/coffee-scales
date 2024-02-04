@@ -32,7 +32,6 @@ auto timer_display_ =
 auto button_ = Button{};
 auto last_activity_time_ms_ = 0ul;
 
-// todo refactor this
 float read_battery_voltage()
 {
     return config::battery_scaling * analogRead(pins::battery_voltage);
@@ -182,9 +181,11 @@ void tare()
         last_activity_time_ms_ = millis();
     }
 
-    // Transitions
     if (millis() - last_activity_time_ms_ > config::timeout_dim_ms)
+    {
         return transitionToDim();
+    }
+
     return State::active;
 }
 
