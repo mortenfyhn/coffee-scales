@@ -41,6 +41,7 @@ float read_battery_voltage()
 void read_load_cell_and_update_filter()
 {
     const auto raw_value = load_cell_.read();
+    log(raw_value);
     const auto weight_in_grams_raw =
         (raw_value - load_cell_.get_offset()) / config::scale_factor;
     filter_.addValue(weight_in_grams_raw);

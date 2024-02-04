@@ -17,9 +17,18 @@ void serial_setup()
 #endif
 }
 
-void debug(const String& message)
+template <typename T> void debug(const T& message)
 {
 #ifdef DEBUG
+    Serial.println(message);
+#else
+    (void)message;  // Silence the unused parameter warning
+#endif
+}
+
+template <typename T> void log(const T& message)
+{
+#ifdef LOGGING
     Serial.println(message);
 #else
     (void)message;  // Silence the unused parameter warning
