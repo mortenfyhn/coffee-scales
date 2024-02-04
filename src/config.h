@@ -16,7 +16,7 @@ constexpr uint8_t battery_voltage = A6;
 
 namespace config
 {
-constexpr float scale_factor = 1574.f;
+constexpr float scale_factor = 1565.f;
 constexpr uint8_t num_tare_samples = 10;
 constexpr uint8_t filter_size = 10;
 constexpr float hysteresis_size = 0.1f;
