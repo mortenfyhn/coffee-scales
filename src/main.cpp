@@ -29,7 +29,7 @@ auto weight_display_ =
     Display{pins::scale_display_clk, pins::scale_display_dio};
 auto timer_display_ =
     TimerDisplay{pins::timer_display_clk, pins::timer_display_dio};
-auto button_ = Button{};
+auto button_ = Button{pins::tare_button};
 auto last_activity_time_ms_ = 0ul;
 
 float read_battery_voltage()
@@ -52,6 +52,18 @@ void tare()
         load_cell_.get_offset() + filter_.getValue() * config::scale_factor;
     load_cell_.set_offset(new_offset);
     hysteresis_.reset();
+}
+
+void attachTareButtonInterrupt()
+{
+    attachInterrupt(
+        digitalPinToInterrupt(pins::tare_button),
+        [] { button_.interrupt_handler(); }, FALLING);
+}
+
+void detachTareButtonInterrupt()
+{
+    detachInterrupt(digitalPinToInterrupt(pins::tare_button));
 }
 
 //--- TRANSITIONS --------------------------------------------------------------
@@ -110,7 +122,7 @@ void tare()
 {
     // I do this to clear any pending "should tares".
     // TODO: Figure out if needed, if not remove, if yes refactor.
-    button_.should_tare();
+    button_.is_pressed();
 
     // Placing this check early makes taring instant when the filter is already
     // stable, without wasting time on showing the "wait for taring" line.
@@ -130,7 +142,7 @@ void tare()
 [[nodiscard]] State ready()
 {
 
-    if (button_.should_tare())
+    if (button_.is_pressed())
     {
         debug("should tare");
         return transitionToTaring();
@@ -162,7 +174,7 @@ void tare()
 [[nodiscard]] State active()
 {
 
-    if (button_.should_tare())
+    if (button_.is_pressed())
     {
         debug("should tare");
         return transitionToTaring();
@@ -189,7 +201,7 @@ void tare()
 
 [[nodiscard]] State dim()
 {
-    if (button_.should_tare())
+    if (button_.is_pressed())
     {
         debug("should tare");
         return transitionToTaring();
@@ -226,6 +238,13 @@ void tare()
     filter_.clear();
     load_cell_.power_down();
 
+    // When sleep mode is triggered by a long press, we must disable the
+    // interrupt for a moment, so that letting go of the button doesn't trigger
+    // the ISR and wake the device.
+    detachTareButtonInterrupt();
+    delay(1000ul);
+    attachTareButtonInterrupt();
+
     sleep_mode();
 
     load_cell_.power_up();
@@ -242,11 +261,9 @@ void setup()
     serial_setup();
     debug("setup");
 
-    // Set up button interrupt
+    // Configure button
     pinMode(pins::tare_button, INPUT_PULLUP);
-    attachInterrupt(
-        digitalPinToInterrupt(pins::tare_button), [] { button_.pressed(); },
-        FALLING);
+    attachTareButtonInterrupt();
 
     // Enable power-down sleep
     set_sleep_mode(SLEEP_MODE_PWR_DOWN);
@@ -264,6 +281,13 @@ void setup()
 
 void loop()
 {
+    // debug("loop");
+
+    if (button_.is_long_pressed())
+    {
+        state_ = transitionToSleep();
+    }
+
     switch (state_)
     {
     case State::taring:

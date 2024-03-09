@@ -1,13 +1,18 @@
 #pragma once
 
 #include "config.h"
+#include "serial.h"
 
 class Button
 {
   public:
-    void pressed()
+    Button(uint8_t pin) : pin_(pin) {}
+
+    void interrupt_handler()
     {
         // This debounces without waiting.
+
+        debug("isr");
 
         const auto curr_time_ms = millis();
 
@@ -18,10 +23,12 @@ class Button
         {
             requested_ = true;
             prev_time_ms_ = curr_time_ms;
+            debug("long press timer started");
+            long_press_start_time_ms = curr_time_ms;
         }
     }
 
-    bool should_tare()
+    bool is_pressed()
     {
         if (requested_)
         {
@@ -32,7 +39,48 @@ class Button
         return false;
     }
 
+    bool is_long_pressed()
+    {
+
+        // when first pressed, start a timer
+        // when we call this function, check if it's still pressed
+        // if not, stop the timer and return false
+        // if yes
+
+        const auto timer_started = long_press_start_time_ms != 0ul;
+
+        if (!timer_started)
+        {
+            return false;
+        }
+
+        const auto still_pressed = digitalRead(pin_) == LOW;
+
+        if (!still_pressed)
+        {
+            debug("no longer pressed");
+            long_press_start_time_ms = 0ul;
+            return false;
+        }
+
+        const auto timeout =
+            millis() - long_press_start_time_ms > long_press_duration_ms;
+
+        if (!timeout)
+        {
+            debug("not timed out");
+            return false;
+        }
+
+        debug("long pressed!");
+        long_press_start_time_ms = 0ul;
+        return true;
+    }
+
   private:
+    uint8_t pin_ = 0;
     bool requested_ = false;
     unsigned long prev_time_ms_ = 0ul;
+    unsigned long long_press_start_time_ms = 0ul;
+    static constexpr auto long_press_duration_ms = 500ul;
 };

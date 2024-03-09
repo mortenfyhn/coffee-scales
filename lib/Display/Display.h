@@ -18,6 +18,13 @@ class Display : public TM1637Display
         setSegments(segments_line);
     }
 
+    void showSomething()
+    {
+        constexpr uint8_t segments_line[] = {SEG_G, SEG_G};
+
+        setSegments(segments_line);
+    }
+
     void setMaxBrightness() { setBrightness(7); }
     void setMinBrightness() { setBrightness(0); }
 };
