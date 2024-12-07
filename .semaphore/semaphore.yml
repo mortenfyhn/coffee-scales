@@ -12,6 +12,7 @@ blocks:
             - pip install -U platformio
             - export PATH=$PATH:$HOME/.local/bin
             - checkout
+            - cd firmware
             - git submodule init
             - git submodule update
       jobs:
