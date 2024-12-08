@@ -1,0 +1,11 @@
+*.bak
+*.bck
+*-cache.lib
+*-rescue.lib
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.sch-bak
+*.kicad_prl
+coffee-scales-backups/
+gerber/
+fp-info-cache
