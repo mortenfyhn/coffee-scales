@@ -4,12 +4,12 @@
 
 namespace pins
 {
-constexpr uint8_t loadcell_dt = 4;
-constexpr uint8_t loadcell_sck = 3;
-constexpr uint8_t timer_display_clk = 6;
-constexpr uint8_t timer_display_dio = 9;
-constexpr uint8_t scale_display_clk = A1;
-constexpr uint8_t scale_display_dio = A2;
+constexpr uint8_t loadcell_dt = SCL;
+constexpr uint8_t loadcell_sck = SDA;
+constexpr uint8_t timer_display_clk = 7;
+constexpr uint8_t timer_display_dio = MISO;
+constexpr uint8_t scale_display_clk = MOSI;
+constexpr uint8_t scale_display_dio = SCK;
 constexpr uint8_t tare_button = 2;  // Must be interrupt compatible!
 constexpr uint8_t battery_voltage = A6;
 }  // namespace pins
