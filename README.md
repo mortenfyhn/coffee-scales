@@ -14,22 +14,21 @@ Current prototype looks something like this:
 
 ![A breadboard prototype in action](https://i.imgur.com/sJAW9rS.jpg)
 
-## Build
+## Firmware
 
-To build and upload the code:
+Setup:
 
 1. [Install PlatformIO Core and shell commands](https://docs.platformio.org/en/latest/core/installation/index.html)
-2. `pio run -t upload`
+2. [Install Just](https://just.systems/man/en/packages.html)
 
-## Log data
-
-Run
+Usage:
 
 ```sh
-pio run -e logging -t upload && pio device monitor --quiet | tee logs/log.csv
+cd firmware
+just --list
 ```
 
-This will log to your screen and to a file `logs/log.csv` 🪵
+to list all recipes.
 
 ## Hardware
 

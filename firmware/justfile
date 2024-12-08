@@ -1,0 +1,26 @@
+# Build, don't upload
+build:
+  pio run
+
+# Build for logging
+build-log:
+  pio run -e logging
+
+# Build and upload to a board
+upload:
+  pio run -t upload
+
+# Run tests
+test:
+  pio test -e test
+
+# Build and upload for logging, and capture log
+log:
+  pio run -e logging -t upload
+  pio device monitor --quiet | tee logs/log.csv
+
+# Run the CI checks
+ci:
+  just build
+  just build-log
+  just test
