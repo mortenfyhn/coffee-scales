@@ -141,7 +141,6 @@ void detachTareButtonInterrupt()
 
 [[nodiscard]] State ready()
 {
-
     if (button_.is_pressed())
     {
         debug("should tare");
@@ -173,7 +172,6 @@ void detachTareButtonInterrupt()
 
 [[nodiscard]] State active()
 {
-
     if (button_.is_pressed())
     {
         debug("should tare");
