@@ -1,26 +1,27 @@
-# Build, don't upload
-build:
-  pio run
-
-# Build for logging
-build-log:
-  pio run -e logging
+# Build but don't upload
+build env="release":
+  pio run --environment {{env}}
 
 # Build and upload to a board
-upload:
-  pio run -t upload
+upload env="release":
+  pio run --environment {{env}} --target upload
 
-# Run tests
+# Run unit tests
 test:
-  pio test -e test
+  pio test --environment test
+
+# Build and upload for debug, and monitor serial output
+debug:
+  pio run --environment debug --target upload
+  pio device monitor
 
 # Build and upload for logging, and capture log
 log:
-  pio run -e logging -t upload
+  pio run --environment logging --target upload
   pio device monitor --quiet | tee logs/log.csv
 
 # Run the CI checks
 ci:
   just build
-  just build-log
+  just build logging
   just test
