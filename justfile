@@ -1,3 +1,5 @@
+set working-directory := 'firmware'
+
 # Build but don't upload
 build env="release":
   pio run --environment {{env}}
