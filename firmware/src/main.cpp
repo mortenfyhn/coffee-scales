@@ -2,7 +2,6 @@
 #include "config.h"
 #include "serial.h"
 #include <Arduino.h>
-#include <Battery.h>
 #include <Display.h>
 #include <Formatter.h>
 #include <HX711.h>
