@@ -14,13 +14,13 @@ class TimerDisplay : public Display
     void update();
 
   private:
-    unsigned long start_millis = 0;
+    uint32_t start_millis = 0;
     bool started = false;
-    static constexpr unsigned long millis_per_second = 1000;
-    static constexpr unsigned long millis_per_minute = 60 * millis_per_second;
-    static constexpr unsigned long millis_per_hour = 60 * millis_per_minute;
+    static constexpr uint32_t millis_per_second = 1000;
+    static constexpr uint32_t millis_per_minute = 60 * millis_per_second;
+    static constexpr uint32_t millis_per_hour = 60 * millis_per_minute;
 
-    static uint8_t millisToSeconds(unsigned long millis);
-    static uint8_t millisToMinutes(unsigned long millis);
+    static uint8_t millisToSeconds(uint32_t millis);
+    static uint8_t millisToMinutes(uint32_t millis);
     void showTime(uint8_t minutes, uint8_t seconds);
 };

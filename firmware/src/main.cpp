@@ -9,6 +9,7 @@
 #include <SmoothingFilter.h>
 #include <TimerDisplay.h>
 #include <avr/sleep.h>
+#include <stdint.h>
 
 // TODO maybe a "wait to stabilize" state
 
@@ -29,7 +30,7 @@ auto weight_display_ =
 auto timer_display_ =
     TimerDisplay{pins::timer_display_clk, pins::timer_display_dio};
 auto button_ = Button{pins::tare_button};
-auto last_activity_time_ms_ = 0ul;
+uint32_t last_activity_time_ms_ = 0;
 
 float read_battery_voltage()
 {
@@ -38,16 +39,16 @@ float read_battery_voltage()
 
 void read_load_cell_and_update_filter()
 {
-    const auto raw_value = load_cell_.read();
+    const int32_t raw_value = load_cell_.read();
     log(raw_value);
-    const auto weight_in_grams_raw =
+    const float weight_in_grams_raw =
         (raw_value - load_cell_.get_offset()) / config::scale_factor;
     filter_.addValue(weight_in_grams_raw);
 }
 
 void tare()
 {
-    const auto new_offset =
+    const int32_t new_offset =
         load_cell_.get_offset() + filter_.getValue() * config::scale_factor;
     load_cell_.set_offset(new_offset);
     hysteresis_.reset();
@@ -148,7 +149,7 @@ void detachTareButtonInterrupt()
 
     read_load_cell_and_update_filter();
 
-    const auto weight_in_grams = hysteresis_.compute(filter_.getValue());
+    const float weight_in_grams = hysteresis_.compute(filter_.getValue());
     weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
 
     if (!filter_.hasSteadyState())
@@ -179,7 +180,7 @@ void detachTareButtonInterrupt()
 
     read_load_cell_and_update_filter();
 
-    const auto weight_in_grams = hysteresis_.compute(filter_.getValue());
+    const float weight_in_grams = hysteresis_.compute(filter_.getValue());
     weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
     timer_display_.update();
 
@@ -206,7 +207,7 @@ void detachTareButtonInterrupt()
 
     read_load_cell_and_update_filter();
 
-    const auto weight_in_grams = hysteresis_.compute(filter_.getValue());
+    const float weight_in_grams = hysteresis_.compute(filter_.getValue());
 
     weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
     timer_display_.update();

@@ -51,7 +51,7 @@ Buffer::buffer<uint8_t> to_segments(float value)
 
     auto segments = Buffer::buffer<uint8_t>{4};
 
-    auto i = 0;
+    uint8_t i = 0;
     for (char const* c = string.get(); *c != '\0'; ++c)
     {
         if (*c == ' ')

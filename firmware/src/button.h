@@ -14,7 +14,7 @@ class Button
 
         debug("isr");
 
-        const auto curr_time_ms = millis();
+        const uint32_t curr_time_ms = millis();
 
         // If prev time is zero, then this is the first request, which we should
         // always honour.
@@ -47,14 +47,14 @@ class Button
         // if not, stop the timer and return false
         // if yes
 
-        const auto timer_started = long_press_start_time_ms != 0ul;
+        const bool timer_started = long_press_start_time_ms != 0ul;
 
         if (!timer_started)
         {
             return false;
         }
 
-        const auto still_pressed = digitalRead(pin_) == LOW;
+        const bool still_pressed = digitalRead(pin_) == LOW;
 
         if (!still_pressed)
         {
@@ -63,7 +63,7 @@ class Button
             return false;
         }
 
-        const auto timeout =
+        const bool timeout =
             millis() - long_press_start_time_ms > long_press_duration_ms;
 
         if (!timeout)
@@ -80,7 +80,7 @@ class Button
   private:
     uint8_t pin_ = 0;
     bool requested_ = false;
-    unsigned long prev_time_ms_ = 0ul;
-    unsigned long long_press_start_time_ms = 0ul;
-    static constexpr auto long_press_duration_ms = 500ul;
+    uint32_t prev_time_ms_ = 0ul;
+    uint32_t long_press_start_time_ms = 0ul;
+    static constexpr uint32_t long_press_duration_ms = 500;
 };
