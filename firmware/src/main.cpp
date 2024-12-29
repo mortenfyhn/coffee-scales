@@ -240,6 +240,9 @@ void detachTareButtonInterrupt()
     filter_.clear();
     load_cell_.power_down();
 
+    // Turn of red indicator LED that I stupidly tied the scale display's DIO pin to...
+    digitalWrite(13, LOW);
+
     // When sleep mode is triggered by a long press, we must disable the
     // interrupt for a moment, so that letting go of the button doesn't trigger
     // the ISR and wake the device.
