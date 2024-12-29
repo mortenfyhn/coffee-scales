@@ -72,6 +72,9 @@ void detachTareButtonInterrupt()
 {
     debug("-> taring");
 
+    weight_display_.setBrightnessMax();
+    timer_display_.setBrightnessMax();
+
     timer_display_.stop();
     last_activity_time_ms_ = millis();
 
@@ -82,8 +85,8 @@ void detachTareButtonInterrupt()
 {
     debug(" -> ready");
 
-    weight_display_.setMaxBrightness();
-    timer_display_.setMaxBrightness();
+    weight_display_.setBrightnessMax();
+    timer_display_.setBrightnessMax();
 
     return State::ready;
 }
@@ -92,8 +95,9 @@ void detachTareButtonInterrupt()
 {
     debug("  -> active");
 
-    weight_display_.setMaxBrightness();
-    timer_display_.setMaxBrightness();
+    weight_display_.setBrightnessMax();
+    timer_display_.setBrightnessMax();
+
     timer_display_.start();
 
     return State::active;
@@ -103,8 +107,8 @@ void detachTareButtonInterrupt()
 {
     debug("   -> dim");
 
-    weight_display_.setMinBrightness();
-    timer_display_.setMinBrightness();
+    weight_display_.setBrightnessDim();
+    timer_display_.setBrightnessDim();
 
     return State::dim;
 }
@@ -246,8 +250,6 @@ void detachTareButtonInterrupt()
     sleep_mode();
 
     load_cell_.power_up();
-    weight_display_.setMaxBrightness();
-    timer_display_.setMaxBrightness();
 
     return transitionToTaring();
 }

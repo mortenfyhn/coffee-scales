@@ -9,7 +9,7 @@ class Display : public SevenSegmentTM1637
         : SevenSegmentTM1637(pin_clk, pin_dio)
     {
         init();
-        setMaxBrightness();
+        setBrightnessMax();
     }
 
     void showLine()
@@ -32,8 +32,8 @@ class Display : public SevenSegmentTM1637
         printRaw(data, length, position);
     }
 
-    void setMaxBrightness() { setBacklight(100); }
-    void setMinBrightness() { setBacklight(10); }
+    void setBrightnessMax() { setBacklight(100); }
+    void setBrightnessDim() { setBacklight(10); }
 
   private:
     static constexpr uint8_t SEG_G = 0b01000000;
