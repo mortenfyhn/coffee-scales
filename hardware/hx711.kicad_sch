@@ -5,1223 +5,28 @@
 	(uuid "fb6ddab4-0d50-49e5-b904-882c71cd64c2")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Sparkfun-HX711-eagle-import:0.1UF-25V-5%(0603)"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "C"
-				(at 1.524 2.921 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Value" ""
-				(at 1.524 -2.159 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" "Sparkfun-HX711:0603-CAP"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "CAP-08604"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "0.1UF-25V-5%(0603)_1_0"
-				(rectangle
-					(start -2.032 0.508)
-					(end 2.032 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start -2.032 1.524)
-					(end 2.032 2.032)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 0.508)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0 2.032)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Sparkfun-HX711-eagle-import:100OHM-1/10W-1%(0603)"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at -3.81 1.4986 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Value" ""
-				(at -3.81 -3.302 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" "Sparkfun-HX711:0603-RES"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "RES-07863"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "100OHM-1/10W-1%(0603)_1_0"
-				(polyline
-					(pts
-						(xy -2.54 0) (xy -2.159 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.159 1.016) (xy -1.524 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -1.016) (xy -0.889 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.889 1.016) (xy -0.254 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.254 -1.016) (xy 0.381 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.381 1.016) (xy 1.016 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 -1.016) (xy 1.651 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.651 1.016) (xy 2.286 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 -1.016) (xy 2.54 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Sparkfun-HX711-eagle-import:10KOHM-1/10W-1%(0603)0603"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at -3.81 1.4986 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Value" ""
-				(at -3.81 -3.302 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" "Sparkfun-HX711:0603-RES"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "RES-00824"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "10KOHM-1/10W-1%(0603)0603_1_0"
-				(polyline
-					(pts
-						(xy -2.54 0) (xy -2.159 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.159 1.016) (xy -1.524 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -1.016) (xy -0.889 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.889 1.016) (xy -0.254 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.254 -1.016) (xy 0.381 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.381 1.016) (xy 1.016 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 -1.016) (xy 1.651 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.651 1.016) (xy 2.286 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 -1.016) (xy 2.54 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Sparkfun-HX711-eagle-import:10UF50V20%(1210)"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "C"
-				(at 1.524 2.921 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Value" ""
-				(at 1.524 -2.159 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" "Sparkfun-HX711:1210"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "CAP-09824"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "10UF50V20%(1210)_1_0"
-				(rectangle
-					(start -2.032 0.508)
-					(end 2.032 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start -2.032 1.524)
-					(end 2.032 2.032)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 0.508)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0 2.032)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 90)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Sparkfun-HX711-eagle-import:20KOHM1/10W1%(0603)"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at -3.81 1.4986 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Value" ""
-				(at -3.81 -3.302 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" "Sparkfun-HX711:0603-RES"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "RES-09383"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "20KOHM1/10W1%(0603)_1_0"
-				(polyline
-					(pts
-						(xy -2.54 0) (xy -2.159 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.159 1.016) (xy -1.524 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -1.016) (xy -0.889 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.889 1.016) (xy -0.254 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.254 -1.016) (xy 0.381 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.381 1.016) (xy 1.016 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 -1.016) (xy 1.651 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.651 1.016) (xy 2.286 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 -1.016) (xy 2.54 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Sparkfun-HX711-eagle-import:8.2KOHM-1/10W-5%(0603)"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at -3.81 1.4986 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Value" ""
-				(at -3.81 -3.302 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" "Sparkfun-HX711:0603-RES"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "RES-10646"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "8.2KOHM-1/10W-5%(0603)_1_0"
-				(polyline
-					(pts
-						(xy -2.54 0) (xy -2.159 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.159 1.016) (xy -1.524 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -1.016) (xy -0.889 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.889 1.016) (xy -0.254 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.254 -1.016) (xy 0.381 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.381 1.016) (xy 1.016 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 -1.016) (xy 1.651 1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.651 1.016) (xy 2.286 -1.016)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.286 -1.016) (xy 2.54 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Sparkfun-HX711-eagle-import:GND"
-			(power)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#GND"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" ""
-				(at -2.54 -2.54 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "SUPPLY SYMBOL"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "GND_1_0"
-				(polyline
-					(pts
-						(xy -1.905 0) (xy 1.905 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin power_in line
-					(at 0 2.54 270)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Sparkfun-HX711-eagle-import:HX711HX711"
+		(symbol "CoffeeLib:HX711"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "U"
-				(at -12.7 21.082 0)
+				(at 0 0 0)
 				(effects
 					(font
-						(size 1.778 1.5113)
+						(size 1.27 1.27)
 					)
-					(justify left bottom)
-					(hide yes)
 				)
 			)
 			(property "Value" ""
-				(at -12.7 -22.86 0)
+				(at 0 0 0)
 				(effects
 					(font
-						(size 1.778 1.5113)
+						(size 1.27 1.27)
 					)
-					(justify left bottom)
-					(hide yes)
 				)
 			)
-			(property "Footprint" "Sparkfun-HX711:SO16"
-				(at 0 0 0)
+			(property "Footprint" "Package_SO:SOP-16_3.9x9.9mm_P1.27mm"
+				(at -0.254 -14.224 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1247,65 +52,22 @@
 					(hide yes)
 				)
 			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "HX711_0_1"
+				(rectangle
+					(start -7.62 11.43)
+					(end 7.62 -11.43)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 			)
-			(symbol "HX711HX711_1_0"
-				(polyline
-					(pts
-						(xy -12.7 -20.32) (xy -12.7 20.32)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -12.7 20.32) (xy 10.16 20.32)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 10.16 -20.32) (xy -12.7 -20.32)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 10.16 20.32) (xy 10.16 -20.32)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin bidirectional line
-					(at -15.24 17.78 0)
+			(symbol "HX711_1_1"
+				(pin power_in line
+					(at -10.16 8.89 0)
 					(length 2.54)
 					(name "VSUP"
 						(effects
@@ -1317,15 +79,15 @@
 					(number "1"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 12.7 -12.7 180)
+				(pin input line
+					(at 10.16 -6.35 180)
 					(length 2.54)
-					(name "INB+"
+					(name "INPB"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1335,13 +97,13 @@
 					(number "10"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 12.7 -7.62 180)
+				(pin input line
+					(at 10.16 -3.81 180)
 					(length 2.54)
 					(name "PD_SCK"
 						(effects
@@ -1353,13 +115,13 @@
 					(number "11"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 12.7 -2.54 180)
+				(pin output line
+					(at 10.16 -1.27 180)
 					(length 2.54)
 					(name "DOUT"
 						(effects
@@ -1371,13 +133,13 @@
 					(number "12"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
 				(pin bidirectional line
-					(at 12.7 2.54 180)
+					(at 10.16 1.27 180)
 					(length 2.54)
 					(name "XO"
 						(effects
@@ -1389,13 +151,13 @@
 					(number "13"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 12.7 7.62 180)
+				(pin input line
+					(at 10.16 3.81 180)
 					(length 2.54)
 					(name "XI"
 						(effects
@@ -1407,13 +169,13 @@
 					(number "14"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 12.7 12.7 180)
+				(pin input line
+					(at 10.16 6.35 180)
 					(length 2.54)
 					(name "RATE"
 						(effects
@@ -1425,13 +187,13 @@
 					(number "15"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 12.7 17.78 180)
+				(pin power_in line
+					(at 10.16 8.89 180)
 					(length 2.54)
 					(name "DVDD"
 						(effects
@@ -1443,13 +205,13 @@
 					(number "16"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at -15.24 12.7 0)
+				(pin output line
+					(at -10.16 6.35 0)
 					(length 2.54)
 					(name "BASE"
 						(effects
@@ -1461,13 +223,13 @@
 					(number "2"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at -15.24 7.62 0)
+				(pin power_out line
+					(at -10.16 3.81 0)
 					(length 2.54)
 					(name "AVDD"
 						(effects
@@ -1479,13 +241,13 @@
 					(number "3"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at -15.24 2.54 0)
+				(pin input line
+					(at -10.16 1.27 0)
 					(length 2.54)
 					(name "VFB"
 						(effects
@@ -1497,13 +259,13 @@
 					(number "4"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at -15.24 -2.54 0)
+				(pin power_in line
+					(at -10.16 -1.27 0)
 					(length 2.54)
 					(name "AGND"
 						(effects
@@ -1515,13 +277,13 @@
 					(number "5"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at -15.24 -7.62 0)
+				(pin input line
+					(at -10.16 -3.81 0)
 					(length 2.54)
 					(name "VBG"
 						(effects
@@ -1533,15 +295,15 @@
 					(number "6"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at -15.24 -12.7 0)
+				(pin input line
+					(at -10.16 -6.35 0)
 					(length 2.54)
-					(name "INA-"
+					(name "INNA"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1551,15 +313,15 @@
 					(number "7"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at -15.24 -17.78 0)
+				(pin input line
+					(at -10.16 -8.89 0)
 					(length 2.54)
-					(name "INA+"
+					(name "INPA"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1569,15 +331,15 @@
 					(number "8"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 12.7 -17.78 180)
+				(pin input line
+					(at 10.16 -8.89 180)
 					(length 2.54)
-					(name "INB-"
+					(name "INNB"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1587,36 +349,173 @@
 					(number "9"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
 			)
 		)
-		(symbol "Sparkfun-HX711-eagle-import:INDUCTOR0805-IND"
+		(symbol "Device:C"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C"
+				(at 0.635 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Unpolarized capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_0_1"
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Device:L"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "L"
-				(at 2.54 5.08 0)
+				(at -1.27 0 90)
 				(effects
 					(font
-						(size 1.778 1.5113)
+						(size 1.27 1.27)
 					)
-					(justify left bottom)
 				)
 			)
-			(property "Value" ""
-				(at 2.54 -5.08 0)
+			(property "Value" "L"
+				(at 1.905 0 90)
 				(effects
 					(font
-						(size 1.778 1.5113)
+						(size 1.27 1.27)
 					)
-					(justify left bottom)
 				)
 			)
-			(property "Footprint" "Sparkfun-HX711:0805"
+			(property "Footprint" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -1625,7 +524,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "~"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1634,7 +533,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Inductors\n\nBasic Inductor/Choke - 0603 and 1206. Footprints are not proven and vary greatly between part numbers.\nINDUCTOR POWER 3.3UH 4.0A SMD\n0.197\" L x 0.197\" W x 0.177\" H (5.00mm x 5.00mm x 4.50mm)"
+			(property "Description" "Inductor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1643,34 +542,44 @@
 					(hide yes)
 				)
 			)
-			(property "ki_locked" ""
+			(property "ki_keywords" "inductor choke coil reactor magnetic"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
 				)
 			)
-			(symbol "INDUCTOR0805-IND_1_0"
+			(property "ki_fp_filters" "Choke_* *Coil* Inductor_* L_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "L_0_1"
 				(arc
-					(start 0 -5.08)
-					(mid 0.898 -4.708)
-					(end 1.27 -3.81)
+					(start 0 -2.54)
+					(mid 0.6323 -1.905)
+					(end 0 -1.27)
 					(stroke
-						(width 0.254)
-						(type solid)
+						(width 0)
+						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
 				(arc
-					(start 0 -2.54)
-					(mid 0.898 -2.168)
-					(end 1.27 -1.27)
+					(start 0 -1.27)
+					(mid 0.6323 -0.635)
+					(end 0 0)
 					(stroke
-						(width 0.254)
-						(type solid)
+						(width 0)
+						(type default)
 					)
 					(fill
 						(type none)
@@ -1678,305 +587,102 @@
 				)
 				(arc
 					(start 0 0)
-					(mid 0.898 0.372)
-					(end 1.27 1.27)
+					(mid 0.6323 0.635)
+					(end 0 1.27)
 					(stroke
-						(width 0.254)
-						(type solid)
+						(width 0)
+						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
 				(arc
-					(start 0 2.54)
-					(mid 0.898 2.912)
-					(end 1.27 3.81)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 1.27 -3.81)
-					(mid 0.898 -2.912)
-					(end 0 -2.54)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 1.27 -1.27)
-					(mid 0.898 -0.372)
-					(end 0 0)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 1.27 1.27)
-					(mid 0.898 2.168)
+					(start 0 1.27)
+					(mid 0.6323 1.905)
 					(end 0 2.54)
 					(stroke
-						(width 0.254)
-						(type solid)
+						(width 0)
+						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-				(arc
-					(start 1.27 3.81)
-					(mid 0.898 4.708)
-					(end 0 5.08)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
+			)
+			(symbol "L_1_1"
 				(pin passive line
-					(at 0 7.62 270)
-					(length 2.54)
+					(at 0 3.81 270)
+					(length 1.27)
 					(name "1"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at 0 -7.62 90)
-					(length 2.54)
+					(at 0 -3.81 90)
+					(length 1.27)
 					(name "2"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
 			)
 		)
-		(symbol "Sparkfun-HX711-eagle-import:JUMPER-PAD-2-NC_BY_TRACE"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "JP"
-				(at -2.54 2.54 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Value" ""
-				(at -2.54 -5.08 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" "Sparkfun-HX711:PAD-JUMPER-2-NC_BY_TRACE_YES_SILK"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "JUMPER-PAD-2-NC_BY_TRACE_1_0"
-				(arc
-					(start -0.3808 0.635)
-					(mid -1.0159 0.0001)
-					(end -0.381 -0.635)
-					(stroke
-						(width 1.27)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 0) (xy -1.651 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.762 0) (xy 1.016 0)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy 1.651 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0.3809 -0.6351)
-					(mid 0.83 -0.4491)
-					(end 1.016 0)
-					(stroke
-						(width 1.27)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 1.0159 -0.0001)
-					(mid 0.83 0.4489)
-					(end 0.381 0.635)
-					(stroke
-						(width 1.27)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Sparkfun-HX711-eagle-import:TRANSISTOR_PNPMMBT4403"
+		(symbol "Device:Q_PNP_BEC"
+			(pin_names
+				(offset 0) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "Q"
-				(at 5.08 0 0)
+				(at 5.08 1.27 0)
 				(effects
 					(font
-						(size 1.778 1.5113)
+						(size 1.27 1.27)
 					)
-					(justify left bottom)
+					(justify left)
 				)
 			)
-			(property "Value" ""
-				(at 5.08 -2.54 0)
+			(property "Value" "Q_PNP_BEC"
+				(at 5.08 -1.27 0)
 				(effects
 					(font
-						(size 1.778 1.5113)
+						(size 1.27 1.27)
 					)
-					(justify left bottom)
+					(justify left)
 				)
 			)
-			(property "Footprint" "Sparkfun-HX711:SOT23-3"
+			(property "Footprint" ""
+				(at 5.08 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1985,7 +691,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Description" "PNP transistor, base/emitter/collector"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1994,7 +700,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic PNP BJT   Double check pinouts against datasheets- not all devices are the same!\nMMBT3906 - 40V 200mA SOT-23 (TRANS-08052)\nMMBT4403 - 40V 600mA SOT-23 (TRANS-09245)"
+			(property "ki_keywords" "transistor PNP"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2003,18 +709,47 @@
 					(hide yes)
 				)
 			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "Q_PNP_BEC_0_1"
+				(polyline
+					(pts
+						(xy 0.635 0.635) (xy 2.54 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
-			)
-			(symbol "TRANSISTOR_PNPMMBT4403_1_0"
-				(rectangle
-					(start -0.254 -2.54)
-					(end 0.508 2.54)
+				(polyline
+					(pts
+						(xy 0.635 -0.635) (xy 2.54 -2.54) (xy 2.54 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.635 1.905) (xy 0.635 -1.905) (xy 0.635 -1.905)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 -1.778) (xy 1.778 -2.286) (xy 1.27 -1.27) (xy 2.286 -1.778) (xy 2.286 -1.778)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -2023,158 +758,33 @@
 						(type outline)
 					)
 				)
-				(polyline
-					(pts
-						(xy 0.508 -1.524) (xy 2.54 -2.54)
-					)
+				(circle
+					(center 1.27 0)
+					(radius 2.8194)
 					(stroke
-						(width 0.1524)
-						(type solid)
+						(width 0.254)
+						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy 0.508 1.524) (xy 1.27 2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.8128 1.778) (xy 0.889 1.6256)
-					)
-					(stroke
-						(width 0.2032)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.9398 1.8796) (xy 1.0414 1.651)
-					)
-					(stroke
-						(width 0.2032)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 2.032) (xy 1.2192 1.6256)
-					)
-					(stroke
-						(width 0.2032)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.143 2.159) (xy 1.397 1.6256)
-					)
-					(stroke
-						(width 0.2032)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.2192 2.3114) (xy 1.5748 1.6256)
-					)
-					(stroke
-						(width 0.2032)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 2.54) (xy 1.778 1.524)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.778 1.524) (xy 0.508 1.524)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 2.54) (xy 0.508 1.524)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -2.54 0 0)
-					(length 2.54)
+			)
+			(symbol "Q_PNP_BEC_1_1"
+				(pin input line
+					(at -5.08 0 0)
+					(length 5.715)
 					(name "B"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "E"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
@@ -2182,29 +792,75 @@
 				(pin passive line
 					(at 2.54 -5.08 90)
 					(length 2.54)
+					(name "E"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
 					(name "C"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "3"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
 			)
 		)
-		(symbol "Sparkfun-HX711-eagle-import:VCC"
-			(power)
+		(symbol "Device:R"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "#SUPPLY"
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2213,13 +869,108 @@
 					(hide yes)
 				)
 			)
-			(property "Value" ""
-				(at -1.016 3.556 0)
+			(property "Description" "Resistor"
+				(at 0 0 0)
 				(effects
 					(font
-						(size 1.778 1.5113)
+						(size 1.27 1.27)
 					)
-					(justify left bottom)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "power:GND"
+			(power)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "GND"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
 				)
 			)
 			(property "Footprint" ""
@@ -2240,7 +991,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "SUPPLY SYMBOL"
+			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2249,22 +1000,119 @@
 					(hide yes)
 				)
 			)
-			(property "ki_locked" ""
+			(property "ki_keywords" "power-flag"
 				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GND_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0) hide
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "power:VCC"
+			(power)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "VCC"
+				(at 0 3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(symbol "VCC_1_0"
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"VCC\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "power-flag"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "VCC_0_1"
 				(polyline
 					(pts
-						(xy 0 2.54) (xy -0.762 1.27)
+						(xy -0.762 1.27) (xy 0 2.54)
 					)
 					(stroke
-						(width 0.254)
-						(type solid)
+						(width 0)
+						(type default)
 					)
 					(fill
 						(type none)
@@ -2272,133 +1120,44 @@
 				)
 				(polyline
 					(pts
-						(xy 0.762 1.27) (xy 0 2.54)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
-						(width 0.254)
-						(type solid)
+						(width 0)
+						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "VCC_1_1"
 				(pin power_in line
 					(at 0 0 90)
-					(length 2.54)
+					(length 0) hide
 					(name "VCC"
 						(effects
 							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 0 0)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Sparkfun-HX711-eagle-import:VDD"
-			(power)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#SUPPLY"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" ""
-				(at -1.016 3.556 0)
-				(effects
-					(font
-						(size 1.778 1.5113)
-					)
-					(justify left bottom)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "SUPPLY SYMBOL"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "VDD_1_0"
-				(polyline
-					(pts
-						(xy 0 2.54) (xy -0.762 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0.254)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin power_in line
-					(at 0 0 90)
-					(length 2.54)
-					(name "VDD"
-						(effects
-							(font
-								(size 0 0)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 0 0)
+								(size 1.27 1.27)
 							)
 						)
 					)
@@ -2407,106 +1166,106 @@
 		)
 	)
 	(junction
-		(at 153.67 69.85)
+		(at 125.73 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "03805878-9260-40f0-b7db-4b2b5e051864")
 	)
 	(junction
-		(at 90.17 80.01)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0e557604-9ac9-45e7-8b1a-86e92925d0ec")
-	)
-	(junction
-		(at 120.65 69.85)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1808715b-39d7-4304-9c50-6829f4755498")
-	)
-	(junction
-		(at 110.49 69.85)
+		(at 82.55 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "19ca256a-a5ac-4886-bf43-b8f88463ed0f")
 	)
 	(junction
-		(at 214.63 67.31)
+		(at 114.3 104.14)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "67256a8a-be36-4bb9-93ff-9730259854ff")
+		(uuid "25eb6058-2c97-438c-9f23-1502135d6020")
 	)
 	(junction
-		(at 153.67 100.33)
+		(at 95.25 87.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3530ff0b-3830-489f-b3fb-b0cf27d0de4c")
+	)
+	(junction
+		(at 95.25 118.11)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "626f9c55-129b-4e12-9ac0-3486d266c5a1")
+	)
+	(junction
+		(at 114.3 118.11)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7ae0c7e9-0e58-4359-a21a-56aae1eedf50")
+	)
+	(junction
+		(at 125.73 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9e55aa56-9943-444c-b26f-c8c20708b305")
 	)
 	(junction
-		(at 158.75 110.49)
+		(at 114.3 87.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9e6ae4f0-95b3-44b8-a8ab-9d6a7f52edf8")
+	)
+	(junction
+		(at 130.81 128.27)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a3238806-effe-4da1-80f2-c0cb79026a3a")
 	)
 	(junction
-		(at 148.59 69.85)
+		(at 172.72 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "bdfdc93d-5716-4fb8-b6fa-580fb5b262ea")
+		(uuid "a8b42872-40c9-4d93-a1d7-21f09dd0f650")
 	)
 	(junction
-		(at 158.75 123.19)
+		(at 172.72 114.3)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bc6ad27f-9758-44c7-8ed0-50c0aa7a3376")
+	)
+	(junction
+		(at 172.72 111.76)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d722a0f1-2d52-4791-8532-e198c824ac4d")
+	)
+	(junction
+		(at 130.81 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e2912dc3-38cd-4732-be23-e49477a30004")
 	)
 	(junction
-		(at 148.59 100.33)
+		(at 82.55 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "e9581e3d-05a1-4a54-9607-30ad80e874f0")
-	)
-	(junction
-		(at 148.59 85.09)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fd2fd8e1-7b20-4c4d-be58-eca98f68dd74")
+		(uuid "e7c3b0f0-1c2e-4c1a-b1d9-154671fae4ec")
 	)
 	(no_connect
-		(at 201.93 105.41)
-		(uuid "0a6ea620-a973-4909-9dd4-f0c7c1fa9c64")
-	)
-	(no_connect
-		(at 201.93 85.09)
+		(at 170.18 104.14)
 		(uuid "e5d42bf5-f97a-4719-93d8-c98168e058f5")
 	)
-	(no_connect
-		(at 201.93 100.33)
-		(uuid "f86287ee-f596-46b8-a485-a2db6e582a62")
-	)
 	(wire
 		(pts
-			(xy 204.47 69.85) (xy 204.47 67.31)
+			(xy 170.18 101.6) (xy 172.72 101.6)
 		)
 		(stroke
-			(width 0.1524)
-			(type solid)
+			(width 0)
+			(type default)
 		)
-		(uuid "03e61021-7bc5-4a2d-8a26-b2078b7c4a10")
+		(uuid "04b360c8-7012-4e0a-9fce-8948d0d665c5")
 	)
 	(wire
 		(pts
-			(xy 100.33 123.19) (xy 100.33 77.47)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "042a75dc-e808-4c18-9901-939dc12dc01c")
-	)
-	(wire
-		(pts
-			(xy 173.99 95.25) (xy 166.37 95.25)
+			(xy 138.43 109.22) (xy 149.86 109.22)
 		)
 		(stroke
 			(width 0.1524)
@@ -2516,7 +1275,17 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 113.03) (xy 158.75 110.49)
+			(xy 172.72 99.06) (xy 170.18 99.06)
+		)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(uuid "05369bc0-89ca-431d-96ff-6f715aded13e")
+	)
+	(wire
+		(pts
+			(xy 130.81 130.81) (xy 130.81 128.27)
 		)
 		(stroke
 			(width 0.1524)
@@ -2526,17 +1295,27 @@
 	)
 	(wire
 		(pts
-			(xy 201.93 95.25) (xy 207.01 95.25)
+			(xy 143.51 99.06) (xy 149.86 99.06)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
-		(uuid "0dd1bfd4-f8a6-458c-b3e9-1f095e70ef04")
+		(uuid "17fbfcc5-5944-4dd7-845b-8059c42cea2c")
 	)
 	(wire
 		(pts
-			(xy 227.33 87.63) (xy 227.33 82.55)
+			(xy 133.35 78.74) (xy 143.51 78.74)
+		)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(uuid "192e3fe6-8892-43ca-b7a3-05578a1b8917")
+	)
+	(wire
+		(pts
+			(xy 193.04 101.6) (xy 193.04 104.14)
 		)
 		(stroke
 			(width 0.1524)
@@ -2546,7 +1325,17 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 69.85) (xy 87.63 69.85)
+			(xy 172.72 92.71) (xy 172.72 96.52)
+		)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(uuid "1c7f6f0f-fa9e-4be1-b889-30f6fbcd51bf")
+	)
+	(wire
+		(pts
+			(xy 82.55 87.63) (xy 60.96 87.63)
 		)
 		(stroke
 			(width 0.1524)
@@ -2556,17 +1345,7 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 85.09) (xy 234.95 85.09)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "1fb9650c-6190-40b5-aac7-898e4282eb89")
-	)
-	(wire
-		(pts
-			(xy 168.91 100.33) (xy 168.91 110.49)
+			(xy 140.97 111.76) (xy 140.97 128.27)
 		)
 		(stroke
 			(width 0.1524)
@@ -2576,7 +1355,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 69.85) (xy 120.65 72.39)
+			(xy 95.25 87.63) (xy 95.25 99.06)
 		)
 		(stroke
 			(width 0.1524)
@@ -2586,17 +1365,17 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 85.09) (xy 148.59 82.55)
+			(xy 172.72 101.6) (xy 172.72 111.76)
 		)
 		(stroke
-			(width 0.1524)
-			(type solid)
+			(width 0)
+			(type default)
 		)
-		(uuid "2a1068ac-5bf2-4ee9-971d-ebb0bbf3773e")
+		(uuid "29a0028e-60e0-4e41-8872-b5239ce3ed12")
 	)
 	(wire
 		(pts
-			(xy 166.37 80.01) (xy 166.37 69.85)
+			(xy 140.97 101.6) (xy 140.97 87.63)
 		)
 		(stroke
 			(width 0.1524)
@@ -2606,7 +1385,7 @@
 	)
 	(wire
 		(pts
-			(xy 125.73 54.61) (xy 125.73 52.07)
+			(xy 182.88 86.36) (xy 182.88 83.82)
 		)
 		(stroke
 			(width 0.1524)
@@ -2616,7 +1395,17 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 77.47) (xy 87.63 77.47)
+			(xy 114.3 87.63) (xy 125.73 87.63)
+		)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(uuid "2d896a6e-c718-4745-baf0-e1edb1063328")
+	)
+	(wire
+		(pts
+			(xy 60.96 140.97) (xy 119.38 140.97)
 		)
 		(stroke
 			(width 0.1524)
@@ -2626,7 +1415,27 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 44.45) (xy 140.97 41.91)
+			(xy 182.88 73.66) (xy 182.88 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "35d0c0ff-8d82-4b42-85ee-172d745c058c")
+	)
+	(wire
+		(pts
+			(xy 172.72 111.76) (xy 170.18 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3719c3a9-148d-48f4-9e50-583999df9551")
+	)
+	(wire
+		(pts
+			(xy 198.12 76.2) (xy 198.12 73.66)
 		)
 		(stroke
 			(width 0.1524)
@@ -2636,7 +1445,27 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 72.39) (xy 110.49 69.85)
+			(xy 172.72 99.06) (xy 172.72 101.6)
+		)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(uuid "41a23546-72ab-4346-91bc-e19b7c053be9")
+	)
+	(wire
+		(pts
+			(xy 114.3 99.06) (xy 114.3 104.14)
+		)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(uuid "436acb64-b35c-41ba-b4be-74bc5dce456a")
+	)
+	(wire
+		(pts
+			(xy 82.55 99.06) (xy 82.55 87.63)
 		)
 		(stroke
 			(width 0.1524)
@@ -2646,37 +1475,7 @@
 	)
 	(wire
 		(pts
-			(xy 207.01 92.71) (xy 234.95 92.71)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "46e39f61-4d08-4eb3-885e-24d7911c8ecd")
-	)
-	(wire
-		(pts
-			(xy 113.03 54.61) (xy 113.03 52.07)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "47c9b914-58af-448e-9ad5-120b4fd2c55d")
-	)
-	(polyline
-		(pts
-			(xy 68.326 68.58) (xy 68.326 82.55)
-		)
-		(stroke
-			(width 0.2032)
-			(type solid)
-		)
-		(uuid "4f2fec30-a794-4a8d-a91b-089ce62c7c0b")
-	)
-	(wire
-		(pts
-			(xy 168.91 110.49) (xy 158.75 110.49)
+			(xy 140.97 128.27) (xy 130.81 128.27)
 		)
 		(stroke
 			(width 0.1524)
@@ -2686,17 +1485,7 @@
 	)
 	(wire
 		(pts
-			(xy 173.99 105.41) (xy 171.45 105.41)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "52c983a4-68c8-47c9-b8e3-f4d9b6c6b757")
-	)
-	(wire
-		(pts
-			(xy 87.63 72.39) (xy 90.17 72.39)
+			(xy 60.96 118.11) (xy 82.55 118.11)
 		)
 		(stroke
 			(width 0.1524)
@@ -2706,7 +1495,17 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 95.25) (xy 232.41 97.79)
+			(xy 170.18 109.22) (xy 196.85 109.22)
+		)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(uuid "5759e78e-2d9c-4823-ae32-be0f1b23e3f3")
+	)
+	(wire
+		(pts
+			(xy 193.04 111.76) (xy 193.04 118.11)
 		)
 		(stroke
 			(width 0.1524)
@@ -2716,17 +1515,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 80.01) (xy 110.49 82.55)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "5a273c6e-12c4-49fb-8066-f0f7d319d176")
-	)
-	(wire
-		(pts
-			(xy 153.67 90.17) (xy 153.67 100.33)
+			(xy 125.73 106.68) (xy 125.73 118.11)
 		)
 		(stroke
 			(width 0.1524)
@@ -2736,27 +1525,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 69.85) (xy 148.59 69.85)
-		)
-		(stroke
-			(width 0.2032)
-			(type solid)
-		)
-		(uuid "5dfa2098-4bed-4119-a94e-ccf901161f23")
-	)
-	(wire
-		(pts
-			(xy 171.45 69.85) (xy 173.99 69.85)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "5e819214-6008-4d7a-a758-cc10dc7e3984")
-	)
-	(wire
-		(pts
-			(xy 173.99 85.09) (xy 148.59 85.09)
+			(xy 114.3 104.14) (xy 149.86 104.14)
 		)
 		(stroke
 			(width 0.1524)
@@ -2766,17 +1535,17 @@
 	)
 	(wire
 		(pts
-			(xy 207.01 95.25) (xy 207.01 92.71)
+			(xy 147.32 92.71) (xy 147.32 96.52)
 		)
 		(stroke
-			(width 0.1524)
-			(type solid)
+			(width 0)
+			(type default)
 		)
-		(uuid "622dbecd-74e3-43d7-ae4d-9a0508478e25")
+		(uuid "61a2f927-179c-430e-aec1-c0e468c8c4e3")
 	)
 	(wire
 		(pts
-			(xy 234.95 95.25) (xy 232.41 95.25)
+			(xy 196.85 111.76) (xy 193.04 111.76)
 		)
 		(stroke
 			(width 0.1524)
@@ -2786,27 +1555,27 @@
 	)
 	(wire
 		(pts
-			(xy 201.93 74.93) (xy 207.01 74.93)
+			(xy 143.51 114.3) (xy 149.86 114.3)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
-		(uuid "68a634ee-57d8-45b2-9578-61c23733859a")
+		(uuid "65f4ea40-c5b7-4ce4-9cd2-35000c1df93d")
 	)
 	(wire
 		(pts
-			(xy 125.73 41.91) (xy 125.73 44.45)
+			(xy 114.3 119.38) (xy 114.3 118.11)
 		)
 		(stroke
-			(width 0.1524)
-			(type solid)
+			(width 0)
+			(type default)
 		)
-		(uuid "6bda9ce8-5aaf-4d39-aa12-c3ca8574b394")
+		(uuid "6686dd18-0e25-4722-a464-f66418c058c0")
 	)
 	(wire
 		(pts
-			(xy 153.67 67.31) (xy 153.67 69.85)
+			(xy 125.73 83.82) (xy 125.73 87.63)
 		)
 		(stroke
 			(width 0.1524)
@@ -2816,7 +1585,17 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 100.33) (xy 153.67 100.33)
+			(xy 149.86 96.52) (xy 147.32 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74202aa5-1872-4f57-9c9d-f1089a89253e")
+	)
+	(wire
+		(pts
+			(xy 128.27 118.11) (xy 125.73 118.11)
 		)
 		(stroke
 			(width 0.1524)
@@ -2826,57 +1605,27 @@
 	)
 	(wire
 		(pts
-			(xy 214.63 54.61) (xy 214.63 52.07)
+			(xy 172.72 111.76) (xy 172.72 114.3)
 		)
 		(stroke
-			(width 0.1524)
-			(type solid)
+			(width 0)
+			(type default)
 		)
-		(uuid "7f10ffb8-0968-4683-a922-473ea007c02f")
+		(uuid "7c29d363-97ba-446a-bd14-ffd0dbd36195")
 	)
 	(wire
 		(pts
-			(xy 214.63 67.31) (xy 207.01 67.31)
+			(xy 172.72 114.3) (xy 172.72 118.11)
 		)
 		(stroke
-			(width 0.1524)
-			(type solid)
+			(width 0)
+			(type default)
 		)
-		(uuid "7f5c0b8e-ee7d-44c3-a32a-fd6b4cdaefde")
+		(uuid "7d32da18-25a2-4510-8407-fb893a8c8a15")
 	)
 	(wire
 		(pts
-			(xy 171.45 67.31) (xy 171.45 69.85)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "818a4052-f255-4c25-9f42-8b9321c06db1")
-	)
-	(wire
-		(pts
-			(xy 232.41 82.55) (xy 232.41 85.09)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "81ac399d-6858-411a-a9d1-fce7f619f206")
-	)
-	(wire
-		(pts
-			(xy 173.99 74.93) (xy 168.91 74.93)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "82260d1a-3941-4dfb-9164-588e03a81fff")
-	)
-	(wire
-		(pts
-			(xy 173.99 80.01) (xy 166.37 80.01)
+			(xy 140.97 101.6) (xy 149.86 101.6)
 		)
 		(stroke
 			(width 0.1524)
@@ -2886,7 +1635,7 @@
 	)
 	(wire
 		(pts
-			(xy 173.99 90.17) (xy 153.67 90.17)
+			(xy 125.73 106.68) (xy 149.86 106.68)
 		)
 		(stroke
 			(width 0.1524)
@@ -2896,27 +1645,37 @@
 	)
 	(wire
 		(pts
-			(xy 214.63 80.01) (xy 214.63 82.55)
+			(xy 95.25 87.63) (xy 101.6 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8dd28cdd-41db-4256-80c5-19b54a25a470")
+	)
+	(wire
+		(pts
+			(xy 172.72 114.3) (xy 170.18 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8dd78959-7173-4d9c-a4d8-62e48f47136a")
+	)
+	(wire
+		(pts
+			(xy 127 140.97) (xy 130.81 140.97)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
-		(uuid "84b80358-a2a2-4a2e-8210-2ceebe962b78")
+		(uuid "93e6631f-0126-459b-b03b-e1508851c7f8")
 	)
 	(wire
 		(pts
-			(xy 146.05 123.19) (xy 100.33 123.19)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "92253b5a-03ec-4edf-8023-421432c7796d")
-	)
-	(wire
-		(pts
-			(xy 153.67 100.33) (xy 148.59 100.33)
+			(xy 125.73 118.11) (xy 114.3 118.11)
 		)
 		(stroke
 			(width 0.1524)
@@ -2926,27 +1685,27 @@
 	)
 	(wire
 		(pts
-			(xy 207.01 80.01) (xy 207.01 82.55)
+			(xy 109.22 87.63) (xy 114.3 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "95914645-1e24-4f8b-a283-fc7c0666b2c2")
+	)
+	(wire
+		(pts
+			(xy 95.25 118.11) (xy 114.3 118.11)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
-		(uuid "96a9bcf5-6ae2-4819-bf40-f12e9115f8a7")
+		(uuid "a15eb815-f871-4233-ac70-58e523d68d03")
 	)
 	(wire
 		(pts
-			(xy 201.93 69.85) (xy 204.47 69.85)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "9fa58ef2-c7f8-4bb9-8198-ee04b05152d5")
-	)
-	(wire
-		(pts
-			(xy 168.91 62.23) (xy 168.91 74.93)
+			(xy 143.51 78.74) (xy 143.51 99.06)
 		)
 		(stroke
 			(width 0.1524)
@@ -2956,7 +1715,17 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 100.33) (xy 163.83 100.33)
+			(xy 82.55 106.68) (xy 82.55 118.11)
+		)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(uuid "a427bf54-54a2-4df3-bbf1-30494bc6aa7b")
+	)
+	(wire
+		(pts
+			(xy 138.43 118.11) (xy 135.89 118.11)
 		)
 		(stroke
 			(width 0.1524)
@@ -2966,7 +1735,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 72.39) (xy 148.59 69.85)
+			(xy 114.3 91.44) (xy 114.3 87.63)
 		)
 		(stroke
 			(width 0.1524)
@@ -2976,37 +1745,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 110.49) (xy 102.87 110.49)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "b1a1a2ca-d5a6-4efe-aef6-4cd927aea348")
-	)
-	(wire
-		(pts
-			(xy 207.01 67.31) (xy 207.01 74.93)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "b30640c5-87b4-434b-996b-78f70fdceb10")
-	)
-	(wire
-		(pts
-			(xy 214.63 64.77) (xy 214.63 67.31)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "b779c79e-a550-4117-a760-26ef4cde1335")
-	)
-	(wire
-		(pts
-			(xy 153.67 54.61) (xy 153.67 57.15)
+			(xy 125.73 72.39) (xy 125.73 73.66)
 		)
 		(stroke
 			(width 0.1524)
@@ -3016,7 +1755,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 105.41) (xy 171.45 123.19)
+			(xy 143.51 114.3) (xy 143.51 140.97)
 		)
 		(stroke
 			(width 0.1524)
@@ -3026,7 +1765,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 69.85) (xy 110.49 69.85)
+			(xy 82.55 87.63) (xy 95.25 87.63)
 		)
 		(stroke
 			(width 0.1524)
@@ -3036,47 +1775,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 41.91) (xy 113.03 44.45)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "bcc35836-b185-4069-a2ef-74878565e8b0")
-	)
-	(wire
-		(pts
-			(xy 214.63 67.31) (xy 214.63 69.85)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "bf1d173a-3c47-4347-a62e-5614fa52d2c1")
-	)
-	(wire
-		(pts
-			(xy 201.93 80.01) (xy 207.01 80.01)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "bf50faf3-9005-4e4d-85cb-6ab90283bbed")
-	)
-	(wire
-		(pts
-			(xy 90.17 72.39) (xy 90.17 80.01)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "c67cb4b6-fa11-47d5-b737-c61791a0c8ff")
-	)
-	(wire
-		(pts
-			(xy 148.59 97.79) (xy 148.59 100.33)
+			(xy 114.3 114.3) (xy 114.3 118.11)
 		)
 		(stroke
 			(width 0.1524)
@@ -3086,17 +1785,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 102.87) (xy 148.59 100.33)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "d0298f96-a1b4-4608-82ab-dbfb1c114f57")
-	)
-	(wire
-		(pts
-			(xy 102.87 74.93) (xy 87.63 74.93)
+			(xy 60.96 128.27) (xy 119.38 128.27)
 		)
 		(stroke
 			(width 0.1524)
@@ -3106,7 +1795,17 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 95.25) (xy 166.37 100.33)
+			(xy 95.25 106.68) (xy 95.25 118.11)
+		)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(uuid "d3c790ce-1e8e-4786-abef-bb4b3b354e1a")
+	)
+	(wire
+		(pts
+			(xy 138.43 109.22) (xy 138.43 118.11)
 		)
 		(stroke
 			(width 0.1524)
@@ -3114,19 +1813,19 @@
 		)
 		(uuid "d3ca769c-e620-4a57-a8af-33f019bfcba2")
 	)
-	(polyline
+	(wire
 		(pts
-			(xy 68.326 68.58) (xy 72.39 68.58)
+			(xy 172.72 96.52) (xy 170.18 96.52)
 		)
 		(stroke
-			(width 0.2032)
+			(width 0.1524)
 			(type solid)
 		)
-		(uuid "d463bff6-d3a3-4db7-aa95-3e7fe2a5dddf")
+		(uuid "d60fc44f-3020-4c5c-821e-94f2c844bfdf")
 	)
 	(wire
 		(pts
-			(xy 166.37 69.85) (xy 153.67 69.85)
+			(xy 140.97 87.63) (xy 125.73 87.63)
 		)
 		(stroke
 			(width 0.1524)
@@ -3136,7 +1835,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 87.63) (xy 148.59 85.09)
+			(xy 114.3 106.68) (xy 114.3 104.14)
 		)
 		(stroke
 			(width 0.1524)
@@ -3146,7 +1845,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 52.07) (xy 140.97 54.61)
+			(xy 198.12 83.82) (xy 198.12 86.36)
 		)
 		(stroke
 			(width 0.1524)
@@ -3156,7 +1855,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 120.65) (xy 158.75 123.19)
+			(xy 130.81 138.43) (xy 130.81 140.97)
 		)
 		(stroke
 			(width 0.1524)
@@ -3166,17 +1865,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 123.19) (xy 156.21 123.19)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "e5ae17b5-b2c0-49b5-b3f0-00055c175651")
-	)
-	(wire
-		(pts
-			(xy 173.99 100.33) (xy 168.91 100.33)
+			(xy 140.97 111.76) (xy 149.86 111.76)
 		)
 		(stroke
 			(width 0.1524)
@@ -3186,7 +1875,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 110.49) (xy 156.21 110.49)
+			(xy 130.81 128.27) (xy 127 128.27)
 		)
 		(stroke
 			(width 0.1524)
@@ -3194,39 +1883,9 @@
 		)
 		(uuid "e95267b6-62ea-4e81-8200-6cc3c6094725")
 	)
-	(polyline
-		(pts
-			(xy 68.326 82.55) (xy 72.39 82.55)
-		)
-		(stroke
-			(width 0.2032)
-			(type solid)
-		)
-		(uuid "e9e696e7-775c-487d-8ad1-c0981d187617")
-	)
 	(wire
 		(pts
-			(xy 102.87 110.49) (xy 102.87 74.93)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "eb426303-20b7-4e59-9856-9c3c1ca172e8")
-	)
-	(wire
-		(pts
-			(xy 120.65 82.55) (xy 120.65 80.01)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "eb4f79b6-ddc4-4514-8825-c24a1fe1e206")
-	)
-	(wire
-		(pts
-			(xy 171.45 123.19) (xy 158.75 123.19)
+			(xy 143.51 140.97) (xy 130.81 140.97)
 		)
 		(stroke
 			(width 0.1524)
@@ -3236,7 +1895,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 87.63) (xy 227.33 87.63)
+			(xy 196.85 104.14) (xy 193.04 104.14)
 		)
 		(stroke
 			(width 0.1524)
@@ -3246,275 +1905,36 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 80.01) (xy 90.17 82.55)
+			(xy 170.18 106.68) (xy 196.85 106.68)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
-		(uuid "ed57fbc4-13b0-4f9d-bd37-7544269120fe")
+		(uuid "f2970006-6f6e-42e5-9299-ecf775f4e60d")
 	)
 	(wire
 		(pts
-			(xy 153.67 69.85) (xy 148.59 69.85)
+			(xy 82.55 118.11) (xy 95.25 118.11)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
-		(uuid "f2cafb60-b17a-4617-ba76-29d31ef5bfc1")
+		(uuid "f83fc3e9-75a5-4960-acee-64cf1a9d0bc2")
 	)
-	(wire
-		(pts
-			(xy 120.65 69.85) (xy 128.27 69.85)
-		)
-		(stroke
-			(width 0.2032)
-			(type solid)
-		)
-		(uuid "f51a38b0-e4e7-47aa-a1ac-37c5ff143c26")
-	)
-	(wire
-		(pts
-			(xy 87.63 80.01) (xy 90.17 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f7705732-af60-4e0d-ac78-b05127ff3b6f")
-	)
-	(wire
-		(pts
-			(xy 158.75 62.23) (xy 168.91 62.23)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "fc39be26-a876-4f4f-905a-a2c352024cf8")
-	)
-	(wire
-		(pts
-			(xy 201.93 90.17) (xy 234.95 90.17)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "fdcbcfc6-fb93-47c2-bd84-03e29980adb9")
-	)
-	(text "Green or Blue"
+	(text "Analog/digital power and ground are tied together here.\nMaybe not ideal.\nhttps://github.com/sparkfun/HX711-Load-Cell-Amplifier/issues/7"
 		(exclude_from_sim no)
-		(at 46.99 78.74 0)
+		(at 101.092 163.576 0)
 		(effects
 			(font
-				(size 1.778 1.5113)
+				(size 1.27 1.27)
 			)
-			(justify left bottom)
 		)
-		(uuid "0c657b83-ff5f-4357-821e-5dccf54d06ba")
+		(uuid "2d197ef7-bc15-49ed-8a50-6139d62ae9b9")
 	)
-	(text "AVDD = VBG(R1+R2)/R2"
-		(exclude_from_sim no)
-		(at 88.392 65.024 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "0f08f531-3728-439d-afa9-c8f7823ae1b6")
-	)
-	(text "A-"
-		(exclude_from_sim no)
-		(at 74.93 76.2 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "2dc0e880-2a4e-4aa1-a693-eb7aa477270c")
-	)
-	(text "Red"
-		(exclude_from_sim no)
-		(at 57.15 71.12 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "2e239557-6bf5-46a1-823a-99191bc1acf8")
-	)
-	(text "A+"
-		(exclude_from_sim no)
-		(at 74.93 78.74 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "3063abbe-5c52-4433-b929-08daaf7ccebb")
-	)
-	(text "E+"
-		(exclude_from_sim no)
-		(at 74.93 71.12 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "3364e938-32d1-43da-b980-2ce0a2562315")
-	)
-	(text "White"
-		(exclude_from_sim no)
-		(at 57.15 76.2 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "3c7ca155-3f30-4e3a-b327-754797d9762b")
-	)
-	(text "Default: Closed - Data rate set to 10SPS"
-		(exclude_from_sim no)
-		(at 223.266 69.088 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "42484209-5382-48d9-b930-ab71edf05700")
-	)
-	(text "VDD: 2.7-5.5V"
-		(exclude_from_sim no)
-		(at 244.094 89.662 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "435154f9-61e0-4692-8a23-26ac639e672e")
-	)
-	(text "Shield"
-		(exclude_from_sim no)
-		(at 69.85 81.28 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "5142dc52-325d-4b99-bf0d-a92424578066")
-	)
-	(text "Yellow"
-		(exclude_from_sim no)
-		(at 57.15 81.28 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "7db19d85-308b-4a0f-8b3b-5bf85bdf61dc")
-	)
-	(text "VCC vs VDD:\nVCC is the main supply voltage, while VDD sets the\ndigital logic voltage reference and should be\nconnected to microcontroller supply voltage, or\nshorted to VCC."
-		(exclude_from_sim no)
-		(at 214.63 123.19 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "80791e02-e942-4add-8372-d3c58e518fea")
-	)
-	(text "VCC: 2.7-5.5V"
-		(exclude_from_sim no)
-		(at 244.094 92.202 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "96e33c02-fcfc-44b7-8a8b-9d5da9b149e1")
-	)
-	(text "Common Load\nCell Colors:"
-		(exclude_from_sim no)
-		(at 49.784 65.024 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "bc5afa2a-8a3e-455d-84b6-1c968af675e7")
-	)
-	(text "IO: 2.7-5.5V"
-		(exclude_from_sim no)
-		(at 244.094 94.742 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "c43aea63-1802-4ace-90a1-a49fbced6b1c")
-	)
-	(text "VBG = 1.25V"
-		(exclude_from_sim no)
-		(at 157.988 58.928 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "ced2853a-d191-4289-9263-8ef92b1584e2")
-	)
-	(text "E-"
-		(exclude_from_sim no)
-		(at 74.93 73.66 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "dc963bda-61a5-497e-bc63-a5247783139b")
-	)
-	(text "Black"
-		(exclude_from_sim no)
-		(at 57.15 73.66 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "e05abaea-48c9-4288-87cc-7dd51e81c052")
-	)
-	(text "Open jumper to set to 80SPS\nIncreases noise per read"
-		(exclude_from_sim no)
-		(at 223.266 74.168 0)
-		(effects
-			(font
-				(size 1.778 1.5113)
-			)
-			(justify left bottom)
-		)
-		(uuid "ead3a53d-db06-4bdb-81e7-9291cda1bf33")
-	)
-	(label "AVDD"
-		(at 92.71 69.85 0)
+	(label "E+"
+		(at 64.77 87.63 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3525,7 +1945,7 @@
 		(uuid "4e29ba54-afa7-40fd-9add-8a7186f7d574")
 	)
 	(label "A+"
-		(at 92.71 77.47 0)
+		(at 63.5 140.97 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3536,7 +1956,7 @@
 		(uuid "695125ab-8bc4-4b87-95cb-0593a02a2800")
 	)
 	(label "A-"
-		(at 92.71 74.93 0)
+		(at 64.77 128.27 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3547,7 +1967,7 @@
 		(uuid "aaa065be-3ff8-42fc-bb25-154684c13a97")
 	)
 	(label "SCK"
-		(at 227.33 92.71 0)
+		(at 189.23 109.22 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3558,7 +1978,7 @@
 		(uuid "af7db3f2-6e29-4b13-97e6-8e50d98b47d5")
 	)
 	(label "DAT"
-		(at 227.33 90.17 0)
+		(at 189.23 106.68 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3570,7 +1990,7 @@
 	)
 	(hierarchical_label "GND"
 		(shape input)
-		(at 234.95 95.25 0)
+		(at 196.85 111.76 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3580,21 +2000,9 @@
 		)
 		(uuid "0009f2fd-f2e1-4468-b080-c83ffde9bbc7")
 	)
-	(hierarchical_label "VDD"
-		(shape input)
-		(at 234.95 85.09 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "1451f482-4c7d-45d0-b3b0-c9e7090fc858")
-	)
 	(hierarchical_label "DAT"
 		(shape input)
-		(at 234.95 90.17 0)
+		(at 196.85 106.68 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3604,21 +2012,9 @@
 		)
 		(uuid "1572b120-fc17-4c79-a69d-891130b4db3f")
 	)
-	(hierarchical_label "SHLD"
-		(shape input)
-		(at 87.63 80.01 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "5732f43b-9668-438c-b944-e00b60ec7a7f")
-	)
 	(hierarchical_label "E+"
 		(shape input)
-		(at 87.63 69.85 180)
+		(at 60.96 87.63 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3630,7 +2026,7 @@
 	)
 	(hierarchical_label "A+"
 		(shape input)
-		(at 87.63 77.47 180)
+		(at 60.96 140.97 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3642,7 +2038,7 @@
 	)
 	(hierarchical_label "A-"
 		(shape input)
-		(at 87.63 74.93 180)
+		(at 60.96 128.27 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3654,7 +2050,7 @@
 	)
 	(hierarchical_label "VCC"
 		(shape input)
-		(at 234.95 87.63 0)
+		(at 196.85 104.14 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3666,7 +2062,7 @@
 	)
 	(hierarchical_label "E-"
 		(shape input)
-		(at 87.63 72.39 180)
+		(at 60.96 118.11 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3678,7 +2074,7 @@
 	)
 	(hierarchical_label "SCK"
 		(shape input)
-		(at 234.95 92.71 0)
+		(at 196.85 109.22 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3689,34 +2085,35 @@
 		(uuid "e76d4bb6-7dd1-4d62-9744-79bbd1adf1b5")
 	)
 	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:0.1UF-25V-5%(0603)")
-		(at 161.29 100.33 90)
+		(lib_id "Device:C")
+		(at 82.55 102.87 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "212ae174-e7a2-4715-ab45-14a525cce9d1")
-		(property "Reference" "C7"
-			(at 158.369 98.806 0)
+		(fields_autoplaced yes)
+		(uuid "058c5d61-1456-485d-8ec9-0e88c293936d")
+		(property "Reference" "C3"
+			(at 86.36 101.5999 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(justify left)
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 163.449 98.806 0)
+			(at 86.36 104.1399 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(justify left)
 			)
 		)
-		(property "Footprint" "Sparkfun-HX711:0603-CAP"
-			(at 161.29 100.33 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 83.5152 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3724,8 +2121,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 161.29 100.33 0)
+		(property "Datasheet" "~"
+			(at 82.55 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3733,8 +2130,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 161.29 100.33 0)
+		(property "Description" "Unpolarized capacitor"
+			(at 82.55 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3743,424 +2140,48 @@
 			)
 		)
 		(pin "1"
-			(uuid "8c4f64e7-d26a-4575-a8db-08f4622f56c1")
+			(uuid "cfba3fcd-6f7d-43b3-adc8-468636c21881")
 		)
 		(pin "2"
-			(uuid "33be358c-1e29-4437-94c3-d76631f4ba9f")
+			(uuid "da88c590-db24-4fd0-ab13-ab78e36ed8ac")
 		)
 		(instances
-			(project "coffee-scales"
+			(project ""
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "C7")
+					(reference "C3")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:GND")
-		(at 113.03 57.15 0)
+		(lib_id "Device:R")
+		(at 123.19 140.97 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "25487b74-5601-4e66-9e6b-b5b651ad41b6")
-		(property "Reference" "#GND03"
-			(at 113.03 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 110.49 59.69 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 113.03 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 113.03 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 113.03 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5ac6e18e-25e0-46d6-ba11-a1d5c160803e")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#GND03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:VDD")
-		(at 204.47 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "28c0a683-86d0-4d87-a518-984eb47de72e")
-		(property "Reference" "#SUPPLY06"
-			(at 204.47 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VDD"
-			(at 203.454 63.754 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 204.47 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 204.47 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 204.47 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7de83f43-bbd6-41a8-a162-ef949bd555c5")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#SUPPLY06")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:GND")
-		(at 232.41 100.33 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "32260504-ba63-4250-ab3a-537ebff7a18b")
-		(property "Reference" "#GND010"
-			(at 232.41 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 229.87 102.87 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 232.41 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 232.41 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "45e906c1-2ffd-4008-b03c-7c39c6e413d4")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#GND010")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:GND")
-		(at 110.49 85.09 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4614d34e-50ab-484c-b242-07d4bcdf880e")
-		(property "Reference" "#GND02"
-			(at 110.49 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 107.95 87.63 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 110.49 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 110.49 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 110.49 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2af38a06-139f-4abe-b0ca-2042f208f825")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#GND02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:HX711HX711")
-		(at 189.23 87.63 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "47c363b4-a95e-4009-ad60-3e45f8065194")
-		(property "Reference" "U5"
-			(at 176.53 66.548 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "HX711"
-			(at 176.53 110.49 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Sparkfun-HX711:SO16"
-			(at 189.23 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 189.23 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 189.23 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ee6db93a-c208-4c60-8578-e102be22c52b")
-		)
-		(pin "10"
-			(uuid "3448ddb2-2f75-4a79-af96-b690329e2617")
-		)
-		(pin "11"
-			(uuid "b1b795aa-1729-4812-90a6-beee66378e2a")
-		)
-		(pin "12"
-			(uuid "0f99be65-b932-4cb7-bf87-8a49c8fbad91")
-		)
-		(pin "13"
-			(uuid "52c6ec27-60e7-49f3-b5ba-c14700b3b584")
-		)
-		(pin "14"
-			(uuid "038049f8-ced1-44f8-a6ac-d6f1242ef156")
-		)
-		(pin "15"
-			(uuid "a80cba90-ea37-4ab4-a3fb-e9c2cb1c696a")
-		)
-		(pin "16"
-			(uuid "52a663d9-f18f-450e-8230-df79101a5905")
-		)
-		(pin "2"
-			(uuid "d33d92e6-ffb8-41ce-8bcb-c6b216fc830b")
-		)
-		(pin "3"
-			(uuid "25d011e1-4980-4194-b744-601bb731183f")
-		)
-		(pin "4"
-			(uuid "609ad9a6-d832-4a70-89c0-142230f72a33")
-		)
-		(pin "5"
-			(uuid "b4879e34-1347-4649-81fb-9e0e45df4ae1")
-		)
-		(pin "6"
-			(uuid "0ba9b466-fbe5-4e89-8c84-34b710464521")
-		)
-		(pin "7"
-			(uuid "1dd99cd2-cb03-4569-9af6-8e5f796b2f8d")
-		)
-		(pin "8"
-			(uuid "154c2306-eae5-4052-84d6-d75403db34da")
-		)
-		(pin "9"
-			(uuid "b546269e-54b1-4825-8c06-5f26a5de4ef8")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "U5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:100OHM-1/10W-1%(0603)")
-		(at 151.13 123.19 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4a43ed4a-e74b-4b18-a380-34f3b174e591")
+		(fields_autoplaced yes)
+		(uuid "0da33da3-72d6-4f32-85a4-77f3c45a8aad")
 		(property "Reference" "R4"
-			(at 147.32 121.6914 0)
+			(at 123.19 134.62 90)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
 		(property "Value" "100"
-			(at 147.32 126.492 0)
+			(at 123.19 137.16 90)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "Footprint" "Sparkfun-HX711:0603-RES"
-			(at 151.13 123.19 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 123.19 139.192 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4168,8 +2189,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 151.13 123.19 0)
+		(property "Datasheet" "~"
+			(at 123.19 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4177,8 +2198,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 151.13 123.19 0)
+		(property "Description" "Resistor"
+			(at 123.19 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4187,10 +2208,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "c3bd581c-a995-4202-a5a1-05e1137230e9")
+			(uuid "af994e2f-947d-4ba7-b9e0-cf990f92d143")
 		)
 		(pin "2"
-			(uuid "412c54aa-dcc4-4873-80bb-6a407bcead45")
+			(uuid "627137d6-ee2a-43f0-bd10-4466823434f3")
 		)
 		(instances
 			(project "coffee-scales"
@@ -4202,1045 +2223,33 @@
 		)
 	)
 	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:GND")
-		(at 125.73 57.15 0)
+		(lib_id "Device:R")
+		(at 123.19 128.27 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4b8b6fad-16c6-4e2c-9549-93d09704cdc1")
-		(property "Reference" "#GND05"
-			(at 125.73 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 123.19 59.69 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 125.73 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 125.73 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 125.73 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "48e8a433-a43f-430d-8e32-5678e21d2ac3")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#GND05")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:10UF50V20%(1210)")
-		(at 120.65 77.47 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4cef184a-2f08-4a81-8969-7dba314fd0f2")
-		(property "Reference" "C3"
-			(at 122.174 74.549 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "10uF"
-			(at 122.174 79.629 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Sparkfun-HX711:1210"
-			(at 120.65 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 120.65 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 120.65 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1db3b6e1-780c-4bb6-83d3-9fccc4e52d80")
-		)
-		(pin "2"
-			(uuid "9011e94f-9c91-4f48-aaf8-f1a41591e9a1")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:VCC")
-		(at 171.45 67.31 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5378d550-5c6b-470a-b6d3-0703e1c8291f")
-		(property "Reference" "#SUPPLY05"
-			(at 171.45 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VCC"
-			(at 170.434 63.754 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 171.45 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 171.45 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 171.45 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "919b2b63-c110-4fe8-bce9-9f7a6a7677e9")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#SUPPLY05")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:0.1UF-25V-5%(0603)")
-		(at 125.73 49.53 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5a20f1cb-45f6-44f4-9dae-52cf961c4af2")
-		(property "Reference" "C4"
-			(at 127.254 46.609 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "0.1uF"
-			(at 127.254 51.689 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Sparkfun-HX711:0603-CAP"
-			(at 125.73 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 125.73 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 125.73 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6bd2433b-d47e-4bd0-ab3a-c82ff6cc9a11")
-		)
-		(pin "2"
-			(uuid "d8892c87-5501-4da0-a33f-fb405d1070b2")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "C4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:0.1UF-25V-5%(0603)")
-		(at 113.03 49.53 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5d8a13be-67eb-4fe6-aabb-bda13ca2023f")
-		(property "Reference" "C2"
-			(at 114.554 46.609 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "0.1uF"
-			(at 114.554 51.689 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Sparkfun-HX711:0603-CAP"
-			(at 113.03 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 113.03 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 113.03 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "513454ca-151f-4d6b-9d9b-ebb6308e6375")
-		)
-		(pin "2"
-			(uuid "28689128-6f89-4946-b6fe-c4911b8749c8")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "C2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:INDUCTOR0805-IND")
-		(at 135.89 69.85 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "608143fa-ca33-40e7-a134-cf8145a057f6")
-		(property "Reference" "L1"
-			(at 128.27 67.31 90)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify right top)
-			)
-		)
-		(property "Value" "3.3uH"
-			(at 128.27 74.93 90)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify right top)
-			)
-		)
-		(property "Footprint" "Sparkfun-HX711:0805"
-			(at 135.89 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 135.89 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 135.89 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a226f123-d512-4427-8098-afac4459262e")
-		)
-		(pin "2"
-			(uuid "25057c21-e82c-43be-ba10-d550adb82f36")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "L1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:GND")
-		(at 214.63 85.09 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "63a7485a-e5c0-4f9c-be5c-ba4b2440aee5")
-		(property "Reference" "#GND09"
-			(at 214.63 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 212.09 87.63 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 214.63 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 214.63 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 214.63 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "de56603b-df9f-4d38-a6d0-c6a1903cef39")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#GND09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:VCC")
-		(at 140.97 41.91 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "67d20641-d538-4b0a-b19b-6795b63dd4e7")
-		(property "Reference" "#SUPPLY03"
-			(at 140.97 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VCC"
-			(at 139.954 38.354 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 140.97 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 140.97 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 140.97 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "52552058-d453-4b1b-97af-4b47a6f3c971")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#SUPPLY03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:VCC")
-		(at 153.67 54.61 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7f3397b2-2df8-420d-a2a3-1d5226ca5d68")
-		(property "Reference" "#SUPPLY04"
-			(at 153.67 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VCC"
-			(at 152.654 51.054 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 153.67 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 153.67 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 153.67 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "041aa074-9e53-476b-8672-f31b499fa28f")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#SUPPLY04")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:20KOHM1/10W1%(0603)")
-		(at 148.59 77.47 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8471123e-ee87-4705-a199-e3c34ea2177c")
-		(property "Reference" "R1"
-			(at 147.0914 81.28 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "20k"
-			(at 151.892 81.28 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Sparkfun-HX711:0603-RES"
-			(at 148.59 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 148.59 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 148.59 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "677d1353-a2a1-4727-b546-8ce093c7204c")
-		)
-		(pin "2"
-			(uuid "b60b338a-260b-4306-af50-86c6ea2a2684")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "R1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:10UF50V20%(1210)")
-		(at 140.97 49.53 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "84dcbf63-d233-4e3e-ae36-18507a754e09")
-		(property "Reference" "C5"
-			(at 142.494 46.609 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "10uF"
-			(at 142.494 51.689 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Sparkfun-HX711:1210"
-			(at 140.97 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 140.97 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 140.97 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8799043e-035d-4e5e-8e87-16432ec5adcf")
-		)
-		(pin "2"
-			(uuid "7164a594-0564-4b4f-bc53-dcb9171044e4")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "C5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:GND")
-		(at 207.01 85.09 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "85848a17-3e89-414c-834d-9f730372bc71")
-		(property "Reference" "#GND08"
-			(at 207.01 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 204.47 87.63 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 207.01 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 207.01 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 207.01 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "299b6285-b0a1-43cc-94ea-bab0492eef23")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#GND08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:8.2KOHM-1/10W-5%(0603)")
-		(at 148.59 92.71 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "870ebc66-a00b-42a3-906c-2c660b4e113e")
-		(property "Reference" "R2"
-			(at 147.0914 96.52 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "8.2K"
-			(at 151.892 96.52 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Sparkfun-HX711:0603-RES"
-			(at 148.59 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 148.59 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 148.59 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "90c290c9-23cf-42ba-8054-56980dfdceed")
-		)
-		(pin "2"
-			(uuid "cf6fb120-a21d-43be-9657-c34d963d8441")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "R2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:GND")
-		(at 120.65 85.09 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "91b52649-7efe-49e5-8581-9427829786c6")
-		(property "Reference" "#GND04"
-			(at 120.65 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 118.11 87.63 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 120.65 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 120.65 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 120.65 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "61cf5a60-5e41-463c-b5d6-76da9ac2a943")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#GND04")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:VCC")
-		(at 227.33 82.55 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "96474354-77bc-465c-8aa9-6da373fe379b")
-		(property "Reference" "#SUPPLY08"
-			(at 227.33 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VCC"
-			(at 226.314 78.994 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 227.33 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 227.33 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 227.33 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "adf11012-ce75-4403-9196-87a071514a8e")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#SUPPLY08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:100OHM-1/10W-1%(0603)")
-		(at 151.13 110.49 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a4785adc-7125-49bb-80c6-bd777858cc58")
+		(fields_autoplaced yes)
+		(uuid "1321e0c7-006a-4265-a408-d0ab51163c1a")
 		(property "Reference" "R3"
-			(at 153.924 109.982 0)
+			(at 123.19 121.92 90)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
 		(property "Value" "100"
-			(at 149.098 113.792 0)
+			(at 123.19 124.46 90)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "Footprint" "Sparkfun-HX711:0603-RES"
-			(at 151.13 110.49 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 123.19 126.492 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5248,8 +2257,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 151.13 110.49 0)
+		(property "Datasheet" "~"
+			(at 123.19 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5257,8 +2266,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 151.13 110.49 0)
+		(property "Description" "Resistor"
+			(at 123.19 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5267,10 +2276,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "b87953e7-1e8a-4909-931a-f55beebe44cd")
+			(uuid "cb76009b-1684-464d-afcd-11bc62027247")
 		)
 		(pin "2"
-			(uuid "de8a6e52-aee4-4098-bacd-3037893572a8")
+			(uuid "be520fdd-114d-40d3-888f-16deb7377e24")
 		)
 		(instances
 			(project "coffee-scales"
@@ -5282,34 +2291,34 @@
 		)
 	)
 	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:0.1UF-25V-5%(0603)")
-		(at 110.49 77.47 0)
+		(lib_id "power:GND")
+		(at 114.3 119.38 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b859e98b-9bd9-4d5d-bdd6-f5d6f40a68dc")
-		(property "Reference" "C1"
-			(at 112.014 74.549 0)
+		(fields_autoplaced yes)
+		(uuid "14870060-2145-42a2-8624-22e8404aac36")
+		(property "Reference" "#PWR07"
+			(at 114.3 125.73 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(hide yes)
 			)
 		)
-		(property "Value" "0.1uF"
-			(at 112.014 79.629 0)
+		(property "Value" "GND"
+			(at 114.3 124.46 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
-		(property "Footprint" "Sparkfun-HX711:0603-CAP"
-			(at 110.49 77.47 0)
+		(property "Footprint" ""
+			(at 114.3 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5318,7 +2327,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 110.49 77.47 0)
+			(at 114.3 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5326,8 +2335,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 110.49 77.47 0)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 114.3 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5336,10 +2345,933 @@
 			)
 		)
 		(pin "1"
-			(uuid "90a4e822-2345-4d25-a057-20dd98066a36")
+			(uuid "b5c09adb-d1b2-4f09-b468-550905e9fee8")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 95.25 102.87 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1a6d2735-c9ac-4fd5-9bde-8e005df2c632")
+		(property "Reference" "C7"
+			(at 99.06 101.5999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10uF"
+			(at 99.06 104.1399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 96.2152 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 95.25 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 95.25 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e56dfe5c-2903-4010-8384-8b9becb8896a")
 		)
 		(pin "2"
-			(uuid "9c9174c9-e4ac-4bf5-8396-932beb832dc7")
+			(uuid "045897ca-8609-4612-8cc3-cbbcd566cf85")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "C7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 182.88 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "20dd9be1-7f18-4f07-9bca-004fa97f3588")
+		(property "Reference" "C5"
+			(at 186.69 78.7399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 186.69 81.2799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 183.8452 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 182.88 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 182.88 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9e2bc9f5-4220-4b9e-8c6c-954840a679eb")
+		)
+		(pin "2"
+			(uuid "8c81d58a-1745-4b70-8919-8269017b2915")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Q_PNP_BEC")
+		(at 128.27 78.74 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2acac5d6-18a2-4423-a603-0acaf5e5eca2")
+		(property "Reference" "Q1"
+			(at 123.19 77.4699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MMBT4403"
+			(at 123.19 80.0099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:TSOT-23"
+			(at 123.19 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 128.27 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "PNP transistor, base/emitter/collector"
+			(at 128.27 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "947c712c-3042-4096-ad0f-cc9422349a15")
+		)
+		(pin "3"
+			(uuid "18975387-bffa-46d2-9b2f-2f800d86fab1")
+		)
+		(pin "2"
+			(uuid "1d5b9fe9-13eb-4f3e-8b16-173d8e36576c")
+		)
+		(instances
+			(project ""
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "Q1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:L")
+		(at 105.41 87.63 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2bed1b70-d0ed-4e84-a82b-727ad7dea283")
+		(property "Reference" "L1"
+			(at 105.41 82.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "3.3uH"
+			(at 105.41 85.09 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Inductor_SMD:L_0805_2012Metric"
+			(at 105.41 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 105.41 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Inductor"
+			(at 105.41 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0455e487-baf6-49c8-a691-49b3cbac5184")
+		)
+		(pin "2"
+			(uuid "ad8cbcc2-774e-4600-81bb-13369bff9e6b")
+		)
+		(instances
+			(project ""
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "L1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 198.12 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "304c6df9-7a8c-4522-9d11-051becb558cf")
+		(property "Reference" "#PWR021"
+			(at 198.12 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 198.12 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 198.12 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 198.12 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 198.12 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d6718413-aea2-487e-bfb5-5d599f808c00")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR021")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "CoffeeLib:HX711")
+		(at 160.02 105.41 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "30da377f-5dba-4864-ae3b-44a1b0fdfe5d")
+		(property "Reference" "U5"
+			(at 160.02 92.202 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 160.02 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOP-16_3.9x9.9mm_P1.27mm"
+			(at 159.766 119.634 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 160.02 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 160.02 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "11"
+			(uuid "02079569-0214-46f8-992c-2ab27d808728")
+		)
+		(pin "8"
+			(uuid "7d25abe0-0101-4faa-9356-0c866e2cb1d2")
+		)
+		(pin "9"
+			(uuid "787bf2b3-b693-46bf-9ea3-89a92707cf00")
+		)
+		(pin "4"
+			(uuid "38c24024-0a09-488b-b261-119655b6dbe6")
+		)
+		(pin "5"
+			(uuid "bd3b044c-3422-4867-9c8e-aad697709970")
+		)
+		(pin "10"
+			(uuid "992cdff6-060a-43fa-a5f7-dd41046ee4ff")
+		)
+		(pin "7"
+			(uuid "42ed0ce5-e5b7-4146-8cd2-749f12fb99f3")
+		)
+		(pin "3"
+			(uuid "bf3f04c4-8b68-493f-a1ad-507865ec31f4")
+		)
+		(pin "2"
+			(uuid "747ea111-8243-41ac-8b38-47a515bd64e4")
+		)
+		(pin "6"
+			(uuid "06f2398a-abfe-49fd-a744-caa01361ebab")
+		)
+		(pin "1"
+			(uuid "f230975b-29ce-483d-9648-14a4f2885b10")
+		)
+		(pin "16"
+			(uuid "46fc3a5f-7400-4209-97fc-255694742468")
+		)
+		(pin "15"
+			(uuid "7a388f06-2fef-468d-90e4-dfd15d8083ec")
+		)
+		(pin "13"
+			(uuid "a32047e9-b54c-413c-ad50-d038aa8099d7")
+		)
+		(pin "12"
+			(uuid "a29a3dc1-4046-4493-b938-2a4684b28a64")
+		)
+		(pin "14"
+			(uuid "eced37ae-0efe-4d5c-9126-a4635f9cd626")
+		)
+		(instances
+			(project ""
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "U5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 182.88 73.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3d90444a-9e22-424c-a263-889a13ba353a")
+		(property "Reference" "#PWR012"
+			(at 182.88 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 182.88 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 182.88 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 182.88 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7a406372-cd99-4a3b-8c9e-f09abe6bbc9b")
+		)
+		(instances
+			(project ""
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 114.3 95.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6a4b131f-6dea-4e24-9ada-19e6ae4392b3")
+		(property "Reference" "R1"
+			(at 116.84 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "20k"
+			(at 116.84 96.5199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 112.522 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 114.3 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 114.3 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c81bf5de-792c-4277-b784-112abb11e25c")
+		)
+		(pin "2"
+			(uuid "69dc100b-48b0-40f8-b6b9-3e47f575b802")
+		)
+		(instances
+			(project ""
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 132.08 118.11 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6a689647-744c-4282-b77c-2313907d71a4")
+		(property "Reference" "C2"
+			(at 132.08 110.49 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 132.08 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 135.89 117.1448 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 132.08 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 132.08 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8afbc045-10b7-4690-8043-07bc7f4a5a3e")
+		)
+		(pin "2"
+			(uuid "6594802d-702d-45c5-9fd4-ddb93aaa5811")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 193.04 118.11 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6fc2e3e6-d580-4790-a03e-3b6eb65e836d")
+		(property "Reference" "#PWR019"
+			(at 193.04 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 193.04 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 193.04 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6f8a1cb6-54bc-418c-a3d0-d063b4f97a29")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR019")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 147.32 92.71 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "85080a71-ae48-4250-9e2a-129507a922d3")
+		(property "Reference" "#PWR016"
+			(at 147.32 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 147.32 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 147.32 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 147.32 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 147.32 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9ced4f2e-dc92-4d8e-b753-5bfd7a7c91cf")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 193.04 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8806a827-2ec7-4ccc-af4c-4544d4d3fb80")
+		(property "Reference" "#PWR014"
+			(at 193.04 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 193.04 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 193.04 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "352f4aa2-e74f-4cd5-8a97-40208d14eb49")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 130.81 134.62 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8a72dedf-6f8c-4635-97c2-6e142825ac10")
+		(property "Reference" "C1"
+			(at 134.62 133.3499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 134.62 135.8899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 131.7752 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 130.81 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 130.81 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c46bb980-0bf4-453d-8a6f-65cef0d787ae")
+		)
+		(pin "2"
+			(uuid "7ba6debd-402c-4713-91ef-803654b10bfe")
 		)
 		(instances
 			(project "coffee-scales"
@@ -5351,155 +3283,17 @@
 		)
 	)
 	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:VDD")
-		(at 113.03 41.91 0)
+		(lib_id "power:VCC")
+		(at 125.73 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "bc6b3e05-385e-41a5-b7c8-04a12b0b32ac")
-		(property "Reference" "#SUPPLY01"
-			(at 113.03 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VDD"
-			(at 112.014 38.354 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 113.03 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 113.03 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 113.03 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "981d0b42-e043-454d-8da0-eccd4f18b470")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#SUPPLY01")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:TRANSISTOR_PNPMMBT4403")
-		(at 156.21 62.23 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "bfe7965f-32eb-4229-9ec2-1c7833338825")
-		(property "Reference" "Q1"
-			(at 151.13 62.23 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "MMBT4403"
-			(at 151.13 64.77 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Sparkfun-HX711:SOT23-3"
-			(at 156.21 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 156.21 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 156.21 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ae2aade9-026c-4d76-a348-12060905dfef")
-		)
-		(pin "2"
-			(uuid "7836c04f-f7f3-41d7-9a7d-faf0134a3627")
-		)
-		(pin "3"
-			(uuid "7e44e50e-1f5b-44bc-a30d-25c5801096ea")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "Q1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:VCC")
-		(at 214.63 52.07 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c4efbd12-1731-41db-97c9-0c35b4ae0afa")
-		(property "Reference" "#SUPPLY07"
-			(at 214.63 52.07 0)
+		(fields_autoplaced yes)
+		(uuid "8eb4f2c5-76bf-4fac-b26b-5d7536cb11f1")
+		(property "Reference" "#PWR017"
+			(at 125.73 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5508,16 +3302,15 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 213.614 48.514 0)
+			(at 125.73 67.31 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
 		(property "Footprint" ""
-			(at 214.63 52.07 0)
+			(at 125.73 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5526,7 +3319,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 214.63 52.07 0)
+			(at 125.73 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5534,8 +3327,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 214.63 52.07 0)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 125.73 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5544,28 +3337,29 @@
 			)
 		)
 		(pin "1"
-			(uuid "42700864-d26b-4021-bf65-8b22bc64dcc0")
+			(uuid "43b81598-2712-49c8-8c1c-52b049f7167a")
 		)
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#SUPPLY07")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:GND")
-		(at 90.17 85.09 0)
+		(lib_id "power:GND")
+		(at 182.88 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c71bc537-8843-4293-9505-513899e1e5c4")
-		(property "Reference" "#GND01"
-			(at 90.17 85.09 0)
+		(fields_autoplaced yes)
+		(uuid "9638c5d7-876b-4e4f-aeb9-88e083aefaec")
+		(property "Reference" "#PWR020"
+			(at 182.88 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5574,16 +3368,15 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 87.63 87.63 0)
+			(at 182.88 91.44 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
 		(property "Footprint" ""
-			(at 90.17 85.09 0)
+			(at 182.88 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5592,7 +3385,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 90.17 85.09 0)
+			(at 182.88 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5600,8 +3393,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 90.17 85.09 0)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 182.88 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5610,28 +3403,29 @@
 			)
 		)
 		(pin "1"
-			(uuid "785d6cd4-72f6-4745-a6c9-8bf3bc97fae4")
+			(uuid "1d206187-76a5-4af0-851d-038e8a51e01c")
 		)
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#GND01")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:GND")
-		(at 140.97 57.15 0)
+		(lib_id "power:GND")
+		(at 172.72 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "cee4e6df-8021-4919-89f6-e629d1e3c63e")
-		(property "Reference" "#GND06"
-			(at 140.97 57.15 0)
+		(fields_autoplaced yes)
+		(uuid "9e1594ec-f030-491a-959c-b8416f180071")
+		(property "Reference" "#PWR018"
+			(at 172.72 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5640,16 +3434,15 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 138.43 59.69 0)
+			(at 172.72 123.19 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
 		(property "Footprint" ""
-			(at 140.97 57.15 0)
+			(at 172.72 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5658,7 +3451,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 140.97 57.15 0)
+			(at 172.72 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5666,8 +3459,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 140.97 57.15 0)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 172.72 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5676,46 +3469,47 @@
 			)
 		)
 		(pin "1"
-			(uuid "8490dde0-1298-46f3-804a-97bcf33b74c6")
+			(uuid "40ceaf59-5e5f-41c9-a512-ccc0ca77775e")
 		)
 		(instances
-			(project "coffee-scales"
+			(project ""
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#GND06")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:0.1UF-25V-5%(0603)")
-		(at 158.75 118.11 0)
+		(lib_id "Device:R")
+		(at 114.3 110.49 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d2e987b2-ec36-419f-b50b-e7552b4b1b3a")
-		(property "Reference" "C6"
-			(at 160.274 115.189 0)
+		(fields_autoplaced yes)
+		(uuid "b2207785-2fb7-45f5-aace-4cde4c1f035c")
+		(property "Reference" "R2"
+			(at 116.84 109.2199 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
-			(at 160.274 120.269 0)
+		(property "Value" "8.2k"
+			(at 116.84 111.7599 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(justify left)
 			)
 		)
-		(property "Footprint" "Sparkfun-HX711:0603-CAP"
-			(at 158.75 118.11 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 112.522 110.49 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5723,8 +3517,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 158.75 118.11 0)
+		(property "Datasheet" "~"
+			(at 114.3 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5732,8 +3526,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 158.75 118.11 0)
+		(property "Description" "Resistor"
+			(at 114.3 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5742,10 +3536,146 @@
 			)
 		)
 		(pin "1"
-			(uuid "982ea396-cf50-4ef5-9ba2-5b44f1021d4d")
+			(uuid "58b55992-5418-42f4-91a9-09e6f70a995f")
 		)
 		(pin "2"
-			(uuid "bfcad659-9c5d-4331-abb0-09d12a39e6d2")
+			(uuid "a0b6b8c2-12ca-4231-bab1-38c2d86fd523")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 172.72 92.71 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cafb5f0c-9b9f-406f-bcc6-6f406eb3dac7")
+		(property "Reference" "#PWR015"
+			(at 172.72 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 172.72 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 172.72 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 172.72 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 172.72 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fd48b87e-1a84-4fef-9968-a8297a4636b0")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 198.12 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e9b9e191-83e2-42a1-a96d-c700d6752e43")
+		(property "Reference" "C6"
+			(at 201.93 78.7399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10uF"
+			(at 201.93 81.2799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
+			(at 199.0852 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 198.12 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 198.12 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d1f77390-1a5b-4145-bbcb-17fe62294c5e")
+		)
+		(pin "2"
+			(uuid "4e369c54-f4d8-4dab-861a-d4186bcb0eda")
 		)
 		(instances
 			(project "coffee-scales"
@@ -5757,85 +3687,17 @@
 		)
 	)
 	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:10KOHM-1/10W-1%(0603)0603")
-		(at 214.63 59.69 90)
+		(lib_id "power:VCC")
+		(at 198.12 73.66 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "dbb4fd99-55a5-4e75-979d-a4329722255f")
-		(property "Reference" "R5"
-			(at 213.1314 63.5 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "10K"
-			(at 217.932 63.5 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Sparkfun-HX711:0603-RES"
-			(at 214.63 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 214.63 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 214.63 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ea28653c-7875-45ea-9876-b650f0df99fa")
-		)
-		(pin "2"
-			(uuid "abe24dcf-377a-42e8-80ca-742701657148")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:VCC")
-		(at 125.73 41.91 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e58f9102-43ac-4d98-8cf7-5f22022e44b2")
-		(property "Reference" "#SUPPLY02"
-			(at 125.73 41.91 0)
+		(fields_autoplaced yes)
+		(uuid "f8f890b2-14c6-4815-9b30-7ce0c145cac4")
+		(property "Reference" "#PWR013"
+			(at 198.12 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5844,16 +3706,15 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 124.714 38.354 0)
+			(at 198.12 68.58 0)
 			(effects
 				(font
-					(size 1.778 1.5113)
+					(size 1.27 1.27)
 				)
-				(justify left bottom)
 			)
 		)
 		(property "Footprint" ""
-			(at 125.73 41.91 0)
+			(at 198.12 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5862,7 +3723,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 125.73 41.91 0)
+			(at 198.12 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5870,74 +3731,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 125.73 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ddf5fbd3-8aac-45f6-8264-8aabe32a34b2")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#SUPPLY02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:GND")
-		(at 148.59 105.41 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f87e97ee-4091-443e-9605-c775e068edba")
-		(property "Reference" "#GND07"
-			(at 148.59 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 146.05 107.95 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 148.59 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 148.59 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 148.59 105.41 0)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 198.12 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5946,147 +3741,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "32c50d0e-cb1b-4206-8b7a-e96502d8fbf5")
+			(uuid "794d830c-2e21-4ef7-9775-fb805ab0b391")
 		)
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#GND07")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:VDD")
-		(at 232.41 82.55 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f99a55c5-2037-4888-92dc-2702a522f27f")
-		(property "Reference" "#SUPPLY09"
-			(at 232.41 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VDD"
-			(at 231.394 78.994 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" ""
-			(at 232.41 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 232.41 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9674b3c4-718c-47ba-bf39-808f38d480e2")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#SUPPLY09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sparkfun-HX711-eagle-import:JUMPER-PAD-2-NC_BY_TRACE")
-		(at 214.63 74.93 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "fe266faa-be98-4cfe-8a88-b60896cb7a19")
-		(property "Reference" "SJ1"
-			(at 212.09 77.47 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Value" "JUMPER-PAD-2-NC_BY_TRACE"
-			(at 221.234 85.344 0)
-			(effects
-				(font
-					(size 1.778 1.5113)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Footprint" "Sparkfun-HX711:PAD-JUMPER-2-NC_BY_TRACE_YES_SILK"
-			(at 214.63 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 214.63 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 214.63 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "780991fc-bad2-433f-8219-e020fe0dc55a")
-		)
-		(pin "2"
-			(uuid "2eb1725a-2125-4b66-aca2-8fd5a03808c3")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "SJ1")
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
