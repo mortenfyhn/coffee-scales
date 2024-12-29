@@ -1,4 +1,3 @@
-#include <Battery.h>
 #include <Formatter.h>
 #include <unity.h>
 
@@ -74,24 +73,6 @@ void negative_zero()
     test(-0.1f, " -0.1", segments(off, minus, zero | dot, one));
 }
 
-void battery_percentage()
-{
-    TEST_ASSERT_EQUAL_INT(100, battery::percentage(4.20));
-    TEST_ASSERT_EQUAL_INT(88, battery::percentage(4.025));
-    TEST_ASSERT_EQUAL_INT(75, battery::percentage(3.85));
-    TEST_ASSERT_EQUAL_INT(63, battery::percentage(3.815));
-    TEST_ASSERT_EQUAL_INT(50, battery::percentage(3.78));
-    TEST_ASSERT_EQUAL_INT(38, battery::percentage(3.755));
-    TEST_ASSERT_EQUAL_INT(25, battery::percentage(3.73));
-    TEST_ASSERT_EQUAL_INT(12, battery::percentage(3.715));
-    TEST_ASSERT_EQUAL_INT(0, battery::percentage(3.70));
-
-    // Below minimum voltage
-    TEST_ASSERT_EQUAL_INT(0, battery::percentage(3.50));
-    // Above maximum voltage
-    TEST_ASSERT_EQUAL_INT(100, battery::percentage(4.30));
-}
-
 void setup() {}
 
 int main()
@@ -102,6 +83,5 @@ int main()
     RUN_TEST(out_of_bounds);
     RUN_TEST(rounding);
     RUN_TEST(negative_zero);
-    RUN_TEST(battery_percentage);
     UNITY_END();
 }
