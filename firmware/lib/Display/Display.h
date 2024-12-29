@@ -33,7 +33,7 @@ class Display : public SevenSegmentTM1637
     }
 
     void setMaxBrightness() { setBacklight(100); }
-    void setMinBrightness() { setBacklight(0); }
+    void setMinBrightness() { setBacklight(10); }
 
   private:
     static constexpr uint8_t SEG_G = 0b01000000;
