@@ -8,6 +8,7 @@ void TimerDisplay::start()
     {
         start_millis = millis();
         started = true;
+        setColonOn(true);
     }
 }
 
@@ -15,6 +16,7 @@ void TimerDisplay::stop()
 {
     if (started)
     {
+        setColonOn(false);
         clear();
         started = false;
     }
@@ -50,7 +52,6 @@ uint8_t TimerDisplay::millisToMinutes(unsigned long millis)
 
 void TimerDisplay::showTime(uint8_t minutes, uint8_t seconds)
 {
-    setColonOn(true);
     // TODO static buffer?
     auto buf = Buffer::buffer<char>{5};  // 4 digits + null char
     snprintf(buf.data(), 5, "%02i%02i", minutes, seconds);
