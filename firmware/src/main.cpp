@@ -271,7 +271,16 @@ void setup()
     load_cell_.begin(pins::loadcell_dt, pins::loadcell_sck);
     load_cell_.set_scale(config::scale_factor);
 
-    weight_display_.showNumberDecEx(read_battery_voltage() * 1000, 0b10000000);
+    // Print battery voltage
+    auto buf = Buffer::buffer<char>{5};
+    const auto battery_voltage_mV =
+        static_cast<uint32_t>(read_battery_voltage() * 1000);
+    snprintf(buf.data(), 5, "%lu", battery_voltage_mV);
+    for (auto i = 0; i < 5; ++i)
+        buf.data()[i] = weight_display_.encode(buf.data()[i]);
+    buf.data()[0] |= 0b10000000;  // Add decimal dot
+    weight_display_.printRaw(buf.data());
+
     delay(1000ul);
 
     state_ = transitionToTaring();

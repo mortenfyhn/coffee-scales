@@ -1,4 +1,5 @@
 #include <Arduino.h>  // millis()
+#include <Buffer.h>
 #include <TimerDisplay.h>
 
 void TimerDisplay::start()
@@ -49,7 +50,9 @@ uint8_t TimerDisplay::millisToMinutes(unsigned long millis)
 
 void TimerDisplay::showTime(uint8_t minutes, uint8_t seconds)
 {
-    static constexpr uint8_t colon = 0b01000000;
-    showNumberDecEx(minutes, colon, true, 2, 0);
-    showNumberDecEx(seconds, 0, true, 2, 2);
+    setColonOn(true);
+    // TODO static buffer?
+    auto buf = Buffer::buffer<char>{5};  // 4 digits + null char
+    snprintf(buf.data(), 5, "%02i%02i", minutes, seconds);
+    print(buf.data());
 }

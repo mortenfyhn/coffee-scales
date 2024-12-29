@@ -1,13 +1,14 @@
 #pragma once
 
-#include <TM1637Display.h>
+#include <SevenSegmentTM1637.h>
 
-class Display : public TM1637Display
+class Display : public SevenSegmentTM1637
 {
   public:
-    Display(uint8_t pin_clk, uint8_t pin_dio) : TM1637Display(pin_clk, pin_dio)
+    Display(uint8_t pin_clk, uint8_t pin_dio)
+        : SevenSegmentTM1637(pin_clk, pin_dio)
     {
-        clear();
+        init();
         setMaxBrightness();
     }
 
@@ -25,6 +26,15 @@ class Display : public TM1637Display
         setSegments(segments_line);
     }
 
-    void setMaxBrightness() { setBrightness(7); }
-    void setMinBrightness() { setBrightness(0); }
+    void setSegments(const uint8_t* data, size_t length = 4,
+                     uint8_t position = 0)
+    {
+        printRaw(data, length, position);
+    }
+
+    void setMaxBrightness() { setBacklight(100); }
+    void setMinBrightness() { setBacklight(0); }
+
+  private:
+    static constexpr uint8_t SEG_G = 0b01000000;
 };
