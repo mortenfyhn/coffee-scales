@@ -1034,7 +1034,7 @@
 					)
 				)
 			)
-			(pin power_in line
+			(pin power_out line
 				(at -10.16 -1.27 0)
 				(length 2.54)
 				(name "AGND"

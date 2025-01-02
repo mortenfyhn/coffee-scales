@@ -264,7 +264,7 @@
 						)
 					)
 				)
-				(pin power_in line
+				(pin power_out line
 					(at -10.16 -1.27 0)
 					(length 2.54)
 					(name "AGND"
@@ -948,7 +948,7 @@
 				)
 			)
 		)
-		(symbol "power:GND"
+		(symbol "power:GNDA"
 			(power)
 			(pin_names
 				(offset 0)
@@ -965,7 +965,7 @@
 					(hide yes)
 				)
 			)
-			(property "Value" "GND"
+			(property "Value" "GNDA"
 				(at 0 -3.81 0)
 				(effects
 					(font
@@ -991,7 +991,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1009,7 +1009,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "GND_0_1"
+			(symbol "GNDA_0_1"
 				(polyline
 					(pts
 						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
@@ -1023,11 +1023,11 @@
 					)
 				)
 			)
-			(symbol "GND_1_1"
+			(symbol "GNDA_1_1"
 				(pin power_in line
 					(at 0 0 270)
 					(length 0) hide
-					(name "GND"
+					(name "GNDA"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1184,6 +1184,12 @@
 		(uuid "25eb6058-2c97-438c-9f23-1502135d6020")
 	)
 	(junction
+		(at 114.3 118.11)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2d5398d7-a70a-47ae-8f56-a9166f6e6677")
+	)
+	(junction
 		(at 95.25 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1194,12 +1200,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "626f9c55-129b-4e12-9ac0-3486d266c5a1")
-	)
-	(junction
-		(at 114.3 118.11)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7ae0c7e9-0e58-4359-a21a-56aae1eedf50")
 	)
 	(junction
 		(at 125.73 118.11)
@@ -1295,6 +1295,16 @@
 	)
 	(wire
 		(pts
+			(xy 60.96 147.32) (xy 63.5 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b99ae26-309b-4eea-92f6-94a51d31ec20")
+	)
+	(wire
+		(pts
 			(xy 143.51 99.06) (xy 149.86 99.06)
 		)
 		(stroke
@@ -1312,26 +1322,6 @@
 			(type solid)
 		)
 		(uuid "192e3fe6-8892-43ca-b7a3-05578a1b8917")
-	)
-	(wire
-		(pts
-			(xy 193.04 101.6) (xy 193.04 104.14)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "192f5ea3-fe29-4d57-8a7d-dddfbe9ccfc8")
-	)
-	(wire
-		(pts
-			(xy 172.72 92.71) (xy 172.72 96.52)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "1c7f6f0f-fa9e-4be1-b889-30f6fbcd51bf")
 	)
 	(wire
 		(pts
@@ -1385,7 +1375,7 @@
 	)
 	(wire
 		(pts
-			(xy 182.88 86.36) (xy 182.88 83.82)
+			(xy 171.45 76.2) (xy 171.45 73.66)
 		)
 		(stroke
 			(width 0.1524)
@@ -1405,6 +1395,16 @@
 	)
 	(wire
 		(pts
+			(xy 171.45 96.52) (xy 171.45 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e582080-a83a-482e-ac40-99b6821f5f19")
+	)
+	(wire
+		(pts
 			(xy 60.96 140.97) (xy 119.38 140.97)
 		)
 		(stroke
@@ -1415,7 +1415,7 @@
 	)
 	(wire
 		(pts
-			(xy 182.88 73.66) (xy 182.88 76.2)
+			(xy 171.45 63.5) (xy 171.45 66.04)
 		)
 		(stroke
 			(width 0)
@@ -1435,7 +1435,17 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 76.2) (xy 198.12 73.66)
+			(xy 185.42 101.6) (xy 185.42 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a26b686-f324-421a-8e0d-c9429fa797ce")
+	)
+	(wire
+		(pts
+			(xy 186.69 66.04) (xy 186.69 63.5)
 		)
 		(stroke
 			(width 0.1524)
@@ -1505,13 +1515,23 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 111.76) (xy 193.04 118.11)
+			(xy 194.31 111.76) (xy 194.31 114.3)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
 		(uuid "579e9acb-05a1-4764-bf37-d22f6aa6b37f")
+	)
+	(wire
+		(pts
+			(xy 114.3 118.11) (xy 125.73 118.11)
+		)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(uuid "5c7d8d8c-aa1b-4bba-98de-ca2562cde984")
 	)
 	(wire
 		(pts
@@ -1535,17 +1555,17 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 92.71) (xy 147.32 96.52)
+			(xy 196.85 99.06) (xy 194.31 99.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "61a2f927-179c-430e-aec1-c0e468c8c4e3")
+		(uuid "63387ff9-89ce-4458-a393-6f68bc2418b7")
 	)
 	(wire
 		(pts
-			(xy 196.85 111.76) (xy 193.04 111.76)
+			(xy 194.31 111.76) (xy 196.85 111.76)
 		)
 		(stroke
 			(width 0.1524)
@@ -1565,16 +1585,6 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 119.38) (xy 114.3 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6686dd18-0e25-4722-a464-f66418c058c0")
-	)
-	(wire
-		(pts
 			(xy 125.73 83.82) (xy 125.73 87.63)
 		)
 		(stroke
@@ -1585,16 +1595,6 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 96.52) (xy 147.32 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "74202aa5-1872-4f57-9c9d-f1089a89253e")
-	)
-	(wire
-		(pts
 			(xy 128.27 118.11) (xy 125.73 118.11)
 		)
 		(stroke
@@ -1602,6 +1602,16 @@
 			(type solid)
 		)
 		(uuid "749c68bb-88e7-4e2e-9c1b-b7882680eeb3")
+	)
+	(wire
+		(pts
+			(xy 170.18 96.52) (xy 171.45 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "79fe182f-9ea4-4adf-980e-d9fb632db04c")
 	)
 	(wire
 		(pts
@@ -1625,6 +1635,16 @@
 	)
 	(wire
 		(pts
+			(xy 114.3 114.3) (xy 114.3 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d65fb5c-2674-4439-a0cb-91fdc7e2f09a")
+	)
+	(wire
+		(pts
 			(xy 140.97 101.6) (xy 149.86 101.6)
 		)
 		(stroke
@@ -1635,6 +1655,16 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 63.5) (xy 157.48 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "830925a0-872f-4647-b633-65b28d30c78b")
+	)
+	(wire
+		(pts
 			(xy 125.73 106.68) (xy 149.86 106.68)
 		)
 		(stroke
@@ -1642,6 +1672,16 @@
 			(type solid)
 		)
 		(uuid "83bb31dc-a1a5-401c-9986-c8959512d372")
+	)
+	(wire
+		(pts
+			(xy 148.59 96.52) (xy 148.59 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d666793-e735-4f09-850d-d1713f81e1fc")
 	)
 	(wire
 		(pts
@@ -1675,7 +1715,7 @@
 	)
 	(wire
 		(pts
-			(xy 125.73 118.11) (xy 114.3 118.11)
+			(xy 95.25 118.11) (xy 114.3 118.11)
 		)
 		(stroke
 			(width 0.1524)
@@ -1695,13 +1735,13 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 118.11) (xy 114.3 118.11)
+			(xy 157.48 76.2) (xy 157.48 73.66)
 		)
 		(stroke
 			(width 0.1524)
 			(type solid)
 		)
-		(uuid "a15eb815-f871-4233-ac70-58e523d68d03")
+		(uuid "9b2c45f3-1b0e-4c03-9b7e-2dcce67ba659")
 	)
 	(wire
 		(pts
@@ -1745,13 +1785,13 @@
 	)
 	(wire
 		(pts
-			(xy 125.73 72.39) (xy 125.73 73.66)
+			(xy 149.86 96.52) (xy 148.59 96.52)
 		)
 		(stroke
-			(width 0.1524)
-			(type solid)
+			(width 0)
+			(type default)
 		)
-		(uuid "b78d28e0-2345-44e0-9063-c507b60277a8")
+		(uuid "b3c4480c-c08f-4f85-9669-e66e10de4881")
 	)
 	(wire
 		(pts
@@ -1765,6 +1805,16 @@
 	)
 	(wire
 		(pts
+			(xy 63.5 147.32) (xy 63.5 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ba671930-702a-4823-a447-64ddb67dedbd")
+	)
+	(wire
+		(pts
 			(xy 82.55 87.63) (xy 95.25 87.63)
 		)
 		(stroke
@@ -1775,13 +1825,13 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 114.3) (xy 114.3 118.11)
+			(xy 196.85 101.6) (xy 185.42 101.6)
 		)
 		(stroke
-			(width 0.1524)
-			(type solid)
+			(width 0)
+			(type default)
 		)
-		(uuid "cb08f1bf-8171-4b79-856b-3245aae9e14c")
+		(uuid "c7ea7868-44f8-4b45-b0e5-52574aee506a")
 	)
 	(wire
 		(pts
@@ -1815,16 +1865,6 @@
 	)
 	(wire
 		(pts
-			(xy 172.72 96.52) (xy 170.18 96.52)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "d60fc44f-3020-4c5c-821e-94f2c844bfdf")
-	)
-	(wire
-		(pts
 			(xy 140.97 87.63) (xy 125.73 87.63)
 		)
 		(stroke
@@ -1845,7 +1885,7 @@
 	)
 	(wire
 		(pts
-			(xy 198.12 83.82) (xy 198.12 86.36)
+			(xy 186.69 73.66) (xy 186.69 76.2)
 		)
 		(stroke
 			(width 0.1524)
@@ -1895,16 +1935,6 @@
 	)
 	(wire
 		(pts
-			(xy 196.85 104.14) (xy 193.04 104.14)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "ed4f2b6e-3671-4712-a24e-04f81000f750")
-	)
-	(wire
-		(pts
 			(xy 170.18 106.68) (xy 196.85 106.68)
 		)
 		(stroke
@@ -1922,6 +1952,16 @@
 			(type solid)
 		)
 		(uuid "f83fc3e9-75a5-4960-acee-64cf1a9d0bc2")
+	)
+	(wire
+		(pts
+			(xy 194.31 99.06) (xy 194.31 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ffdeb486-c5c7-4926-9653-6284ed242d08")
 	)
 	(text "Analog/digital power and ground are tied together here.\nMaybe not ideal.\nhttps://github.com/sparkfun/HX711-Load-Cell-Amplifier/issues/7"
 		(exclude_from_sim no)
@@ -1988,7 +2028,7 @@
 		)
 		(uuid "ca81165c-c613-4274-9124-2b348faa36b8")
 	)
-	(hierarchical_label "GND"
+	(hierarchical_label "HX_GNDA"
 		(shape input)
 		(at 196.85 111.76 0)
 		(fields_autoplaced yes)
@@ -2000,7 +2040,7 @@
 		)
 		(uuid "0009f2fd-f2e1-4468-b080-c83ffde9bbc7")
 	)
-	(hierarchical_label "DAT"
+	(hierarchical_label "HX_DAT"
 		(shape input)
 		(at 196.85 106.68 0)
 		(fields_autoplaced yes)
@@ -2011,6 +2051,18 @@
 			(justify left)
 		)
 		(uuid "1572b120-fc17-4c79-a69d-891130b4db3f")
+	)
+	(hierarchical_label "SHLD"
+		(shape input)
+		(at 60.96 147.32 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "33611bd1-b048-43ea-9dae-bcad2497d103")
 	)
 	(hierarchical_label "E+"
 		(shape input)
@@ -2023,6 +2075,18 @@
 			(justify right)
 		)
 		(uuid "646b7f8d-e1ed-4b21-9ed3-a72e425e2798")
+	)
+	(hierarchical_label "HX_VDD"
+		(shape input)
+		(at 196.85 101.6 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7a3b12e0-02bf-4173-868e-669e29b781a6")
 	)
 	(hierarchical_label "A+"
 		(shape input)
@@ -2048,9 +2112,9 @@
 		)
 		(uuid "a72719e6-fb3b-43cb-97d1-b2658fad8f44")
 	)
-	(hierarchical_label "VCC"
+	(hierarchical_label "HX_VCC"
 		(shape input)
-		(at 196.85 104.14 0)
+		(at 196.85 99.06 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2072,7 +2136,7 @@
 		)
 		(uuid "e5870b88-a3d6-4c4c-a53f-44d8a3fac131")
 	)
-	(hierarchical_label "SCK"
+	(hierarchical_label "HX_SCK"
 		(shape input)
 		(at 196.85 109.22 0)
 		(fields_autoplaced yes)
@@ -2223,6 +2287,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GNDA")
+		(at 194.31 114.3 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "10a37f55-8286-46ed-8045-d891af850570")
+		(property "Reference" "#PWR07"
+			(at 194.31 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "HX_GNDA"
+			(at 194.31 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 194.31 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 194.31 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 194.31 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4c71e2c7-5367-4896-987e-3d5832ceff5a")
+		)
+		(instances
+			(project ""
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 123.19 128.27 270)
 		(unit 1)
@@ -2291,17 +2421,17 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 114.3 119.38 0)
+		(lib_id "power:VCC")
+		(at 185.42 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "14870060-2145-42a2-8624-22e8404aac36")
-		(property "Reference" "#PWR07"
-			(at 114.3 125.73 0)
+		(uuid "1852e227-1f84-433a-96f5-493d9878387d")
+		(property "Reference" "#PWR014"
+			(at 185.42 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2309,8 +2439,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
-			(at 114.3 124.46 0)
+		(property "Value" "HX_VDD"
+			(at 185.42 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2318,7 +2448,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 114.3 119.38 0)
+			(at 185.42 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2327,7 +2457,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 119.38 0)
+			(at 185.42 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2335,8 +2465,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 114.3 119.38 0)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 185.42 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2345,12 +2475,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b5c09adb-d1b2-4f09-b468-550905e9fee8")
+			(uuid "f8bf3c3f-f727-4e33-9328-4c022020b654")
 		)
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR07")
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -2428,7 +2558,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 182.88 80.01 0)
+		(at 171.45 69.85 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2437,7 +2567,7 @@
 		(fields_autoplaced yes)
 		(uuid "20dd9be1-7f18-4f07-9bca-004fa97f3588")
 		(property "Reference" "C5"
-			(at 186.69 78.7399 0)
+			(at 175.26 68.5799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2446,7 +2576,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 186.69 81.2799 0)
+			(at 175.26 71.1199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2455,7 +2585,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 183.8452 83.82 0)
+			(at 172.4152 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2464,7 +2594,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 182.88 80.01 0)
+			(at 171.45 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2473,7 +2603,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 182.88 80.01 0)
+			(at 171.45 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2637,72 +2767,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 198.12 86.36 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "304c6df9-7a8c-4522-9d11-051becb558cf")
-		(property "Reference" "#PWR021"
-			(at 198.12 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 198.12 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 198.12 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 198.12 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 198.12 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d6718413-aea2-487e-bfb5-5d599f808c00")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR021")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "CoffeeLib:HX711")
 		(at 160.02 105.41 0)
 		(unit 1)
@@ -2813,16 +2877,16 @@
 	)
 	(symbol
 		(lib_id "power:VCC")
-		(at 182.88 73.66 0)
+		(at 157.48 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "3d90444a-9e22-424c-a263-889a13ba353a")
-		(property "Reference" "#PWR012"
-			(at 182.88 77.47 0)
+		(uuid "3b6d4aa0-0936-49e9-b7e0-415a326ce2be")
+		(property "Reference" "#PWR019"
+			(at 157.48 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2830,8 +2894,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
-			(at 182.88 68.58 0)
+		(property "Value" "HX_VDD"
+			(at 157.48 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2839,7 +2903,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 182.88 73.66 0)
+			(at 157.48 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2848,7 +2912,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 182.88 73.66 0)
+			(at 157.48 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2857,7 +2921,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 182.88 73.66 0)
+			(at 157.48 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2866,12 +2930,346 @@
 			)
 		)
 		(pin "1"
-			(uuid "7a406372-cd99-4a3b-8c9e-f09abe6bbc9b")
+			(uuid "72f20a56-bf32-4564-9a49-315b3c3e0620")
 		)
 		(instances
-			(project ""
+			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR012")
+					(reference "#PWR019")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 148.59 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4734470d-6747-43ae-b41c-352169402cc8")
+		(property "Reference" "#PWR034"
+			(at 148.59 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "HX_VCC"
+			(at 148.59 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 148.59 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 148.59 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 148.59 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6806cb02-26e1-437d-9b50-881b7f9d3ade")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR034")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 171.45 63.5 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4a1afc9b-2b2c-4ef6-beaf-ecea516be363")
+		(property "Reference" "#PWR017"
+			(at 171.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "HX_VCC"
+			(at 171.45 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 171.45 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 171.45 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 171.45 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ba456a64-8aa4-4e7c-946b-eb583e0182a4")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 157.48 69.85 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5e445a12-fcea-4139-ab7a-b02a10abbdbb")
+		(property "Reference" "C12"
+			(at 161.29 68.5799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1uF"
+			(at 161.29 71.1199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 158.4452 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 157.48 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 157.48 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6b7f7754-3483-4650-9f44-485d5645a887")
+		)
+		(pin "2"
+			(uuid "ff48809b-1c99-4219-bf8a-95c83900f145")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "C12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 194.31 96.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "666b2939-ce49-4f08-8f90-f87a25ae28c4")
+		(property "Reference" "#PWR015"
+			(at 194.31 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "HX_VCC"
+			(at 194.31 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 194.31 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 194.31 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 194.31 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2756bc8e-5671-42f5-9140-b3f39b102855")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 171.45 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "68aff2f6-a1c2-4000-93ab-5609b723ebe6")
+		(property "Reference" "#PWR016"
+			(at 171.45 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "HX_VDD"
+			(at 171.45 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 171.45 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 171.45 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 171.45 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "faa548dc-bf6c-4584-a7bb-b8b637a1f948")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -3016,17 +3414,17 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 193.04 118.11 0)
+		(lib_id "power:GNDA")
+		(at 157.48 76.2 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "6fc2e3e6-d580-4790-a03e-3b6eb65e836d")
-		(property "Reference" "#PWR019"
-			(at 193.04 124.46 0)
+		(uuid "6ab2171b-920b-48ac-a720-bb9af68e8363")
+		(property "Reference" "#PWR020"
+			(at 157.48 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3034,8 +3432,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
-			(at 193.04 123.19 0)
+		(property "Value" "HX_GNDA"
+			(at 157.48 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3043,7 +3441,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 193.04 118.11 0)
+			(at 157.48 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3052,7 +3450,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 193.04 118.11 0)
+			(at 157.48 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3060,8 +3458,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 193.04 118.11 0)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 157.48 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3070,12 +3468,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "6f8a1cb6-54bc-418c-a3d0-d063b4f97a29")
+			(uuid "70311f53-50dc-440e-901b-ebe6188ec875")
 		)
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR019")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -3083,16 +3481,16 @@
 	)
 	(symbol
 		(lib_id "power:VCC")
-		(at 147.32 92.71 0)
+		(at 186.69 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "85080a71-ae48-4250-9e2a-129507a922d3")
-		(property "Reference" "#PWR016"
-			(at 147.32 96.52 0)
+		(uuid "79285234-a88f-4f5a-b876-36407011f1aa")
+		(property "Reference" "#PWR018"
+			(at 186.69 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3100,8 +3498,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
-			(at 147.32 87.63 0)
+		(property "Value" "HX_VCC"
+			(at 186.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3109,7 +3507,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 147.32 92.71 0)
+			(at 186.69 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3118,7 +3516,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 147.32 92.71 0)
+			(at 186.69 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3127,7 +3525,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 147.32 92.71 0)
+			(at 186.69 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3136,77 +3534,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "9ced4f2e-dc92-4d8e-b753-5bfd7a7c91cf")
+			(uuid "439e42f0-e866-4ebf-b027-515133378070")
 		)
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR016")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VCC")
-		(at 193.04 101.6 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8806a827-2ec7-4ccc-af4c-4544d4d3fb80")
-		(property "Reference" "#PWR014"
-			(at 193.04 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VCC"
-			(at 193.04 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 193.04 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 193.04 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 193.04 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "352f4aa2-e74f-4cd5-8a97-40208d14eb49")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR014")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -3283,17 +3616,17 @@
 		)
 	)
 	(symbol
-		(lib_id "power:VCC")
-		(at 125.73 72.39 0)
+		(lib_id "power:GNDA")
+		(at 114.3 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "8eb4f2c5-76bf-4fac-b26b-5d7536cb11f1")
-		(property "Reference" "#PWR017"
-			(at 125.73 76.2 0)
+		(uuid "978f3c67-c271-4c65-838e-0e96e378521a")
+		(property "Reference" "#PWR012"
+			(at 114.3 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3301,8 +3634,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
-			(at 125.73 67.31 0)
+		(property "Value" "HX_GNDA"
+			(at 114.3 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3310,7 +3643,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 125.73 72.39 0)
+			(at 114.3 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3319,7 +3652,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 125.73 72.39 0)
+			(at 114.3 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3327,74 +3660,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 125.73 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "43b81598-2712-49c8-8c1c-52b049f7167a")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR017")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 182.88 86.36 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9638c5d7-876b-4e4f-aeb9-88e083aefaec")
-		(property "Reference" "#PWR020"
-			(at 182.88 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 182.88 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 182.88 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 182.88 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 182.88 86.36 0)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 114.3 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3403,19 +3670,19 @@
 			)
 		)
 		(pin "1"
-			(uuid "1d206187-76a5-4af0-851d-038e8a51e01c")
+			(uuid "37ef227a-1e6e-4d91-9b3d-5ebdcf1ceab5")
 		)
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR020")
+					(reference "#PWR012")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
+		(lib_id "power:GNDA")
 		(at 172.72 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3423,8 +3690,8 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "9e1594ec-f030-491a-959c-b8416f180071")
-		(property "Reference" "#PWR018"
+		(uuid "ab05a2d3-2d3f-4bef-928c-d77aef5602a9")
+		(property "Reference" "#PWR09"
 			(at 172.72 124.46 0)
 			(effects
 				(font
@@ -3433,7 +3700,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
+		(property "Value" "HX_GNDA"
 			(at 172.72 123.19 0)
 			(effects
 				(font
@@ -3459,7 +3726,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
 			(at 172.72 118.11 0)
 			(effects
 				(font
@@ -3469,12 +3736,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "40ceaf59-5e5f-41c9-a512-ccc0ca77775e")
+			(uuid "64dafa3f-c14c-4f81-a7f4-cc592c5072da")
 		)
 		(instances
-			(project ""
+			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR018")
+					(reference "#PWR09")
 					(unit 1)
 				)
 			)
@@ -3551,17 +3818,17 @@
 		)
 	)
 	(symbol
-		(lib_id "power:VCC")
-		(at 172.72 92.71 0)
+		(lib_id "power:GNDA")
+		(at 186.69 76.2 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "cafb5f0c-9b9f-406f-bcc6-6f406eb3dac7")
-		(property "Reference" "#PWR015"
-			(at 172.72 96.52 0)
+		(uuid "ce6d8682-cdf4-406b-8e87-66189ff6565f")
+		(property "Reference" "#PWR022"
+			(at 186.69 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3569,8 +3836,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
-			(at 172.72 87.63 0)
+		(property "Value" "HX_GNDA"
+			(at 186.69 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3578,7 +3845,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 172.72 92.71 0)
+			(at 186.69 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3587,7 +3854,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 172.72 92.71 0)
+			(at 186.69 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3595,8 +3862,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 172.72 92.71 0)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 186.69 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3605,12 +3872,78 @@
 			)
 		)
 		(pin "1"
-			(uuid "fd48b87e-1a84-4fef-9968-a8297a4636b0")
+			(uuid "1354762c-7e30-4da1-8b46-48230d9c4309")
 		)
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR015")
+					(reference "#PWR022")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 171.45 76.2 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dd31d791-acd5-4bcb-8680-d73ed28d323b")
+		(property "Reference" "#PWR021"
+			(at 171.45 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "HX_GNDA"
+			(at 171.45 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 171.45 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 171.45 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 171.45 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "750b3c13-0669-4672-9681-7672b7ade705")
+		)
+		(instances
+			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -3618,7 +3951,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 198.12 80.01 0)
+		(at 186.69 69.85 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3627,7 +3960,7 @@
 		(fields_autoplaced yes)
 		(uuid "e9b9e191-83e2-42a1-a96d-c700d6752e43")
 		(property "Reference" "C6"
-			(at 201.93 78.7399 0)
+			(at 190.5 68.5799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3636,7 +3969,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 201.93 81.2799 0)
+			(at 190.5 71.1199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3645,7 +3978,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 199.0852 83.82 0)
+			(at 187.6552 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3654,7 +3987,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 198.12 80.01 0)
+			(at 186.69 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3663,7 +3996,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 198.12 80.01 0)
+			(at 186.69 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3687,17 +4020,17 @@
 		)
 	)
 	(symbol
-		(lib_id "power:VCC")
-		(at 198.12 73.66 0)
+		(lib_id "power:GNDA")
+		(at 63.5 149.86 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "f8f890b2-14c6-4815-9b30-7ce0c145cac4")
-		(property "Reference" "#PWR013"
-			(at 198.12 77.47 0)
+		(uuid "ef81e0a3-467e-4217-bc70-74798ffe3a57")
+		(property "Reference" "#PWR033"
+			(at 63.5 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3705,8 +4038,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "VCC"
-			(at 198.12 68.58 0)
+		(property "Value" "HX_GNDA"
+			(at 63.5 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3714,7 +4047,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 198.12 73.66 0)
+			(at 63.5 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3723,7 +4056,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 198.12 73.66 0)
+			(at 63.5 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3731,8 +4064,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 198.12 73.66 0)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 63.5 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3741,10 +4074,76 @@
 			)
 		)
 		(pin "1"
-			(uuid "794d830c-2e21-4ef7-9775-fb805ab0b391")
+			(uuid "1f72bb38-5a30-47b0-b2fc-34e023033704")
 		)
 		(instances
 			(project "coffee-scales"
+				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
+					(reference "#PWR033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 125.73 73.66 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f0ad31ab-9dcf-4653-943a-80d8f065f58d")
+		(property "Reference" "#PWR013"
+			(at 125.73 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "HX_VCC"
+			(at 125.73 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 125.73 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 125.73 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 125.73 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "347360c4-1d70-4b98-ab14-02a4b6adc9d7")
+		)
+		(instances
+			(project ""
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
 					(reference "#PWR013")
 					(unit 1)
