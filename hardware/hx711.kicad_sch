@@ -1445,16 +1445,6 @@
 	)
 	(wire
 		(pts
-			(xy 186.69 66.04) (xy 186.69 63.5)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "3cc881b4-9164-4066-91cf-5e6fab5f72bb")
-	)
-	(wire
-		(pts
 			(xy 172.72 99.06) (xy 172.72 101.6)
 		)
 		(stroke
@@ -1882,16 +1872,6 @@
 			(type solid)
 		)
 		(uuid "dda28e52-7a75-4f4a-b931-ea2550119cb5")
-	)
-	(wire
-		(pts
-			(xy 186.69 73.66) (xy 186.69 76.2)
-		)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(uuid "e342822d-f4df-410c-b378-780dea64f9f8")
 	)
 	(wire
 		(pts
@@ -3480,72 +3460,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:VCC")
-		(at 186.69 63.5 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "79285234-a88f-4f5a-b876-36407011f1aa")
-		(property "Reference" "#PWR018"
-			(at 186.69 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "HX_VCC"
-			(at 186.69 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 186.69 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 186.69 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 186.69 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "439e42f0-e866-4ebf-b027-515133378070")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR018")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 130.81 134.62 0)
 		(unit 1)
@@ -3819,72 +3733,6 @@
 	)
 	(symbol
 		(lib_id "power:GNDA")
-		(at 186.69 76.2 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ce6d8682-cdf4-406b-8e87-66189ff6565f")
-		(property "Reference" "#PWR022"
-			(at 186.69 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "HX_GNDA"
-			(at 186.69 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 186.69 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 186.69 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
-			(at 186.69 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1354762c-7e30-4da1-8b46-48230d9c4309")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "#PWR022")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GNDA")
 		(at 171.45 76.2 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3944,76 +3792,6 @@
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
 					(reference "#PWR021")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 186.69 69.85 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e9b9e191-83e2-42a1-a96d-c700d6752e43")
-		(property "Reference" "C6"
-			(at 190.5 68.5799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10uF"
-			(at 190.5 71.1199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1210_3225Metric"
-			(at 187.6552 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 186.69 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 186.69 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d1f77390-1a5b-4145-bbcb-17fe62294c5e")
-		)
-		(pin "2"
-			(uuid "4e369c54-f4d8-4dab-861a-d4186bcb0eda")
-		)
-		(instances
-			(project "coffee-scales"
-				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/1d428739-d68e-4adc-8d4c-778c2f9df208"
-					(reference "C6")
 					(unit 1)
 				)
 			)
