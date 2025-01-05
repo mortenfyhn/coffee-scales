@@ -9,8 +9,13 @@ blocks:
     task:
       prologue:
           commands:
-            - pip install -U platformio
+            # Add ~/.local/bin to PATH
             - export PATH=$PATH:$HOME/.local/bin
+            # Install PlatformIO Core
+            - pip install -U platformio
+            # Install just
+            - curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | sudo bash -s -- --to $HOME/.local/bin
+            # Fetch code
             - checkout
             - cd firmware
             - git submodule init
