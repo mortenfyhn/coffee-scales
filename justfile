@@ -23,6 +23,7 @@ log:
   pio device monitor --quiet | tee logs/log.csv
 
 # Run the CI checks
+# NOTE: Sync this manually with .semaphore/ci.sh
 ci:
   just build
   just build logging
