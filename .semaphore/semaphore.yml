@@ -16,12 +16,5 @@ blocks:
             - git submodule init
             - git submodule update
       jobs:
-        - name: 'Release build'
-          commands:
-            - pio run
-        - name: 'Logging build'
-          commands:
-            - pio run -e logging
-        - name: 'Test'
-          commands:
-            - pio test -e test
+        - name: "Build and test"
+          commands_file: ci.sh
