@@ -2115,7 +2115,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:SOP-20_7.5x12.8mm_P1.27mm"
+		(property "Footprint" "CoffeeLib:SOP-20_7.5x12.8mm_P1.27mm_3d"
 			(at 0 0 0)
 			(effects
 				(font
