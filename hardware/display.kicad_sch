@@ -752,7 +752,7 @@
 					)
 				)
 			)
-			(property "Footprint" "Package_SO:SOP-20_7.5x12.8mm_P1.27mm"
+			(property "Footprint" "CoffeeLib:SOP-20_7.5x12.8mm_P1.27mm_3d"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2161,7 +2161,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "12a13dd6-d2bd-4148-ab3f-44323b98c420")
-		(property "Reference" "U7"
+		(property "Reference" "U4"
 			(at 207.01 92.202 0)
 			(effects
 				(font
@@ -2243,7 +2243,7 @@
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/031c2cff-942d-4852-b066-d842581777eb"
-					(reference "U7")
+					(reference "U4")
 					(unit 1)
 				)
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/ac5a0b65-b34e-4c1b-aa94-9c346f583af7"
@@ -2547,7 +2547,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "33d91b29-c8d3-4a8b-be4b-3c088a85cda2")
-		(property "Reference" "R9"
+		(property "Reference" "R7"
 			(at 127 66.0399 0)
 			(effects
 				(font
@@ -2601,11 +2601,11 @@
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/031c2cff-942d-4852-b066-d842581777eb"
-					(reference "R9")
+					(reference "R7")
 					(unit 1)
 				)
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/ac5a0b65-b34e-4c1b-aa94-9c346f583af7"
-					(reference "R7")
+					(reference "R9")
 					(unit 1)
 				)
 			)
@@ -2621,7 +2621,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4a7d84d5-fc67-4801-941d-2b5e89a92183")
-		(property "Reference" "C16"
+		(property "Reference" "C12"
 			(at 144.78 72.3962 0)
 			(effects
 				(font
@@ -2675,11 +2675,11 @@
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/031c2cff-942d-4852-b066-d842581777eb"
-					(reference "C16")
+					(reference "C12")
 					(unit 1)
 				)
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/ac5a0b65-b34e-4c1b-aa94-9c346f583af7"
-					(reference "C17")
+					(reference "C14")
 					(unit 1)
 				)
 			)
@@ -2695,7 +2695,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "74f4a9da-7c27-4a1d-9061-22bdd591368e")
-		(property "Reference" "C15"
+		(property "Reference" "C11"
 			(at 127 72.3962 0)
 			(effects
 				(font
@@ -2749,11 +2749,11 @@
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/031c2cff-942d-4852-b066-d842581777eb"
-					(reference "C15")
+					(reference "C11")
 					(unit 1)
 				)
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/ac5a0b65-b34e-4c1b-aa94-9c346f583af7"
-					(reference "C13")
+					(reference "C15")
 					(unit 1)
 				)
 			)
@@ -3049,7 +3049,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d464feaf-3a3d-403c-b874-658c737174f7")
-		(property "Reference" "U1"
+		(property "Reference" "U3"
 			(at 160.02 92.202 0)
 			(effects
 				(font
@@ -3065,7 +3065,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:SOP-20_7.5x12.8mm_P1.27mm"
+		(property "Footprint" "CoffeeLib:SOP-20_7.5x12.8mm_P1.27mm_3d"
 			(at 160.02 107.95 0)
 			(effects
 				(font
@@ -3155,11 +3155,11 @@
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/031c2cff-942d-4852-b066-d842581777eb"
-					(reference "U1")
+					(reference "U3")
 					(unit 1)
 				)
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/ac5a0b65-b34e-4c1b-aa94-9c346f583af7"
-					(reference "U3")
+					(reference "U5")
 					(unit 1)
 				)
 			)
@@ -3315,7 +3315,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "eb74acd9-24d6-4e7e-8687-a2cff23e072d")
-		(property "Reference" "C19"
+		(property "Reference" "C13"
 			(at 163.83 67.3162 0)
 			(effects
 				(font
@@ -3369,11 +3369,11 @@
 		(instances
 			(project "coffee-scales"
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/031c2cff-942d-4852-b066-d842581777eb"
-					(reference "C19")
+					(reference "C13")
 					(unit 1)
 				)
 				(path "/2c28a4aa-0841-4fd8-a9c6-3f977db869be/ac5a0b65-b34e-4c1b-aa94-9c346f583af7"
-					(reference "C18")
+					(reference "C16")
 					(unit 1)
 				)
 			)

@@ -6,7 +6,7 @@
 	(descr "4 digit 7 segment green LED, http://www.kingbright.com/attachments/file/psearch/000/00/00/CA56-12SEKWA(Ver.7A).pdf")
 	(tags "4 digit 7 segment green LED")
 	(property "Reference" "REF**"
-		(at -0.45 -20.19 0)
+		(at 0 -8.89 0)
 		(layer "F.SilkS")
 		(uuid "6538686c-908d-41ce-ab25-886bad0eac4e")
 		(effects
@@ -28,7 +28,7 @@
 		)
 	)
 	(property "Footprint" ""
-		(at -5.08 -6.35 0)
+		(at -6.35 5.08 90)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "37603336-c5f7-45ac-b99c-294554eb0aa3")
@@ -40,7 +40,7 @@
 		)
 	)
 	(property "Datasheet" ""
-		(at -5.08 -6.35 0)
+		(at -6.35 5.08 90)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "81b1b09c-7da8-450c-8187-41e79fc76f99")
@@ -52,7 +52,7 @@
 		)
 	)
 	(property "Description" ""
-		(at -5.08 -6.35 0)
+		(at -6.35 5.08 90)
 		(layer "F.Fab")
 		(hide yes)
 		(uuid "959e98ce-0851-4318-bd18-56c8828525ff")
@@ -65,8 +65,8 @@
 	)
 	(attr through_hole)
 	(fp_line
-		(start -7.46 -7.35)
-		(end -7.46 -5.35)
+		(start -7.35 7.46)
+		(end -5.35 7.46)
 		(stroke
 			(width 0.12)
 			(type solid)
@@ -75,8 +75,8 @@
 		(uuid "f579b040-cbe8-4361-a938-ea4aeaf7fb66")
 	)
 	(fp_rect
-		(start -7.05 -15.1)
-		(end 7.05 15.1)
+		(start -15.1 -7.05)
+		(end 15.1 7.05)
 		(stroke
 			(width 0.12)
 			(type default)
@@ -86,7 +86,7 @@
 		(uuid "2799c331-1f31-4a8b-b0a6-1fdf485dac31")
 	)
 	(fp_text user "${REFERENCE}"
-		(at 3.048 0.254 0)
+		(at 0 0 0)
 		(layer "F.Fab")
 		(uuid "ba4719e4-7a24-43a0-9886-165dd72258da")
 		(effects
@@ -97,7 +97,7 @@
 		)
 	)
 	(pad "1" thru_hole rect
-		(at -5.08 -6.35)
+		(at -6.35 5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
@@ -105,7 +105,7 @@
 		(uuid "bd596a93-fb6f-452b-b574-1f3ea2e89d35")
 	)
 	(pad "2" thru_hole circle
-		(at -5.08 -3.81)
+		(at -3.81 5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
@@ -113,7 +113,7 @@
 		(uuid "e0fa6605-17d7-40a8-b9a9-eb4f016d69a7")
 	)
 	(pad "3" thru_hole circle
-		(at -5.08 -1.27)
+		(at -1.27 5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
@@ -121,7 +121,7 @@
 		(uuid "7153c92a-ebad-452a-8a54-2428d945196b")
 	)
 	(pad "4" thru_hole circle
-		(at -5.08 1.27)
+		(at 1.27 5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
@@ -129,7 +129,7 @@
 		(uuid "76cdbe2e-364d-4664-9e46-4a621ff10279")
 	)
 	(pad "5" thru_hole circle
-		(at -5.08 3.81)
+		(at 3.81 5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
@@ -137,7 +137,7 @@
 		(uuid "8ec32185-a587-42a7-a6b2-03e79e347d2f")
 	)
 	(pad "6" thru_hole circle
-		(at -5.08 6.35)
+		(at 6.35 5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
@@ -145,7 +145,7 @@
 		(uuid "2e9f7bce-5189-4ab7-ae69-91b31758c33d")
 	)
 	(pad "7" thru_hole circle
-		(at 5.08 6.35)
+		(at 6.35 -5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
@@ -153,7 +153,7 @@
 		(uuid "86a31a25-7218-4b4e-a61d-c09d451244c7")
 	)
 	(pad "8" thru_hole circle
-		(at 5.08 3.81)
+		(at 3.81 -5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
@@ -161,7 +161,7 @@
 		(uuid "a7f28b59-06c2-4597-90d2-5c078b8d827c")
 	)
 	(pad "9" thru_hole circle
-		(at 5.08 1.27)
+		(at 1.27 -5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
@@ -169,7 +169,7 @@
 		(uuid "5dddb896-8127-4322-8292-8c76ec9d9a05")
 	)
 	(pad "10" thru_hole circle
-		(at 5.08 -1.27)
+		(at -1.27 -5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
@@ -177,7 +177,7 @@
 		(uuid "a4726cae-e529-4c05-aea1-d4ce064aabf0")
 	)
 	(pad "11" thru_hole circle
-		(at 5.08 -3.81)
+		(at -3.81 -5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
@@ -185,16 +185,16 @@
 		(uuid "86cbe745-9810-410f-b6fc-194f9c47f6ee")
 	)
 	(pad "12" thru_hole circle
-		(at 5.08 -6.35)
+		(at -6.35 -5.08 90)
 		(size 1.5 1.5)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(uuid "f6883e60-47d3-45e5-bb44-98f5614d24b7")
 	)
-	(model "${KICAD6_3DMODEL_DIR}/Display_7Segment.3dshapes/CA56-12SEKWA.wrl"
+	(model "${MY_3DMODEL_DIR}/SEVE_SEG_036INX4.stp"
 		(offset
-			(xyz 0 0 0)
+			(xyz -6.8 -7 7.5)
 		)
 		(scale
 			(xyz 1 1 1)
