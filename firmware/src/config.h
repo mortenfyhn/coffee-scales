@@ -16,7 +16,10 @@ constexpr uint8_t battery_voltage = A6;
 
 namespace config
 {
-constexpr float scale_factor = 1571.96;
+// To calibrate the division factor:
+//   division factor = old division factor * measured / true
+// where 'measured' and 'true' are the measured and true weights of an item.
+constexpr float division_factor = 1540.32;
 constexpr uint8_t num_tare_samples = 10;
 constexpr uint8_t filter_size = 10;
 constexpr float hysteresis_size = 0.1;

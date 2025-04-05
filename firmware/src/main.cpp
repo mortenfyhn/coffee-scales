@@ -42,14 +42,14 @@ void read_load_cell_and_update_filter()
     const int32_t raw_value = load_cell_.read();
     log(raw_value);
     const float weight_in_grams_raw =
-        (raw_value - load_cell_.get_offset()) / config::scale_factor;
+        (raw_value - load_cell_.get_offset()) / config::division_factor;
     filter_.addValue(weight_in_grams_raw);
 }
 
 void tare()
 {
     const int32_t new_offset =
-        load_cell_.get_offset() + filter_.getValue() * config::scale_factor;
+        load_cell_.get_offset() + filter_.getValue() * config::division_factor;
     load_cell_.set_offset(new_offset);
     hysteresis_.reset();
 }
@@ -274,7 +274,7 @@ void setup()
 
     // Set up the load cell
     load_cell_.begin(pins::loadcell_dt, pins::loadcell_sck);
-    load_cell_.set_scale(config::scale_factor);
+    load_cell_.set_scale(config::division_factor);
 
     // Print battery voltage
     auto buf = Buffer::buffer<char>{5};
