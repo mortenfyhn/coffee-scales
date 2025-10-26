@@ -240,7 +240,7 @@ void detachTareButtonInterrupt()
     filter_.clear();
     load_cell_.power_down();
 
-    // Turn of red indicator LED that I stupidly tied the scale display's DIO pin to...
+    // Turn off red indicator LED that I stupidly tied the scale display's DIO pin to...
     digitalWrite(13, LOW);
 
     // When sleep mode is triggered by a long press, we must disable the
