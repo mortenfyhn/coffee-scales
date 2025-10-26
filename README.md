@@ -12,7 +12,7 @@ Kitchen scales, built for drip coffee brewing:
 
 Current prototype looks something like this:
 
-![A breadboard prototype in action](https://i.imgur.com/sJAW9rS.jpg)
+![A PCB prototype in action](https://github.com/user-attachments/assets/c82886ce-b22e-4d5d-b1a9-97ef399e2f55)
 
 ## Firmware
 
