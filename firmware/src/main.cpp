@@ -17,7 +17,7 @@ enum class State
 {
     taring,
     ready,
-    active,
+    brewing,
     dim,
     sleep,
 } state_ = State::taring;
@@ -91,16 +91,16 @@ void detachTareButtonInterrupt()
     return State::ready;
 }
 
-[[nodiscard]] State transitionToActive()
+[[nodiscard]] State transitionToBrewing()
 {
-    debug("  -> active");
+    debug("  -> brewing");
 
     weight_display_.setBrightnessMax();
     timer_display_.setBrightnessMax();
 
     timer_display_.start();
 
-    return State::active;
+    return State::brewing;
 }
 
 [[nodiscard]] State transitionToDim()
@@ -163,7 +163,7 @@ void detachTareButtonInterrupt()
 
     if (weight_in_grams > 1.f)
     {
-        return transitionToActive();
+        return transitionToBrewing();
     }
 
     if (millis() - last_activity_time_ms_ > config::timeout_dim_ms)
@@ -174,7 +174,7 @@ void detachTareButtonInterrupt()
     return State::ready;
 }
 
-[[nodiscard]] State active()
+[[nodiscard]] State brewing()
 {
     if (button_.is_pressed())
     {
@@ -198,7 +198,7 @@ void detachTareButtonInterrupt()
         return transitionToDim();
     }
 
-    return State::active;
+    return State::brewing;
 }
 
 [[nodiscard]] State dim()
@@ -220,7 +220,7 @@ void detachTareButtonInterrupt()
 
     if (!filter_.hasSteadyState())
     {
-        return transitionToActive();
+        return transitionToBrewing();
     }
 
     if (millis() - last_activity_time_ms_ > config::timeout_sleep_ms)
@@ -310,8 +310,8 @@ void loop()
         state_ = ready();
         break;
 
-    case State::active:
-        state_ = active();
+    case State::brewing:
+        state_ = brewing();
         break;
 
     case State::dim:
