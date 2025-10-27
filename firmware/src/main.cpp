@@ -11,8 +11,6 @@
 #include <avr/sleep.h>
 #include <stdint.h>
 
-// TODO maybe a "wait to stabilize" state
-
 enum class State
 {
     taring,
