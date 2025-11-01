@@ -1,8 +1,14 @@
 #!/usr/bin/env octave-cli
 
+## Config (should match config.h)
+division_factor = 1540.32;
+filter_size = 10;
+hysteresis_size = 0.1;
+standard_deviation_threshold = 0.1;  # This one is in SmoothingFilter.h
+
 ## Load data
 if nargin < 1
-    error("You need to pass a file path")
+    error("Missing argument INPUT_FILE")
 end
 input_file = argv(){1};
 input_data = csvread(input_file);
@@ -10,13 +16,10 @@ time = input_data(2:end, 1);
 raw_data = input_data(2:end, 2);
 
 ## Scale and offset
-scale = 1874;
 offset = raw_data(1);
-after_scaling = (raw_data - offset) / scale;
+after_scaling = (raw_data - offset) / division_factor;
 
 ## Running average filter
-filter_size = 10;
-standard_deviation_threshold = 0.1;
 in = after_scaling;
 out = zeros(size(in));
 filtered = filter(ones(filter_size, 1) / filter_size, 1, in);
@@ -41,7 +44,6 @@ function output = hysteresis(input, threshold, previous_output)
     end
 end
 
-hysteresis_size = 0.1;
 previous_output = 0;
 in = after_smoothing;
 out = zeros(size(in));
