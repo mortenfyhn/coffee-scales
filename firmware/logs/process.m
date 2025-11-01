@@ -22,16 +22,24 @@ after_scaling = (raw_data - offset) / division_factor;
 ## Running average filter
 in = after_scaling;
 out = zeros(size(in));
+is_steady = false(size(in));  # Save for use in bias compensation
 filtered = filter(ones(filter_size, 1) / filter_size, 1, in);
 for i = 1:numel(in)
     stddev = std(filtered(max(1, i - filter_size):i));
     if stddev < standard_deviation_threshold
         out(i) = filtered(i);
+        is_steady(i) = true;
     else
         out(i) = in(i);
+        is_steady(i) = false;
     end
 end
 after_smoothing = out;
+
+## Bias compensation
+df = [0; diff(filtered(:))];
+bias = cumsum(df .* (is_steady(:) ~= 0));
+after_bias_comp = filtered(:) - bias;
 
 ## Hysteresis
 function output = hysteresis(input, threshold, previous_output)
@@ -45,7 +53,7 @@ function output = hysteresis(input, threshold, previous_output)
 end
 
 previous_output = 0;
-in = after_smoothing;
+in = after_bias_comp;
 out = zeros(size(in));
 for i = 1:numel(in)
     out(i) = hysteresis(in(i), hysteresis_size, previous_output);
@@ -54,14 +62,7 @@ end
 after_hysteresis = out;
 
 ## Output result
-printf("time,raw_data,1_after_scaling,2_after_smoothing,3_after_hysteresis\n");
-for i = 1:numel(time)
-    printf(
-        "%g,%g,%g,%g,%g\n",
-        time(i),
-        raw_data(i),
-        after_scaling(i),
-        after_smoothing(i),
-        after_hysteresis(i)
-    );
-end
+names = {"time","raw_data","1_after_scaling","2_after_smoothing","3_after_bias","4_after_hysteresis","is_steady"};
+mat = [ time(:), raw_data(:), after_scaling(:), after_smoothing(:), after_bias_comp(:), after_hysteresis(:), is_steady(:) ];
+printf("%s\n", strjoin(names, ","));
+fprintf([repmat("%g,",1,columns(mat)-1) "%g\n"], mat.');
