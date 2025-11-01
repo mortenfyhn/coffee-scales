@@ -40,3 +40,7 @@ to list all recipes.
 * Push button for taring
 
 ![Connection diagram](https://i.imgur.com/zfTGbLD.png)
+
+## Development and debugging
+
+Log raw data to CSV with the logging recipe. Then process the data with `firmware/logs/process.m`. Look at the processed CSV in e.g. PlotJuggler.
