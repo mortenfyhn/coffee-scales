@@ -38,7 +38,7 @@ after_smoothing = out;
 
 ## Bias compensation
 df = [0; diff(filtered(:))];
-bias = cumsum(df .* (is_steady(:) ~= 0));
+bias = cumsum(df .* is_steady(:));
 after_bias_comp = filtered(:) - bias;
 
 ## Hysteresis
@@ -62,6 +62,6 @@ end
 after_hysteresis = out;
 
 ## Output result
-printf("time,raw_data,1_after_scaling,2_after_smoothing,3_after_bias,4_after_hysteresis,is_steady\n");
-output_matrix = [ time(:), raw_data(:), after_scaling(:), after_smoothing(:), after_bias_comp(:), after_hysteresis(:), is_steady(:) ];
+printf("time,raw_data,1_after_scaling,2_after_smoothing,3_after_bias,4_after_hysteresis,is_steady,bias\n");
+output_matrix = [ time(:), raw_data(:), after_scaling(:), after_smoothing(:), after_bias_comp(:), after_hysteresis(:), is_steady(:), bias(:) ];
 fprintf([repmat("%g,",1,columns(output_matrix)-1) "%g\n"], output_matrix.');
