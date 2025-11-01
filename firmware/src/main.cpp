@@ -29,6 +29,9 @@ auto timer_display_ =
     TimerDisplay{pins::timer_display_clk, pins::timer_display_dio};
 auto button_ = Button{pins::tare_button};
 uint32_t last_activity_time_ms_ = 0;
+float bias_ = 0.f;
+float prev_filtered_ = 0.f;
+float bias_compensated_ = 0.f;
 
 float read_battery_voltage()
 {
@@ -42,6 +45,14 @@ void read_load_cell_and_update_filter()
     const float weight_in_grams_raw =
         (raw_value - load_cell_.get_offset()) / config::division_factor;
     filter_.addValue(weight_in_grams_raw);
+
+    const auto curr_filtered = filter_.getValue();
+    if (filter_.hasSteadyState())
+    {
+        bias_ += curr_filtered - prev_filtered_;
+    }
+    bias_compensated_ = curr_filtered - bias_;
+    prev_filtered_ = curr_filtered;
 }
 
 void tare()
@@ -50,6 +61,10 @@ void tare()
         load_cell_.get_offset() + filter_.getValue() * config::division_factor;
     load_cell_.set_offset(new_offset);
     hysteresis_.reset();
+
+    bias_ = 0.f;
+    prev_filtered_ = 0.f;
+    bias_compensated_ = 0.f;
 }
 
 void attachTareButtonInterrupt()
@@ -151,7 +166,7 @@ void detachTareButtonInterrupt()
 
     read_load_cell_and_update_filter();
 
-    const float weight_in_grams = hysteresis_.compute(filter_.getValue());
+    const float weight_in_grams = hysteresis_.compute(bias_compensated_);
     weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
 
     if (!filter_.hasSteadyState())
@@ -182,7 +197,7 @@ void detachTareButtonInterrupt()
 
     read_load_cell_and_update_filter();
 
-    const float weight_in_grams = hysteresis_.compute(filter_.getValue());
+    const float weight_in_grams = hysteresis_.compute(bias_compensated_);
     weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
     timer_display_.update();
 
@@ -209,7 +224,7 @@ void detachTareButtonInterrupt()
 
     read_load_cell_and_update_filter();
 
-    const float weight_in_grams = hysteresis_.compute(filter_.getValue());
+    const float weight_in_grams = hysteresis_.compute(bias_compensated_);
 
     weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
     timer_display_.update();
