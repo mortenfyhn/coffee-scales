@@ -221,10 +221,12 @@ void detachTareButtonInterrupt()
         return transitionToBrewing();
     }
 
+#ifndef LOGGING  // Don't sleep when logging
     if (millis() - last_activity_time_ms_ > config::timeout_sleep_ms)
     {
         return transitionToSleep();
     }
+#endif
 
     return State::dim;
 }

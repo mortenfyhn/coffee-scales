@@ -29,7 +29,8 @@ template <typename T> void debug(const T& message)
 template <typename T> void log(const T& message)
 {
 #ifdef LOGGING
-    Serial.println(message);
+    const auto seconds = static_cast<float>(millis()) / 1000;
+    Serial.println(String(seconds) + "," + message);
 #else
     (void)message;  // Silence the unused parameter warning
 #endif
