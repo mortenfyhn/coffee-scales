@@ -1,5 +1,7 @@
 set working-directory := 'firmware'
 
+export PATH := env_var('PATH') + ':' + env_var('HOME') + '/.platformio/penv/bin'
+
 # Build but don't upload
 build env="release":
   pio run --environment {{env}}
