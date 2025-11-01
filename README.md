@@ -44,3 +44,7 @@ to list all recipes.
 ## Development and debugging
 
 Log raw data to CSV with the logging recipe. Then process the data with `firmware/logs/process.m`. Look at the processed CSV in e.g. PlotJuggler.
+
+Here's the state diagram:
+
+<img width="1611" height="349" alt="Image" src="https://github.com/user-attachments/assets/107150a3-4bf6-476c-9bf6-c4311a24659c" />
