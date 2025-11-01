@@ -62,7 +62,6 @@ end
 after_hysteresis = out;
 
 ## Output result
-names = {"time","raw_data","1_after_scaling","2_after_smoothing","3_after_bias","4_after_hysteresis","is_steady"};
-mat = [ time(:), raw_data(:), after_scaling(:), after_smoothing(:), after_bias_comp(:), after_hysteresis(:), is_steady(:) ];
-printf("%s\n", strjoin(names, ","));
-fprintf([repmat("%g,",1,columns(mat)-1) "%g\n"], mat.');
+printf("time,raw_data,1_after_scaling,2_after_smoothing,3_after_bias,4_after_hysteresis,is_steady\n");
+output_matrix = [ time(:), raw_data(:), after_scaling(:), after_smoothing(:), after_bias_comp(:), after_hysteresis(:), is_steady(:) ];
+fprintf([repmat("%g,",1,columns(output_matrix)-1) "%g\n"], output_matrix.');
