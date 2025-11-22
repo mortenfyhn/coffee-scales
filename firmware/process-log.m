@@ -7,8 +7,8 @@ hysteresis_size = 0.1;
 standard_deviation_threshold = 0.1;  # This one is in SmoothingFilter.h
 
 ## Load data
-if nargin < 1
-    error("Missing argument INPUT_FILE")
+if nargin != 1
+    error("Incorrect number of args (expects INPUT_FILE only)")
 end
 input_file = argv(){1};
 input_data = csvread(input_file);
@@ -23,16 +23,16 @@ after_scaling = (raw_data - offset) / division_factor;
 in = after_scaling;
 out = zeros(size(in));
 is_steady = false(size(in));  # Save for use in bias compensation
+stddev = zeros(size(in));
 filtered = filter(ones(filter_size, 1) / filter_size, 1, in);
 for i = 1:numel(in)
-    stddev = std(filtered(max(1, i - filter_size):i));
-    if stddev < standard_deviation_threshold
+    stddev(i) = std(filtered(max(1, i - filter_size):i));
+    if stddev(i) < standard_deviation_threshold
         out(i) = filtered(i);
-        is_steady(i) = true;
     else
         out(i) = in(i);
-        is_steady(i) = false;
     end
+    is_steady(i) = stddev(i) < standard_deviation_threshold;
 end
 after_smoothing = out;
 
@@ -62,6 +62,6 @@ end
 after_hysteresis = out;
 
 ## Output result
-printf("time,raw_data,1_after_scaling,2_after_smoothing,3_after_bias,4_after_hysteresis,is_steady,bias\n");
-output_matrix = [ time(:), raw_data(:), after_scaling(:), after_smoothing(:), after_bias_comp(:), after_hysteresis(:), is_steady(:), bias(:) ];
+printf("time,raw_data,1_after_scaling,2_after_smoothing,3_after_bias,4_after_hysteresis,is_steady,stddev,bias\n");
+output_matrix = [ time(:), raw_data(:), after_scaling(:), after_smoothing(:), after_bias_comp(:), after_hysteresis(:), is_steady(:), bias(:), stddev(:) ];
 fprintf([repmat("%g,",1,columns(output_matrix)-1) "%g\n"], output_matrix.');
