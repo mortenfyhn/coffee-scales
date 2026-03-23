@@ -36,8 +36,5 @@ log:
   echo "Processed log saved to $processed_file"
 
 # Run the CI checks
-# NOTE: Sync this manually with .semaphore/ci.sh
 ci:
-  just build
-  just build logging
-  just test
+  {{justfile_directory()}}/.semaphore/ci.sh
