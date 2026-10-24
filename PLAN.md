@@ -12,7 +12,7 @@ Flaky today, should pass after later fixes:
 
 Works today, must not get worse:
 
-4. Tare takes less than 100 ms when the reading is steady.
+4. Tare latency stays as today (mean 130 ms, max 170 ms, press to display). Feels instant, no need to be faster.
 5. Response speed, settling time and the auto-start timer.
 6. Loop finishes before the next HX711 sample (about 86-90 ms).
 
@@ -48,5 +48,5 @@ Works today, must not get worse:
 
 ## Open
 
-- Old logs in `firmware/logs/*.csv` are in the old format (time in s, raw, processed columns) and have no button events. Convert them or drop them?
-- Tare latency (goal 4) needs the press time, which the log doesn't have yet. Add a column after the step 2 captures.
+- Delete the old logs in `firmware/logs/*.csv` (old format) once the new captures replace them.
+- Goal 1 (tare hits 0.0) was not reproduced in session 1: 17 tares, all 0.0. The user will watch for when it fails.
