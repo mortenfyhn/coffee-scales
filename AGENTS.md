@@ -23,7 +23,7 @@ just build
 # Build and upload to connected board
 just upload
 
-# Run unit tests
+# Run unit tests, and check the scale's behaviour on the logs
 just test
 
 # Build and upload debug firmware, then monitor serial output
@@ -116,6 +116,18 @@ The logging build does not auto-sleep.
 `just log` uploads the logging build and captures to `firmware/logs/temp/` with `firmware/capture-log.py`. Opening the port resets the board, so a log starts at boot.
 
 `just replay LOG` runs the log's inputs through `lib/Scale` on the host. It prints the processing stages as CSV for plotting, for example in PlotJuggler. It also reports iterations where the replayed state or displayed weight differ from the log, and exits with status 1 if there are any. Pass `--auto-sleep` to replay the release behaviour.
+
+### Checks on logs
+
+`firmware/check-logs.py` replays each log in `firmware/logs/` and checks the behaviour. It is part of `just test`. Plateaus are runs of at least 5 s where the sensor reading stays within 0.25 g. The true weight of a plateau is the mean of the scaled reading 2-4 s after it starts. Results, lower is better:
+
+- `wrong_zero`, `wrong_loaded`: plateaus where the display doesn't show the true weight
+- `changed`: plateaus where the display changes
+- `max_settle_ms`: time from a plateau's start until the display shows its final value
+- `max_tare_ms`: time from a tare press until the display updates
+- `max_timer_ms`: time from the reading passing 1 g until the timer starts
+
+The check fails if a result is worse than in `firmware/logs/baseline.json`. After an improvement, or after adding a log, run `./check-logs.py --update-baseline` and commit the new baseline.
 
 ### Hardware Configuration
 

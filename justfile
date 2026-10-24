@@ -8,9 +8,11 @@ build env="release":
 upload env="release":
   pio run --environment {{env}} --target upload
 
-# Run unit tests
+# Run unit tests, and check the scale's behaviour on the logs
 test:
   pio test --environment test
+  pio run --environment replay --silent
+  ./check-logs.py
 
 # Build and upload for debug, and monitor serial output
 debug:

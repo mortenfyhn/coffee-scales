@@ -19,9 +19,9 @@ Works today, must not get worse:
 ## Steps
 
 - [x] 1. Logging build logs one row per loop iteration: inputs (time, raw, button), outputs (state, displayed weight) and how long `read()` waited.
-- [ ] 2. Capture logs with the 200 g jar: tares, add/remove cycles, 5 min hold, a real brew.
+- [ ] 2. Capture logs with the 200 g jar: tares, add/remove cycles, 5 min hold (done, hot start). Still to do: cold-start brew and cold-start hold (`just capture` after a night asleep).
 - [x] 3. Move pipeline and state machine into code that builds on AVR and on the host. Replay must reproduce the logged state and displayed weight.
-- [ ] 4. Checks on the goals above, per log.
+- [x] 4. Checks on the goals above, per log.
 - [x] 5. Delete `process-log.m`. Host replay prints intermediate stages as CSV for plotting.
 
 ## Checks at every step
@@ -48,5 +48,11 @@ Works today, must not get worse:
 
 ## Open
 
-- Delete the old logs in `firmware/logs/*.csv` (old format) once the new captures replace them.
 - Goal 1 (tare hits 0.0) was not reproduced in session 1: 17 tares, all 0.0. The user will watch for when it fails.
+
+## After step 4 (hot logs only)
+
+- Baseline: return-to-zero 5/11 zero plateaus wrong, 5/10 loaded wrong. Hold: removal ends at 0.1. Tares: all correct, max latency 169 ms.
+- Sensor returns to zero within 0.014 g. The errors come from bias compensation (keeps its offset after the load is removed) and hysteresis (latches at 0.1).
+- Experiment (reverted): without bias compensation, wrong_zero is 0 in all hot logs. Cold-start logs decide whether bias compensation is needed (old coldstart.csv: 0.2 g warm-up drift in 5 min).
+- Spurious tare press at boot: the interrupt fires during setup (press_ms 0). Harmless, taring() clears it.
