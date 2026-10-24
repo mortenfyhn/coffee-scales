@@ -32,6 +32,7 @@ uint32_t last_activity_time_ms_ = 0;
 float bias_ = 0.f;
 float prev_filtered_ = 0.f;
 float bias_compensated_ = 0.f;
+LogRow log_row_;
 
 float read_battery_voltage()
 {
@@ -40,8 +41,11 @@ float read_battery_voltage()
 
 void read_load_cell_and_update_filter()
 {
+    const uint32_t wait_start_us = log_micros();
     const int32_t raw_value = load_cell_.read();
-    log(raw_value);
+    log_row_.has_raw = true;
+    log_row_.raw = raw_value;
+    log_row_.wait_us = log_micros() - wait_start_us;
     const float weight_in_grams_raw =
         (raw_value - load_cell_.get_offset()) / config::division_factor;
     filter_.addValue(weight_in_grams_raw);
@@ -65,6 +69,19 @@ void tare()
     bias_ = 0.f;
     prev_filtered_ = 0.f;
     bias_compensated_ = 0.f;
+}
+
+bool tare_requested()
+{
+    log_row_.pressed = button_.is_pressed();
+    return log_row_.pressed;
+}
+
+void show_weight(float weight_in_grams)
+{
+    weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
+    log_row_.has_weight = true;
+    log_row_.weight_x10 = lroundf(weight_in_grams * 10);
 }
 
 void attachTareButtonInterrupt()
@@ -139,7 +156,7 @@ void detachTareButtonInterrupt()
 {
     // I do this to clear any pending "should tares".
     // TODO: Figure out if needed, if not remove, if yes refactor.
-    button_.is_pressed();
+    tare_requested();
 
     // Placing this check early makes taring instant when the filter is already
     // stable, without wasting time on showing the "wait for taring" line.
@@ -158,7 +175,7 @@ void detachTareButtonInterrupt()
 
 [[nodiscard]] State ready()
 {
-    if (button_.is_pressed())
+    if (tare_requested())
     {
         debug("should tare");
         return transitionToTaring();
@@ -167,7 +184,7 @@ void detachTareButtonInterrupt()
     read_load_cell_and_update_filter();
 
     const float weight_in_grams = hysteresis_.compute(bias_compensated_);
-    weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
+    show_weight(weight_in_grams);
 
     if (!filter_.hasSteadyState())
     {
@@ -189,7 +206,7 @@ void detachTareButtonInterrupt()
 
 [[nodiscard]] State brewing()
 {
-    if (button_.is_pressed())
+    if (tare_requested())
     {
         debug("should tare");
         return transitionToTaring();
@@ -198,7 +215,7 @@ void detachTareButtonInterrupt()
     read_load_cell_and_update_filter();
 
     const float weight_in_grams = hysteresis_.compute(bias_compensated_);
-    weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
+    show_weight(weight_in_grams);
     timer_display_.update();
 
     if (!filter_.hasSteadyState())
@@ -216,7 +233,7 @@ void detachTareButtonInterrupt()
 
 [[nodiscard]] State dim()
 {
-    if (button_.is_pressed())
+    if (tare_requested())
     {
         debug("should tare");
         return transitionToTaring();
@@ -226,7 +243,7 @@ void detachTareButtonInterrupt()
 
     const float weight_in_grams = hysteresis_.compute(bias_compensated_);
 
-    weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
+    show_weight(weight_in_grams);
     timer_display_.update();
 
     // todo maybe do this at the beginning?
@@ -308,9 +325,10 @@ void setup()
 
 void loop()
 {
-    // debug("loop");
+    log_row_.time_ms = millis();
 
-    if (button_.is_long_pressed())
+    log_row_.long_pressed = button_.is_long_pressed();
+    if (log_row_.long_pressed)
     {
         state_ = transitionToSleep();
     }
@@ -337,4 +355,8 @@ void loop()
         state_ = sleep();
         break;
     }
+
+    log_row_.state = static_cast<uint8_t>(state_);
+    log(log_row_);
+    log_row_ = {};
 }
