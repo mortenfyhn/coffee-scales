@@ -29,7 +29,7 @@ just test
 # Build and upload debug firmware, then monitor serial output
 just debug
 
-# Upload logging firmware and capture a log until Ctrl-C
+# Upload logging firmware and capture a log until Enter
 just log
 
 # Replay a log on the host and print the processing stages as CSV

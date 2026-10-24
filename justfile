@@ -17,7 +17,7 @@ debug:
   pio run --environment debug --target upload
   pio device monitor
 
-# Upload logging firmware, then capture a log until Ctrl-C
+# Upload logging firmware, then capture a log until Enter
 log:
   pio run --environment logging --target upload
   mkdir -p logs/temp

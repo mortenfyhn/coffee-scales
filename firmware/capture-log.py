@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Write serial output from the scale to a file until Ctrl-C or --seconds."""
+"""Write serial output from the scale to a file until Enter or --seconds."""
 
 import argparse
 import glob
+import select
 import sys
 import time
 
@@ -26,16 +27,25 @@ def main():
     # Opening the port resets the board, so the log starts at boot.
     port = serial.Serial(args.port or find_port(), 38400, timeout=1)
     end = time.monotonic() + args.seconds if args.seconds else None
+    inputs = [port, sys.stdin] if sys.stdin.isatty() else [port]
+    if sys.stdin.isatty():
+        print("Capturing. Press Enter to stop.", file=sys.stderr)
     with open(args.output, "wb") as output:
         try:
             while end is None or time.monotonic() < end:
-                line = port.readline()
-                output.write(line)
-                output.flush()
-                sys.stdout.buffer.write(line)
-                sys.stdout.flush()
+                ready, _, _ = select.select(inputs, [], [], 1)
+                if sys.stdin in ready:
+                    sys.stdin.readline()
+                    break
+                if port in ready:
+                    line = port.readline()
+                    output.write(line)
+                    output.flush()
+                    sys.stdout.buffer.write(line)
+                    sys.stdout.flush()
         except KeyboardInterrupt:
             pass
+    print(f"Saved to {args.output}", file=sys.stderr)
 
 
 if __name__ == "__main__":
