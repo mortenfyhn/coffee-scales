@@ -10,7 +10,7 @@ namespace config
 constexpr float division_factor = 1540.32;
 constexpr uint8_t num_tare_samples = 10;
 constexpr uint8_t filter_size = 10;
-constexpr float hysteresis_size = 0.1;
+constexpr float hysteresis_size = 0.02;
 constexpr float battery_scaling = 2.0 * 3.3 / 1024.0;
 constexpr uint32_t tare_interval_ms = 1000;
 constexpr uint32_t timeout_dim_ms = 1 * 60 * 1000l;    // 1 min

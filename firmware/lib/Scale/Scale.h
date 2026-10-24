@@ -84,6 +84,7 @@ class Scale
     uint32_t last_activity_time_ms_ = 0;
     float scaled_ = 0.f;
     float bias_ = 0.f;
+    bool was_steady_ = false;
     float prev_filtered_ = 0.f;
     float bias_compensated_ = 0.f;
 };

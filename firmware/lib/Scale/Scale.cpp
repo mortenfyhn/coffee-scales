@@ -58,10 +58,18 @@ void Scale::read_load_cell_and_update_filter()
     filter_.addValue(weight_in_grams_raw);
 
     const auto curr_filtered = filter_.getValue();
-    if (filter_.hasSteadyState())
+
+    const bool is_steady = filter_.hasSteadyState();
+    if (is_steady && was_steady_)
     {
         bias_ += curr_filtered - prev_filtered_;
     }
+    if (!is_steady)
+    {
+        bias_ = 0.f;
+    }
+    was_steady_ = is_steady;
+
     bias_compensated_ = curr_filtered - bias_;
     prev_filtered_ = curr_filtered;
 }
@@ -156,7 +164,7 @@ State Scale::ready()
         last_activity_time_ms_ = hardware_.millis();
     }
 
-    if (weight_in_grams > 1.f)
+    if (bias_compensated_ > 1.f)
     {
         return transitionToBrewing();
     }

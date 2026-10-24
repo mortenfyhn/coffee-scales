@@ -59,3 +59,10 @@ Works today, must not get worse:
 - Cold start (old log, empty scale): today's firmware stays at 0.0 for 10 min. Without bias compensation, the display drifts to 0.3, so bias compensation is needed.
 - Brew (cold, about 20 min asleep): evaporation 0.6-0.9 g/min. Bias compensation carries it across pours: display 404.3 g against 400.3 g measured at the end. The user doesn't care whether evaporation is cancelled (very slight preference for not cancelling), only that the scale's own creep is. Check rule for `brew*.csv`: display between the plateau's start weight and the current weight.
 - Cold start under load (brew boot tare with 662 g): +0.07 g in the first 15 s.
+
+## Behaviour fix
+
+- Step 1: hysteresis keeps the shown tenth while the input is within 0.05 + 0.02 g, otherwise shows the nearest tenth. The timer start uses the value before rounding.
+- Step 2: the bias resets when the filter is not steady, and the jump to the average at steady entry is not counted. The display freezes at the average at steady entry. Hot logs: all plateaus correct.
+- Load cell creep after a step: 0.02-0.05 g over several seconds, towards the new value. Freezing at entry is therefore about 0.03 g early. Freezing later reduces loaded errors in cold-steps but slows settling (K=30: 2/12 wrong, 3.4 s). Chosen: freeze at entry. Better hardware makes it more accurate without code changes.
+- Open: while frozen, the display only changes on a step of about 0.2 g or a pour faster than about 0.4 g/s. Smaller or slower changes are hidden as creep (same as the original code). Lowering the steady threshold would help with less noisy hardware.

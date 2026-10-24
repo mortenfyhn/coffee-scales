@@ -1,14 +1,16 @@
 #pragma once
 
+#include <math.h>
+
 class Hysteresis
 {
   public:
-    Hysteresis(float threshold) : threshold(threshold) {}
+    Hysteresis(float margin) : margin(margin) {}
 
     float compute(float input)
     {
-        if (input > output + threshold || input < output - threshold)
-            output = input;
+        if (input > output + margin + 0.05f || input < output - margin - 0.05f)
+            output = roundf(input * 10) / 10;
 
         return output;
     }
@@ -17,5 +19,5 @@ class Hysteresis
 
   private:
     float output = 0.f;
-    const float threshold;
+    const float margin;
 };
