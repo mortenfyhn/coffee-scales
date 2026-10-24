@@ -19,21 +19,11 @@ debug:
   pio run --environment debug --target upload
   pio device monitor
 
-# Upload logging firmware, then capture and process a log
+# Upload logging firmware, then capture a log until Ctrl-C
 log:
-  #!/usr/bin/env bash
-  set -euo pipefail
   pio run --environment logging --target upload
   mkdir -p logs/temp
-  timestamp="$(date +"%Y-%m-%dT%H:%M:%S")"
-  raw_file="logs/temp/${timestamp}.csv"
-  processed_file="logs/temp/${timestamp}-processed.csv"
-  echo "Starting serial monitor..."
-  pio device monitor --quiet | tee "$raw_file"
-  echo "Raw log saved to $raw_file"
-  echo "Processing..."
-  ./process-log.m "$raw_file" > "$processed_file"
-  echo "Processed log saved to $processed_file"
+  ./capture-log.py "logs/temp/$(date +"%Y-%m-%dT%H:%M:%S").csv"
 
 # Run the CI checks
 ci:
