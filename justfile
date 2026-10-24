@@ -25,6 +25,11 @@ log:
   mkdir -p logs/temp
   ./capture-log.py "logs/temp/$(date +"%Y-%m-%dT%H:%M:%S").csv"
 
+# Replay a log on the host and print the processing stages as CSV
+replay log *flags:
+  @pio run --environment replay --silent
+  @cd {{invocation_directory()}} && {{justfile_directory()}}/firmware/.pio/build/replay/program {{flags}} {{log}}
+
 # Run the CI checks
 ci:
   {{justfile_directory()}}/.semaphore/ci.sh
