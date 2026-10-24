@@ -52,42 +52,51 @@ def read_rows(path):
 
 
 def find_plateaus(rows):
-    """Splits the samples into runs where the sensor reading stays put."""
-    runs, run = [], []
+    """Splits the samples into runs where the sensor reading stays put.
+
+    A tare press also starts a new run.
+    """
+    runs, run, pressed = [], [], False
     for row in rows:
+        pressed = pressed or row["press_ms"] is not None
         if row["scaled"] is None:
             continue
         if run:
             ref = statistics.median(r["scaled"] for r in run[-10:])
-            if abs(row["scaled"] - ref) > JUMP_G:
+            if abs(row["scaled"] - ref) > JUMP_G or pressed:
                 runs.append(run)
                 run = []
+        pressed = False
         run.append(row)
     runs.append(run)
     return [r for r in runs if r[-1]["time"] - r[0]["time"] >= MIN_PLATEAU_MS]
 
 
-def check_plateau(run, follow):
+def check_plateau(run, follow, ref):
     """Checks that the display shows the weight at the start of the plateau.
 
-    If follow is true, the display may also follow slow changes, such as
-    evaporation during a brew, and show anything between the weight at the
-    start and the current weight.
+    A plateau near zero must show 0.0, since any reading there is the scale's
+    own drift. Other plateaus are measured from ref, the reading at the end of
+    the previous zero plateau. If follow is true, the display may also follow
+    slow changes, such as evaporation during a brew, and show anything between
+    the weight at the start and the current weight.
     """
     start, end = run[0]["time"], run[-1]["time"]
     shown = [r for r in run if r["displayed"] is not None
              and r["time"] <= end - END_MARGIN_MS]
     window = [r for r in shown if r["time"] >= start + SETTLE_MS]
-    truth = statistics.mean(r["scaled"] for r in window
-                            if r["time"] < start + SETTLE_MS + TRUTH_MS)
+    weight = statistics.mean(r["scaled"] for r in window
+                             if r["time"] < start + SETTLE_MS + TRUTH_MS)
+    zero = abs(weight) < 0.5
+    truth = 0.0 if zero else weight - ref
     values = {r["displayed"] for r in window}
 
     def correct(row):
         low = high = truth
-        if follow:
+        if follow and not zero:
             current = statistics.mean(
                 r["scaled"] for r in run
-                if abs(r["time"] - row["time"]) <= LOCAL_MS)
+                if abs(r["time"] - row["time"]) <= LOCAL_MS) - ref
             low, high = min(truth, current), max(truth, current)
         return (round(low - ROUNDING_MARGIN_G, 1) <= row["displayed"]
                 <= round(high + ROUNDING_MARGIN_G, 1))
@@ -99,7 +108,9 @@ def check_plateau(run, follow):
             settled_at = row["time"]
 
     return {
-        "zero": abs(truth) < 0.5,
+        "zero": zero,
+        "end": statistics.mean(r["scaled"] for r in shown
+                               if r["time"] >= end - END_MARGIN_MS - TRUTH_MS),
         "correct": all(correct(r) for r in window),
         "changed": not follow and len(values) > 1,
         "settle_ms": settled_at - start,
@@ -137,7 +148,11 @@ def check_log(path):
     rows, mismatched = read_rows(path)
     # Brews evaporate. The other logs use a sealed jar.
     follow = os.path.basename(path).startswith("brew")
-    plateaus = [check_plateau(run, follow) for run in find_plateaus(rows)]
+    plateaus, ref = [], 0.0
+    for run in find_plateaus(rows):
+        plateaus.append(check_plateau(run, follow, ref))
+        if plateaus[-1]["zero"]:
+            ref = plateaus[-1]["end"]
     zero = [p for p in plateaus if p["zero"]]
     loaded = [p for p in plateaus if not p["zero"]]
     latencies = tare_latencies(rows)

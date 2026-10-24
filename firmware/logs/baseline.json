@@ -7,6 +7,14 @@
     "wrong_loaded": 4,
     "wrong_zero": 0
   },
+  "cold-steps.csv": {
+    "changed": 0,
+    "max_settle_ms": 270,
+    "max_tare_ms": 96,
+    "max_timer_ms": 0,
+    "wrong_loaded": 4,
+    "wrong_zero": 3
+  },
   "coldstart.csv": {
     "changed": 0,
     "max_settle_ms": 0,
@@ -28,7 +36,7 @@
     "max_settle_ms": 450,
     "max_tare_ms": 0,
     "max_timer_ms": 0,
-    "wrong_loaded": 4,
+    "wrong_loaded": 3,
     "wrong_zero": 5
   },
   "tares.csv": {

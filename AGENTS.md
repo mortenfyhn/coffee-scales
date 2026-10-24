@@ -119,9 +119,11 @@ The logging build does not auto-sleep.
 
 ### Checks on logs
 
-`firmware/check-logs.py` replays each log in `firmware/logs/` and checks the behaviour. It is part of `just test`. Plateaus are runs of at least 7 s where the sensor reading stays within 0.25 g. The first 4 s of a plateau are not checked, for example the sloshing after a swirl. The true weight of a plateau is the mean of the scaled reading 4-6 s after it starts. Plateaus under 0.5 g count as zero.
+`firmware/check-logs.py` replays each log in `firmware/logs/` and checks what the display shows. It is part of `just test`. Plateaus are runs of at least 7 s where the sensor reading stays within 0.25 g. A tare press starts a new plateau. The first 4 s of a plateau are not checked, for example the sloshing after a swirl. The weight of a plateau is the mean of the scaled reading 4-6 s after it starts.
 
-Logs with a sealed jar or an empty scale: any slow change is the scale's own creep, so the display must show the true weight and must not change. Logs named `brew*.csv`: brews evaporate, so the display may follow slow changes or hide them. It must stay between the true weight and the current weight.
+A plateau with a weight under 0.5 g is a zero plateau. Its true weight is 0.0, since any reading there is the scale's own drift. For other plateaus, the true weight is the weight minus the reading at the end of the previous zero plateau. This assumes the zero point does not drift while the scale is loaded.
+
+Logs with a sealed jar, a solid object or an empty scale: any slow change is the scale's own creep, so the display must show the true weight and must not change. Logs named `brew*.csv`: brews evaporate, so on loaded plateaus the display may follow slow changes or hide them. It must stay between the true weight and the current weight.
 
 Results, lower is better:
 
