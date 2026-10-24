@@ -20,9 +20,9 @@ Works today, must not get worse:
 
 - [x] 1. Logging build logs one row per loop iteration: inputs (time, raw, button), outputs (state, displayed weight) and how long `read()` waited.
 - [ ] 2. Capture logs with the 200 g jar: tares, add/remove cycles, 5 min hold, a real brew.
-- [ ] 3. Move pipeline and state machine into code that builds on AVR and on the host. Replay must reproduce the logged state and displayed weight.
+- [x] 3. Move pipeline and state machine into code that builds on AVR and on the host. Replay must reproduce the logged state and displayed weight.
 - [ ] 4. Checks on the goals above, per log.
-- [ ] 5. Delete `process-log.m`. Host replay prints intermediate stages as CSV for plotting.
+- [x] 5. Delete `process-log.m`. Host replay prints intermediate stages as CSV for plotting.
 
 ## Checks at every step
 
@@ -39,3 +39,14 @@ Works today, must not get worse:
 
 - release: 18132 B flash, 265 B RAM. logging: 19900 B flash, 523 B RAM.
 - 40 s, empty scale: mean sample interval 89.8 ms. `read()` waits about 84 ms, so the loop does about 6 ms of work. The 90 ms interval is this board's HX711 clock, not an overrun.
+
+## After step 3
+
+- release: 18710 B flash, 305 B RAM (+578 B, +40 B, mostly the virtual Hardware interface).
+- Replay of the pre-refactor 40 s log: 417 rows, 0 mismatches.
+- Refactored logging build on the device: 30 s log replays with 0 mismatches. Interval 90.1 ms, wait about 83.8 ms.
+
+## Open
+
+- Old logs in `firmware/logs/*.csv` are in the old format (time in s, raw, processed columns) and have no button events. Convert them or drop them?
+- Tare latency (goal 4) needs the press time, which the log doesn't have yet. Add a column after the step 2 captures.

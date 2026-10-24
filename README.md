@@ -43,7 +43,7 @@ to list all recipes.
 
 ## Development and debugging
 
-Log raw data to CSV with the logging recipe. Then process the data with `firmware/logs/process.m`. Look at the processed CSV in e.g. PlotJuggler.
+Capture a log with `just log`. Then run `just replay <log>` to get the processing stages as CSV, and look at them in e.g. PlotJuggler.
 
 Here's the state diagram:
 

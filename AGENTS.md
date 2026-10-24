@@ -29,8 +29,11 @@ just test
 # Build and upload debug firmware, then monitor serial output
 just debug
 
-# Upload logging firmware and capture/process logs
+# Upload logging firmware and capture a log until Ctrl-C
 just log
+
+# Replay a log on the host and print the processing stages as CSV
+just replay firmware/logs/temp/<log>.csv
 ```
 
 ### Build Environments
@@ -40,6 +43,7 @@ PlatformIO defines multiple environments in `firmware/platformio.ini`:
 - `logging`: Enables CSV logging via serial for debugging
 - `debug`: Debug build with serial output
 - `test`: Native unit tests (runs on host, not on device)
+- `replay`: Host program that replays logs through the scale logic
 
 Build specific environment: `just build <env>` (e.g., `just build logging`)
 
@@ -47,7 +51,7 @@ Build specific environment: `just build <env>` (e.g., `just build logging`)
 
 ### State Machine
 
-The firmware (`firmware/src/main.cpp`) implements a state machine with these states:
+The state machine and signal processing are in `firmware/lib/Scale`. They use the device only through the `Hardware` interface in `Scale.h`. `firmware/src/main.cpp` implements `Hardware` with the real devices, and `firmware/lib/Replay` implements it with values from a log. The state machine has these states:
 
 1. **taring**: Waits for stable reading, then zeros the scale
 2. **ready**: Shows weight, waiting for brewing to start (weight > 1g triggers brewing)
@@ -69,12 +73,16 @@ Load cell readings go through a multi-stage filtering pipeline to achieve respon
 3. **Bias compensation**: Compensates for drift by tracking cumulative changes during steady state periods
 4. **Hysteresis**: Final stage prevents display flicker (0.1g threshold)
 
-The pipeline configuration is defined in `firmware/src/config.h` and must match `firmware/process-log.m` for offline analysis.
+The pipeline configuration is defined in `firmware/lib/Config/config.h`. The host replay uses the same code and configuration as the firmware.
 
 ### Custom Libraries
 
 Located in `firmware/lib/`, these are project-specific modules:
 
+- **Scale**: State machine and signal processing, shared by the firmware and the host replay
+- **Replay**: Reads logs and runs `Scale` with their inputs (host only)
+- **Config**: Constants for the signal processing and timeouts
+- **LogRow**: The row format of the logging build
 - **SmoothingFilter**: Adaptive filter using RunningAverage; switches between filtered (steady) and raw (changing) values based on standard deviation
 - **Hysteresis**: Prevents output changes unless input crosses threshold
 - **Display/TimerDisplay**: TM1637 7-segment display drivers
@@ -90,41 +98,24 @@ External dependencies (managed by PlatformIO):
 
 ### Debugging and Logging
 
-#### Interactive Analysis with Jupyter (Recommended)
+The `logging` build prints one CSV row per loop iteration with the loop's inputs and outputs (see `firmware/lib/LogRow/log_row.h`):
 
-For rapid iteration on signal processing algorithms:
+- `time_ms`: `millis()` at the start of the iteration
+- `raw`: raw HX711 value, empty if the iteration read no sample
+- `wait_us`: how long the read waited for the HX711. The loop's work time is the sample interval minus this.
+- `pressed`, `long_pressed`: button events the logic consumed in this iteration
+- `state`: state after the iteration (0 taring, 1 ready, 2 brewing, 3 dim, 4 sleep)
+- `weight_x10`: displayed weight in tenths of a gram, empty if not shown
 
-1. Run `just log` to capture serial data to CSV (or use existing log files)
-2. Start Jupyter: `cd firmware/logs && jupyter notebook`
-3. Open `process.ipynb` in your browser
-4. Upload CSV file using the file picker widget
-5. Adjust processing parameters with interactive sliders:
-   - `division_factor`: Load cell calibration
-   - `filter_size`: Running average window
-   - `hysteresis_size`: Display stabilization threshold
-   - `std_threshold`: Steady state detection threshold
-6. Re-run cells to see results update in interactive plots
+The logging build does not auto-sleep.
 
-The notebook shows all pipeline stages with interactive Plotly graphs (zoom, pan, hover for values).
+`just log` uploads the logging build and captures to `firmware/logs/temp/` with `firmware/capture-log.py`. Opening the port resets the board, so a log starts at boot.
 
-**Setup Jupyter** (one-time):
-```sh
-pip install --user jupyter ipywidgets plotly pandas numpy matplotlib
-```
-
-#### Legacy Octave Processing
-
-The `firmware/process-log.m` Octave/MATLAB script provides offline batch processing. It applies the same filtering pipeline and outputs all intermediate stages to CSV for visualization in PlotJuggler.
-
-**Important**: When modifying filter parameters in `firmware/src/config.h`, update matching values in both processing scripts (`process.ipynb` and `process-log.m`):
-- `division_factor`: Load cell calibration constant
-- `filter_size`: Running average window size
-- `hysteresis_size`: Hysteresis threshold (grams)
-- `standard_deviation_threshold`: Steady state detection threshold (in `SmoothingFilter.h`)
+`just replay LOG` runs the log's inputs through `lib/Scale` on the host. It prints the processing stages as CSV for plotting, for example in PlotJuggler. It also reports iterations where the replayed state or displayed weight differ from the log, and exits with status 1 if there are any. Pass `--auto-sleep` to replay the release behaviour.
 
 ### Hardware Configuration
 
-Pin assignments in `firmware/src/config.h`:
+Pin assignments in `firmware/src/pins.h`:
 - Load cell (HX711): SCL (DT), SDA (SCK)
 - Displays: Two TM1637 modules for weight and timer
 - Tare button: Pin 2 (must be interrupt-capable)
@@ -138,6 +129,7 @@ CI runs via Semaphore (`.semaphore/ci.sh`):
 ```sh
 just build
 just build logging
+just build replay
 just test
 ```
 
