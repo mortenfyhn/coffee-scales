@@ -119,10 +119,14 @@ The logging build does not auto-sleep.
 
 ### Checks on logs
 
-`firmware/check-logs.py` replays each log in `firmware/logs/` and checks the behaviour. It is part of `just test`. Plateaus are runs of at least 5 s where the sensor reading stays within 0.25 g. The true weight of a plateau is the mean of the scaled reading 2-4 s after it starts. Results, lower is better:
+`firmware/check-logs.py` replays each log in `firmware/logs/` and checks the behaviour. It is part of `just test`. Plateaus are runs of at least 7 s where the sensor reading stays within 0.25 g. The first 4 s of a plateau are not checked, for example the sloshing after a swirl. The true weight of a plateau is the mean of the scaled reading 4-6 s after it starts. Plateaus under 0.5 g count as zero.
 
-- `wrong_zero`, `wrong_loaded`: plateaus where the display doesn't show the true weight
-- `changed`: plateaus where the display changes
+Logs with a sealed jar or an empty scale: any slow change is the scale's own creep, so the display must show the true weight and must not change. Logs named `brew*.csv`: brews evaporate, so the display may follow slow changes or hide them. It must stay between the true weight and the current weight.
+
+Results, lower is better:
+
+- `wrong_zero`, `wrong_loaded`: plateaus where the display is wrong by the rules above
+- `changed`: plateaus where the display changes (not for brews)
 - `max_settle_ms`: time from a plateau's start until the display shows its final value
 - `max_tare_ms`: time from a tare press until the display updates
 - `max_timer_ms`: time from the reading passing 1 g until the timer starts

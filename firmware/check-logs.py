@@ -19,11 +19,12 @@ REPLAY = os.path.join(HERE, ".pio/build/replay/program")
 BASELINE = os.path.join(HERE, "logs/baseline.json")
 
 JUMP_G = 0.25  # A plateau ends when the reading moves this far from it
-MIN_PLATEAU_MS = 5000
-SETTLE_MS = 2000  # Not checked at the start of a plateau
+MIN_PLATEAU_MS = 7000
+SETTLE_MS = 4000  # Not checked at the start of a plateau, e.g. after a swirl
 TRUTH_MS = 2000  # The true weight is the mean over this time after settling
 END_MARGIN_MS = 1000  # Not checked at the end, where the next step starts
 ROUNDING_MARGIN_G = 0.02  # Near a rounding boundary, both neighbours pass
+LOCAL_MS = 1000  # The current weight is the mean over +-this time
 
 
 def read_rows(path):
@@ -66,16 +67,30 @@ def find_plateaus(rows):
     return [r for r in runs if r[-1]["time"] - r[0]["time"] >= MIN_PLATEAU_MS]
 
 
-def check_plateau(run):
+def check_plateau(run, follow):
+    """Checks that the display shows the weight at the start of the plateau.
+
+    If follow is true, the display may also follow slow changes, such as
+    evaporation during a brew, and show anything between the weight at the
+    start and the current weight.
+    """
     start, end = run[0]["time"], run[-1]["time"]
     shown = [r for r in run if r["displayed"] is not None
              and r["time"] <= end - END_MARGIN_MS]
     window = [r for r in shown if r["time"] >= start + SETTLE_MS]
     truth = statistics.mean(r["scaled"] for r in window
                             if r["time"] < start + SETTLE_MS + TRUTH_MS)
-    accepted = {round(truth + d, 1)
-                for d in (-ROUNDING_MARGIN_G, 0, ROUNDING_MARGIN_G)}
     values = {r["displayed"] for r in window}
+
+    def correct(row):
+        low = high = truth
+        if follow:
+            current = statistics.mean(
+                r["scaled"] for r in run
+                if abs(r["time"] - row["time"]) <= LOCAL_MS)
+            low, high = min(truth, current), max(truth, current)
+        return (round(low - ROUNDING_MARGIN_G, 1) <= row["displayed"]
+                <= round(high + ROUNDING_MARGIN_G, 1))
 
     final = shown[-1]["displayed"]
     settled_at = start
@@ -84,9 +99,9 @@ def check_plateau(run):
             settled_at = row["time"]
 
     return {
-        "zero": round(truth, 1) == 0,
-        "correct": values <= accepted,
-        "changed": len(values) > 1,
+        "zero": abs(truth) < 0.5,
+        "correct": all(correct(r) for r in window),
+        "changed": not follow and len(values) > 1,
         "settle_ms": settled_at - start,
     }
 
@@ -120,7 +135,9 @@ def timer_delays(rows):
 
 def check_log(path):
     rows, mismatched = read_rows(path)
-    plateaus = [check_plateau(run) for run in find_plateaus(rows)]
+    # Brews evaporate. The other logs use a sealed jar.
+    follow = os.path.basename(path).startswith("brew")
+    plateaus = [check_plateau(run, follow) for run in find_plateaus(rows)]
     zero = [p for p in plateaus if p["zero"]]
     loaded = [p for p in plateaus if not p["zero"]]
     latencies = tare_latencies(rows)

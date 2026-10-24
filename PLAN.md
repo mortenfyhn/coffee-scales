@@ -57,3 +57,5 @@ Works today, must not get worse:
 - Experiment (reverted): without bias compensation, wrong_zero is 0 in all hot logs. Cold-start logs decide whether bias compensation is needed (old coldstart.csv: 0.2 g warm-up drift in 5 min).
 - Spurious tare press at boot: the interrupt fires during setup (press_ms 0). Harmless, taring() clears it.
 - Cold start (old log, empty scale): today's firmware stays at 0.0 for 10 min. Without bias compensation, the display drifts to 0.3, so bias compensation is needed.
+- Brew (cold, about 20 min asleep): evaporation 0.6-0.9 g/min. Bias compensation carries it across pours: display 404.3 g against 400.3 g measured at the end. The user doesn't care whether evaporation is cancelled (very slight preference for not cancelling), only that the scale's own creep is. Check rule for `brew*.csv`: display between the plateau's start weight and the current weight.
+- Cold start under load (brew boot tare with 662 g): +0.07 g in the first 15 s.
