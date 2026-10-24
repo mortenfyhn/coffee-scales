@@ -1,4 +1,12 @@
 {
+  "coldstart.csv": {
+    "changed": 0,
+    "max_settle_ms": 0,
+    "max_tare_ms": 0,
+    "max_timer_ms": 0,
+    "wrong_loaded": 0,
+    "wrong_zero": 0
+  },
   "hold.csv": {
     "changed": 0,
     "max_settle_ms": 721,

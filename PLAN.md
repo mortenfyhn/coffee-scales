@@ -19,7 +19,7 @@ Works today, must not get worse:
 ## Steps
 
 - [x] 1. Logging build logs one row per loop iteration: inputs (time, raw, button), outputs (state, displayed weight) and how long `read()` waited.
-- [ ] 2. Capture logs with the 200 g jar: tares, add/remove cycles, 5 min hold (done, hot start). Still to do: cold-start brew and cold-start hold (`just capture` after a night asleep).
+- [ ] 2. Capture logs with the 200 g jar: tares, add/remove cycles, 5 min hold (done, hot start). Cold start: using the old empty-scale log (converted to `logs/coldstart.csv`). Optional later: cold-start brew or hold with a load.
 - [x] 3. Move pipeline and state machine into code that builds on AVR and on the host. Replay must reproduce the logged state and displayed weight.
 - [x] 4. Checks on the goals above, per log.
 - [x] 5. Delete `process-log.m`. Host replay prints intermediate stages as CSV for plotting.
@@ -56,3 +56,4 @@ Works today, must not get worse:
 - Sensor returns to zero within 0.014 g. The errors come from bias compensation (keeps its offset after the load is removed) and hysteresis (latches at 0.1).
 - Experiment (reverted): without bias compensation, wrong_zero is 0 in all hot logs. Cold-start logs decide whether bias compensation is needed (old coldstart.csv: 0.2 g warm-up drift in 5 min).
 - Spurious tare press at boot: the interrupt fires during setup (press_ms 0). Harmless, taring() clears it.
+- Cold start (old log, empty scale): today's firmware stays at 0.0 for 10 min. Without bias compensation, the display drifts to 0.3, so bias compensation is needed.
