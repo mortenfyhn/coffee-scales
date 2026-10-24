@@ -63,6 +63,9 @@ void log(const LogRow& row)
     Serial.print(',');
     if (row.has_weight)
         Serial.print(row.weight_x10);
+    Serial.print(',');
+    if (row.pressed)
+        Serial.print(row.press_ms);
     Serial.println();
 #else
     (void)row;  // Silence the unused parameter warning

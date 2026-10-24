@@ -106,6 +106,7 @@ The `logging` build prints one CSV row per loop iteration with the loop's inputs
 - `pressed`, `long_pressed`: button events the logic consumed in this iteration
 - `state`: state after the iteration (0 taring, 1 ready, 2 brewing, 3 dim, 4 sleep)
 - `weight_x10`: displayed weight in tenths of a gram, empty if not shown
+- `press_ms`: time of the tare button press, if `pressed` is 1
 
 The logging build does not auto-sleep.
 

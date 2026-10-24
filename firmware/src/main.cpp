@@ -54,6 +54,7 @@ class DeviceHardware : public Hardware
     bool tare_pressed() override
     {
         log_row_.pressed = button_.is_pressed();
+        log_row_.press_ms = button_.press_time_ms();
         return log_row_.pressed;
     }
 

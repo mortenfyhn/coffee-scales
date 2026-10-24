@@ -74,7 +74,7 @@ bool parse_field(const char*& pos, bool& present, long& value)
 
 bool parse_row(const char* line, LogRow& row)
 {
-    constexpr int num_fields = 7;
+    constexpr int num_fields = 8;
     bool present[num_fields];
     long value[num_fields];
     const char* pos = line;
@@ -84,7 +84,8 @@ bool parse_row(const char* line, LogRow& row)
             return false;
     }
     if (*pos != '\0' || !present[0] || !present[3] || !present[4] ||
-        !present[5] || present[1] != present[2])
+        !present[5] || present[1] != present[2] ||
+        present[7] != (value[3] != 0))
         return false;
 
     row.time_ms = value[0];
@@ -96,6 +97,7 @@ bool parse_row(const char* line, LogRow& row)
     row.state = value[5];
     row.has_weight = present[6];
     row.weight_x10 = value[6];
+    row.press_ms = value[7];
     return true;
 }
 

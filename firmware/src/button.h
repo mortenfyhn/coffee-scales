@@ -39,6 +39,9 @@ class Button
         return false;
     }
 
+    // Time of the last accepted press
+    uint32_t press_time_ms() const { return prev_time_ms_; }
+
     bool is_long_pressed()
     {
 

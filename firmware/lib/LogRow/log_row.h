@@ -15,7 +15,8 @@ struct LogRow
     uint8_t state = 0;
     bool has_weight = false;
     int32_t weight_x10 = 0;  // Displayed weight in tenths of a gram
+    uint32_t press_ms = 0;   // Time of the button press, if pressed
 };
 
 constexpr const char* log_header =
-    "time_ms,raw,wait_us,pressed,long_pressed,state,weight_x10";
+    "time_ms,raw,wait_us,pressed,long_pressed,state,weight_x10,press_ms";
