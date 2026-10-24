@@ -1,87 +1,27 @@
 #include "button.h"
-#include "config.h"
+#include "pins.h"
 #include "serial.h"
 #include <Arduino.h>
 #include <Display.h>
 #include <Formatter.h>
 #include <HX711.h>
-#include <Hysteresis.h>
-#include <SmoothingFilter.h>
+#include <Scale.h>
 #include <TimerDisplay.h>
 #include <avr/sleep.h>
+#include <config.h>
 #include <stdint.h>
 
-enum class State
-{
-    taring,
-    ready,
-    brewing,
-    dim,
-    sleep,
-} state_ = State::taring;
-
 auto load_cell_ = HX711{};
-auto filter_ = SmoothingFilter{config::filter_size};
-auto hysteresis_ = Hysteresis{config::hysteresis_size};
 auto weight_display_ =
     Display{pins::scale_display_clk, pins::scale_display_dio};
 auto timer_display_ =
     TimerDisplay{pins::timer_display_clk, pins::timer_display_dio};
 auto button_ = Button{pins::tare_button};
-uint32_t last_activity_time_ms_ = 0;
-float bias_ = 0.f;
-float prev_filtered_ = 0.f;
-float bias_compensated_ = 0.f;
 LogRow log_row_;
 
 float read_battery_voltage()
 {
     return config::battery_scaling * analogRead(pins::battery_voltage);
-}
-
-void read_load_cell_and_update_filter()
-{
-    const uint32_t wait_start_us = log_micros();
-    const int32_t raw_value = load_cell_.read();
-    log_row_.has_raw = true;
-    log_row_.raw = raw_value;
-    log_row_.wait_us = log_micros() - wait_start_us;
-    const float weight_in_grams_raw =
-        (raw_value - load_cell_.get_offset()) / config::division_factor;
-    filter_.addValue(weight_in_grams_raw);
-
-    const auto curr_filtered = filter_.getValue();
-    if (filter_.hasSteadyState())
-    {
-        bias_ += curr_filtered - prev_filtered_;
-    }
-    bias_compensated_ = curr_filtered - bias_;
-    prev_filtered_ = curr_filtered;
-}
-
-void tare()
-{
-    const int32_t new_offset =
-        load_cell_.get_offset() + filter_.getValue() * config::division_factor;
-    load_cell_.set_offset(new_offset);
-    hysteresis_.reset();
-
-    bias_ = 0.f;
-    prev_filtered_ = 0.f;
-    bias_compensated_ = 0.f;
-}
-
-bool tare_requested()
-{
-    log_row_.pressed = button_.is_pressed();
-    return log_row_.pressed;
-}
-
-void show_weight(float weight_in_grams)
-{
-    weight_display_.setSegments(Formatter::to_segments(weight_in_grams).get());
-    log_row_.has_weight = true;
-    log_row_.weight_x10 = lroundf(weight_in_grams * 10);
 }
 
 void attachTareButtonInterrupt()
@@ -96,200 +36,87 @@ void detachTareButtonInterrupt()
     detachInterrupt(digitalPinToInterrupt(pins::tare_button));
 }
 
-//--- TRANSITIONS --------------------------------------------------------------
-
-[[nodiscard]] State transitionToTaring()
+class DeviceHardware : public Hardware
 {
-    debug("-> taring");
+  public:
+    uint32_t millis() override { return ::millis(); }
 
-    weight_display_.setBrightnessMax();
-    timer_display_.setBrightnessMax();
-
-    timer_display_.stop();
-    last_activity_time_ms_ = millis();
-
-    return State::taring;
-}
-
-[[nodiscard]] State transitionToReady()
-{
-    debug(" -> ready");
-
-    weight_display_.setBrightnessMax();
-    timer_display_.setBrightnessMax();
-
-    return State::ready;
-}
-
-[[nodiscard]] State transitionToBrewing()
-{
-    debug("  -> brewing");
-
-    weight_display_.setBrightnessMax();
-    timer_display_.setBrightnessMax();
-
-    timer_display_.start();
-
-    return State::brewing;
-}
-
-[[nodiscard]] State transitionToDim()
-{
-    debug("   -> dim");
-
-    weight_display_.setBrightnessDim();
-    timer_display_.setBrightnessDim();
-
-    return State::dim;
-}
-
-[[nodiscard]] State transitionToSleep()
-{
-    debug("    -> sleep");
-
-    return State::sleep;
-}
-
-//--- STATES -------------------------------------------------------------------
-
-[[nodiscard]] State taring()
-{
-    // I do this to clear any pending "should tares".
-    // TODO: Figure out if needed, if not remove, if yes refactor.
-    tare_requested();
-
-    // Placing this check early makes taring instant when the filter is already
-    // stable, without wasting time on showing the "wait for taring" line.
-    if (filter_.hasSteadyState())
+    int32_t read_load_cell() override
     {
-        tare();
-        return transitionToReady();
+        const uint32_t wait_start_us = log_micros();
+        const int32_t raw_value = load_cell_.read();
+        log_row_.has_raw = true;
+        log_row_.raw = raw_value;
+        log_row_.wait_us = log_micros() - wait_start_us;
+        return raw_value;
     }
 
-    weight_display_.showLine();
-
-    read_load_cell_and_update_filter();
-
-    return State::taring;
-}
-
-[[nodiscard]] State ready()
-{
-    if (tare_requested())
+    bool tare_pressed() override
     {
-        debug("should tare");
-        return transitionToTaring();
+        log_row_.pressed = button_.is_pressed();
+        return log_row_.pressed;
     }
 
-    read_load_cell_and_update_filter();
-
-    const float weight_in_grams = hysteresis_.compute(bias_compensated_);
-    show_weight(weight_in_grams);
-
-    if (!filter_.hasSteadyState())
+    bool long_pressed() override
     {
-        last_activity_time_ms_ = millis();
+        log_row_.long_pressed = button_.is_long_pressed();
+        return log_row_.long_pressed;
     }
 
-    if (weight_in_grams > 1.f)
+    void show_line() override { weight_display_.showLine(); }
+
+    void show_weight(float grams) override
     {
-        return transitionToBrewing();
+        weight_display_.setSegments(Formatter::to_segments(grams).get());
+        log_row_.has_weight = true;
+        log_row_.weight_x10 = lroundf(grams * 10);
     }
 
-    if (millis() - last_activity_time_ms_ > config::timeout_dim_ms)
+    void set_brightness_max() override
     {
-        return transitionToDim();
+        weight_display_.setBrightnessMax();
+        timer_display_.setBrightnessMax();
     }
 
-    return State::ready;
-}
-
-[[nodiscard]] State brewing()
-{
-    if (tare_requested())
+    void set_brightness_dim() override
     {
-        debug("should tare");
-        return transitionToTaring();
+        weight_display_.setBrightnessDim();
+        timer_display_.setBrightnessDim();
     }
 
-    read_load_cell_and_update_filter();
+    void start_timer() override { timer_display_.start(); }
+    void stop_timer() override { timer_display_.stop(); }
+    void update_timer() override { timer_display_.update(); }
 
-    const float weight_in_grams = hysteresis_.compute(bias_compensated_);
-    show_weight(weight_in_grams);
-    timer_display_.update();
-
-    if (!filter_.hasSteadyState())
+    void sleep() override
     {
-        last_activity_time_ms_ = millis();
+        weight_display_.clear();
+        timer_display_.stop();
+        load_cell_.power_down();
+
+        // Turn off red indicator LED that I stupidly tied the scale display's DIO pin to...
+        digitalWrite(13, LOW);
+
+        // When sleep mode is triggered by a long press, we must disable the
+        // interrupt for a moment, so that letting go of the button doesn't
+        // trigger the ISR and wake the device.
+        detachTareButtonInterrupt();
+        delay(1000ul);
+        attachTareButtonInterrupt();
+
+        sleep_mode();
+
+        load_cell_.power_up();
     }
+};
 
-    if (millis() - last_activity_time_ms_ > config::timeout_dim_ms)
-    {
-        return transitionToDim();
-    }
+auto hardware_ = DeviceHardware{};
 
-    return State::brewing;
-}
-
-[[nodiscard]] State dim()
-{
-    if (tare_requested())
-    {
-        debug("should tare");
-        return transitionToTaring();
-    }
-
-    read_load_cell_and_update_filter();
-
-    const float weight_in_grams = hysteresis_.compute(bias_compensated_);
-
-    show_weight(weight_in_grams);
-    timer_display_.update();
-
-    // todo maybe do this at the beginning?
-
-    if (!filter_.hasSteadyState())
-    {
-        return transitionToBrewing();
-    }
-
-#ifndef LOGGING  // Don't sleep when logging
-    if (millis() - last_activity_time_ms_ > config::timeout_sleep_ms)
-    {
-        return transitionToSleep();
-    }
+#ifdef LOGGING
+auto scale_ = Scale{hardware_, false};  // Don't sleep when logging
+#else
+auto scale_ = Scale{hardware_, true};
 #endif
-
-    return State::dim;
-}
-
-[[nodiscard]] State sleep()
-{
-    debug("sleep");
-
-    weight_display_.clear();
-    timer_display_.stop();
-    filter_.clear();
-    load_cell_.power_down();
-
-    // Turn off red indicator LED that I stupidly tied the scale display's DIO pin to...
-    digitalWrite(13, LOW);
-
-    // When sleep mode is triggered by a long press, we must disable the
-    // interrupt for a moment, so that letting go of the button doesn't trigger
-    // the ISR and wake the device.
-    detachTareButtonInterrupt();
-    delay(1000ul);
-    attachTareButtonInterrupt();
-
-    sleep_mode();
-
-    load_cell_.power_up();
-
-    return transitionToTaring();
-}
-
-//--- SETUP/LOOP ---------------------------------------------------------------
 
 void setup()
 {
@@ -306,7 +133,6 @@ void setup()
 
     // Set up the load cell
     load_cell_.begin(pins::loadcell_dt, pins::loadcell_sck);
-    load_cell_.set_scale(config::division_factor);
 
     // Print battery voltage
     auto buf = Buffer::buffer<char>{5};
@@ -320,43 +146,23 @@ void setup()
 
     delay(1000ul);
 
-    state_ = transitionToTaring();
+    scale_.start();
 }
 
 void loop()
 {
     log_row_.time_ms = millis();
 
-    log_row_.long_pressed = button_.is_long_pressed();
-    if (log_row_.long_pressed)
+    const State prev_state = scale_.state();
+    scale_.step();
+    if (scale_.state() != prev_state)
     {
-        state_ = transitionToSleep();
+        constexpr const char* names[] = {"taring", "ready", "brewing", "dim",
+                                         "sleep"};
+        debug(names[static_cast<uint8_t>(scale_.state())]);
     }
 
-    switch (state_)
-    {
-    case State::taring:
-        state_ = taring();
-        break;
-
-    case State::ready:
-        state_ = ready();
-        break;
-
-    case State::brewing:
-        state_ = brewing();
-        break;
-
-    case State::dim:
-        state_ = dim();
-        break;
-
-    case State::sleep:
-        state_ = sleep();
-        break;
-    }
-
-    log_row_.state = static_cast<uint8_t>(state_);
+    log_row_.state = static_cast<uint8_t>(scale_.state());
     log(log_row_);
     log_row_ = {};
 }
