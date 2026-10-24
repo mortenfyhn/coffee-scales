@@ -32,6 +32,9 @@ just debug
 # Upload logging firmware and capture a log until Enter
 just log
 
+# Capture a log without uploading (resets the board)
+just capture
+
 # Replay a log on the host and print the processing stages as CSV
 just replay firmware/logs/temp/<log>.csv
 ```

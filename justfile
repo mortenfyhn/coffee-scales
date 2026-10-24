@@ -18,8 +18,11 @@ debug:
   pio device monitor
 
 # Upload logging firmware, then capture a log until Enter
-log:
+log: && capture
   pio run --environment logging --target upload
+
+# Capture a log without uploading. Opening the port resets the board.
+capture:
   mkdir -p logs/temp
   ./capture-log.py "logs/temp/$(date +"%Y-%m-%dT%H:%M:%S").csv"
 
