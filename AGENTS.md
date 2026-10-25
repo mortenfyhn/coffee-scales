@@ -73,8 +73,11 @@ Load cell readings go through a multi-stage filtering pipeline to achieve respon
 
 1. **Scaling**: Raw HX711 value → grams using division factor (calibrated constant)
 2. **Smoothing**: `SmoothingFilter` applies running average when steady state detected (std dev < 0.1), otherwise passes through unfiltered value for responsiveness
-3. **Bias compensation**: Compensates for drift by tracking cumulative changes during steady state periods
-4. **Hysteresis**: Final stage prevents display flicker (0.1g threshold)
+3. **Bias compensation**: When the filter becomes steady, the display freezes at the average. While it stays steady, every change of the average is added to the bias and subtracted, which hides creep and drift. The bias resets when the filter is no longer steady, so each step starts from the sensor value.
+4. **Zero tracking**: When the filter becomes steady within `zero_tracking_band` of zero, the scale tares. This removes zero point drift, for example while the scale warms up.
+5. **Hysteresis**: Shows the nearest tenth of a gram, but keeps the shown tenth while the input is within 0.05 g plus `hysteresis_size` of it. This prevents flicker near a rounding boundary.
+
+After a step, the load cell creeps 0.02-0.05 g towards the new value for a few seconds. The display freezes before that, so it can be one tenth off when the weight is near a rounding boundary.
 
 The pipeline configuration is defined in `firmware/lib/Config/config.h`. The host replay uses the same code and configuration as the firmware.
 
@@ -87,7 +90,7 @@ Located in `firmware/lib/`, these are project-specific modules:
 - **Config**: Constants for the signal processing and timeouts
 - **LogRow**: The row format of the logging build
 - **SmoothingFilter**: Adaptive filter using RunningAverage; switches between filtered (steady) and raw (changing) values based on standard deviation
-- **Hysteresis**: Prevents output changes unless input crosses threshold
+- **Hysteresis**: Rounds to tenths and prevents flicker near a rounding boundary
 - **Display/TimerDisplay**: TM1637 7-segment display drivers
 - **Formatter**: Converts float weights to 4-digit display segments
 - **Buffer**: Lightweight fixed-size buffer template

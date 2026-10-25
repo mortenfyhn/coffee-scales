@@ -1,19 +1,19 @@
 {
   "brew-cold.csv": {
     "changed": 0,
-    "max_settle_ms": 7741,
+    "max_settle_ms": 7921,
     "max_tare_ms": 0,
     "max_timer_ms": 0,
-    "wrong_loaded": 4,
+    "wrong_loaded": 3,
     "wrong_zero": 0
   },
   "cold-steps.csv": {
     "changed": 0,
-    "max_settle_ms": 270,
+    "max_settle_ms": 809,
     "max_tare_ms": 96,
     "max_timer_ms": 0,
-    "wrong_loaded": 4,
-    "wrong_zero": 3
+    "wrong_loaded": 5,
+    "wrong_zero": 0
   },
   "coldstart.csv": {
     "changed": 0,
@@ -29,22 +29,22 @@
     "max_tare_ms": 0,
     "max_timer_ms": 0,
     "wrong_loaded": 1,
-    "wrong_zero": 1
+    "wrong_zero": 0
   },
   "return-to-zero.csv": {
     "changed": 0,
-    "max_settle_ms": 450,
+    "max_settle_ms": 811,
     "max_tare_ms": 0,
     "max_timer_ms": 0,
-    "wrong_loaded": 3,
-    "wrong_zero": 5
+    "wrong_loaded": 0,
+    "wrong_zero": 0
   },
   "tares.csv": {
     "changed": 0,
-    "max_settle_ms": 90,
+    "max_settle_ms": 811,
     "max_tare_ms": 169,
     "max_timer_ms": 0,
-    "wrong_loaded": 1,
+    "wrong_loaded": 0,
     "wrong_zero": 0
   }
 }

@@ -1,5 +1,6 @@
 #include <Scale.h>
 #include <config.h>
+#include <math.h>
 
 Scale::Scale(Hardware& hardware, bool auto_sleep)
     : hardware_(hardware), auto_sleep_(auto_sleep),
@@ -59,16 +60,28 @@ void Scale::read_load_cell_and_update_filter()
 
     const auto curr_filtered = filter_.getValue();
 
-    const bool is_steady = filter_.hasSteadyState();
-    if (is_steady && was_steady_)
+    const auto is_steady = filter_.hasSteadyState();
+
+    if (was_steady_ && is_steady)
     {
         bias_ += curr_filtered - prev_filtered_;
     }
-    if (!is_steady)
+    else if (!is_steady)
     {
         bias_ = 0.f;
     }
+
+    const auto became_steady = !was_steady_ && is_steady;
     was_steady_ = is_steady;
+
+    if (became_steady)
+    {
+        if (fabsf(curr_filtered) < config::zero_tracking_band)
+        {
+            tare();
+            return;
+        }
+    }
 
     bias_compensated_ = curr_filtered - bias_;
     prev_filtered_ = curr_filtered;
