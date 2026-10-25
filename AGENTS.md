@@ -79,6 +79,8 @@ Load cell readings go through a multi-stage filtering pipeline to achieve respon
 
 After a step, the load cell creeps 0.02-0.05 g towards the new value for a few seconds. The display freezes before that, so it can be one tenth off when the weight is near a rounding boundary.
 
+While frozen, the display only changes on a step of about 0.2 g or more, or a pour faster than about 0.4 g/s. Smaller or slower changes are hidden like creep. A lower steady threshold would show smaller changes, but needs a load cell with less noise.
+
 The pipeline configuration is defined in `firmware/lib/Config/config.h`. The host replay uses the same code and configuration as the firmware.
 
 ### Custom Libraries
