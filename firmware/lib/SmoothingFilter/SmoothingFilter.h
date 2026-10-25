@@ -5,7 +5,10 @@
 class SmoothingFilter
 {
   public:
-    SmoothingFilter(uint8_t filter_size) : filter_(filter_size) {}
+    SmoothingFilter(uint8_t filter_size, float steady_threshold)
+        : filter_(filter_size), steady_threshold_(steady_threshold)
+    {
+    }
 
     void addValue(float value)
     {
@@ -23,13 +26,13 @@ class SmoothingFilter
         // If the buffer isn't full, we don't have enough data to determine if
         // it's in steady state, so we require it.
         return filter_.bufferIsFull() &&
-               filter_.getStandardDeviation() < STANDARD_DEVIATION_THRESHOLD;
+               filter_.getStandardDeviation() < steady_threshold_;
     }
 
     void clear() { filter_.clear(); }
 
   private:
-    static constexpr float STANDARD_DEVIATION_THRESHOLD = 0.1;
     RunningAverage filter_;
+    const float steady_threshold_;
     float last_value_;
 };

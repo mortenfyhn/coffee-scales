@@ -4,7 +4,7 @@
 
 Scale::Scale(Hardware& hardware, bool auto_sleep)
     : hardware_(hardware), auto_sleep_(auto_sleep),
-      filter_(config::filter_size), hysteresis_(config::hysteresis_size)
+      filter_(config::filter_size, config::steady_threshold), hysteresis_(config::hysteresis_size)
 {
 }
 
