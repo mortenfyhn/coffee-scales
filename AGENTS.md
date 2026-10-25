@@ -126,7 +126,7 @@ The logging build does not auto-sleep.
 
 A plateau with a weight under 0.5 g is a zero plateau. Its true weight is 0.0, since any reading there is the scale's own drift. For other plateaus, the true weight is the weight minus the reading at the end of the previous zero plateau. This assumes the zero point does not drift while the scale is loaded.
 
-Logs with a sealed jar, a solid object or an empty scale: any slow change is the scale's own creep, so the display must show the true weight and must not change. Logs named `brew*.csv`: brews evaporate, so on loaded plateaus the display may follow slow changes or hide them. It must stay between the true weight and the current weight.
+Logs with a sealed jar, a solid object or an empty scale: any slow change is the scale's own creep, so the display must show the true weight and must not change. Logs named `brew*.csv`: brews evaporate, so on loaded plateaus the display may follow slow changes or hide them. It may show any weight the plateau had so far, as a mean over 2 s.
 
 Results, lower is better:
 

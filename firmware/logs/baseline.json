@@ -4,7 +4,15 @@
     "max_settle_ms": 7921,
     "max_tare_ms": 0,
     "max_timer_ms": 0,
-    "wrong_loaded": 3,
+    "wrong_loaded": 1,
+    "wrong_zero": 0
+  },
+  "brew-full.csv": {
+    "changed": 0,
+    "max_settle_ms": 3152,
+    "max_tare_ms": 486,
+    "max_timer_ms": 0,
+    "wrong_loaded": 0,
     "wrong_zero": 0
   },
   "cold-steps.csv": {

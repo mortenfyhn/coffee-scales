@@ -6,9 +6,12 @@ all results.
 """
 
 import argparse
+import bisect
 import csv
 import glob
+import itertools
 import json
+import math
 import os
 import statistics
 import subprocess
@@ -77,9 +80,9 @@ def check_plateau(run, follow, ref):
 
     A plateau near zero must show 0.0, since any reading there is the scale's
     own drift. Other plateaus are measured from ref, the reading at the end of
-    the previous zero plateau. If follow is true, the display may also follow
-    slow changes, such as evaporation during a brew, and show anything between
-    the weight at the start and the current weight.
+    the previous zero plateau. If follow is true, the weight may change
+    slowly, for example by evaporation during a brew. The display may then
+    show any weight the plateau had so far.
     """
     start, end = run[0]["time"], run[-1]["time"]
     shown = [r for r in run if r["displayed"] is not None
@@ -91,13 +94,21 @@ def check_plateau(run, follow, ref):
     truth = 0.0 if zero else weight - ref
     values = {r["displayed"] for r in window}
 
+    # The range the display may show at each time
+    bounds = {r["time"]: (truth, truth) for r in run}
+    if follow and not zero:
+        times = [r["time"] for r in run]
+        sums = list(itertools.accumulate((r["scaled"] for r in run), initial=0))
+        low, high = math.inf, -math.inf
+        for t in times:
+            i = bisect.bisect_left(times, t - LOCAL_MS)
+            j = bisect.bisect_right(times, t + LOCAL_MS)
+            local = (sums[j] - sums[i]) / (j - i) - ref
+            low, high = min(low, local), max(high, local)
+            bounds[t] = (low, high)
+
     def correct(row):
-        low = high = truth
-        if follow and not zero:
-            current = statistics.mean(
-                r["scaled"] for r in run
-                if abs(r["time"] - row["time"]) <= LOCAL_MS) - ref
-            low, high = min(truth, current), max(truth, current)
+        low, high = bounds[row["time"]]
         return (round(low - ROUNDING_MARGIN_G, 1) <= row["displayed"]
                 <= round(high + ROUNDING_MARGIN_G, 1))
 
