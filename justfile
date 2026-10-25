@@ -1,3 +1,4 @@
+set default-list := true
 set working-directory := 'firmware'
 
 # Build but don't upload
